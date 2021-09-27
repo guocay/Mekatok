@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <!-- 用户表 -->
+    <changeSet id="t_ou_user_20210906" author="guokai">
+        <createTable tableName="T_OU_USER" remarks="用户表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_ou_user_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="LOGIN_NAME" type="varchar(255)" remarks="登录名称" >
+                <constraints unique="true" nullable="false" uniqueConstraintName="t_ou_user_login_name_key"/>
+            </column>
+            <column name="REAL_NAME" type="varchar(255)" remarks="真实名称" />
+            <column name="PASSWORD" type="varchar(255)" remarks="登录名称" />
+        </createTable>
+        <insert tableName="T_OU_USER">
+            <column name="ID" value="admin" />
+            <column name="DATA_STATUS" value="10001000" />
+            <column name="CREATOR" value="liquibase" />
+            <column name="UPDATER" value="liquibase" />
+            <column name="LOGIN_NAME" value="admin"/>
+            <column name="REAL_NAME" value="管理员"/>
+            <column name="PASSWORD" value="$2a$10$AW6QfTNb.kzufJ3E3MHTWu9wgeU.PnxjgtucwlmospXuFipSd/21O"/>
+        </insert>
+    </changeSet>
+
+    <!-- 角色表 -->
+    <changeSet id="t_ou_role_20210906" author="guokai">
+        <createTable tableName="T_OU_ROLE" remarks="角色表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_ou_role_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="CODE" type="varchar(255)" remarks="编码" >
+                <constraints unique="true" nullable="false" uniqueConstraintName="t_ou_role_code_key"/>
+            </column>
+            <column name="NAME" type="varchar(255)" remarks="名称" />
+            <column name="REMARK" type="varchar(255)" remarks="备注" />
+        </createTable>
+    </changeSet>
+
+    <!-- 组织表 -->
+    <changeSet id="t_ou_organize_20210906" author="guokai">
+        <createTable tableName="T_OU_ORGANIZE" remarks="组织表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_ou_organize_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="PARENT" type="varchar(255)" remarks="上级" />
+            <column name="CODE" type="varchar(255)" remarks="编码" >
+                <constraints unique="true" nullable="false" uniqueConstraintName="t_ou_organize_code_key"/>
+            </column>
+            <column name="NAME" type="varchar(255)" remarks="名称" />
+            <column name="REMARK" type="varchar(255)" remarks="备注" />
+        </createTable>
+    </changeSet>
+
+    <!-- 权限表 -->
+    <changeSet id="t_ou_authority_20210906" author="guokai">
+        <createTable tableName="T_OU_AUTHORITY" remarks="权限表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_ou_authority_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="MARK" type="varchar(255)" remarks="标识" />
+            <column name="NOTE" type="varchar(255)" remarks="备注" />
+        </createTable>
+    </changeSet>
+
+    <!-- 角色权限表 -->
+    <changeSet id="t_ou_role_authority_20210906" author="guokai">
+        <createTable tableName="T_OU_ROLE_AUTHORITY" remarks="角色权限表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_ou_role_authority_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="ROLE_ID" type="varchar(255)" remarks="角色主键" />
+            <column name="AUTHORITY_ID" type="varchar(255)" remarks="权限主键" />
+        </createTable>
+    </changeSet>
+
+    <!-- 用户角色表 -->
+    <changeSet id="t_ou_user_role_20210906" author="guokai">
+        <createTable tableName="T_OU_USER_ROLE" remarks="用户角色表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_ou_user_role_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="USER_ID" type="varchar(255)" remarks="用户主键" />
+            <column name="ROLE_ID" type="varchar(255)" remarks="角色主键" />
+        </createTable>
+    </changeSet>
+
+    <!-- 用户组织表 -->
+    <changeSet id="t_ou_user_organize_20210906" author="guokai">
+        <createTable tableName="T_OU_USER_ORGANIZE">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_ou_user_organize_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="USER_ID" type="varchar(255)" remarks="用户主键" />
+            <column name="ORGANIZE_ID" type="varchar(255)" remarks="组织主键" />
+        </createTable>
+    </changeSet>
+
+    <!-- 角色权限视图 -->
+    <changeSet id="v_ou_role_authority_20210906" author="guokai">
+        <createView viewName="V_OU_ROLE_AUTHORITY" replaceIfExists="true">
+            SELECT
+                toua.role_id, toa.*
+            FROM
+                t_ou_role_authority toua
+            JOIN
+                t_ou_authority toa ON toa.id = toua.role_id
+            WHERE
+                toa.data_status = '10001000' AND toua.data_status = '10001000'
+        </createView>
+    </changeSet>
+
+    <!-- 用户组织视图 -->
+    <changeSet id="v_ou_user_organize_20210906" author="guokai">
+        <createView viewName="V_OU_USER_ORGANIZE" replaceIfExists="true">
+            SELECT
+                touo.user_id, too.*
+            FROM
+                t_ou_user_organize touo
+            JOIN
+                t_ou_organize too ON too.id = touo.user_id
+            WHERE too.data_status = '10001000' AND touo.data_status = '10001000'
+        </createView>
+    </changeSet>
+
+    <!-- 用户角色视图 -->
+    <changeSet id="v_ou_user_role_20210906" author="guokai">
+        <createView viewName="V_OU_USER_ROLE" replaceIfExists="true">
+            SELECT
+                toup.user_id, top.*
+            FROM
+                t_ou_user_role toup
+            JOIN
+                t_ou_role top ON top.id = toup.user_id
+            WHERE top.data_status = '10001000' AND toup.data_status = '10001000'
+        </createView>
+    </changeSet>
+
+    <!-- 用户权限视图 -->
+    <changeSet id="v_ou_user_authority_20210906" author="guokai">
+        <createView viewName="V_OU_USER_AUTHORITY" replaceIfExists="true">
+            SELECT
+                voup.user_id, vopa.*
+            FROM
+                v_ou_user_role voup
+            JOIN
+                v_ou_role_authority vopa ON voup.id = vopa.role_id
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.1</version>
+    </parent>
+
+    <packaging>pom</packaging>
+    <groupId>icu.guokai</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <artifactId>mekatok</artifactId>
+    <inceptionYear>2021</inceptionYear>
+    <description>Mekatok Platform</description>
+
+    <modules>
+        <module>expand/mekatok-expand-control</module>
+        <module>expand/mekatok-expand-sso</module>
+        <module>framework/mekatok-framework-core</module>
+        <module>framework/mekatok-framework-tool</module>
+        <module>framework/mekatok-framework-security</module>
+        <module>framework/mekatok-framework-stomp</module>
+        <module>framework/mekatok-framework-ou</module>
+        <module>framework/mekatok-framework-disk</module>
+        <module>framework/mekatok-framework-dic</module>
+        <module>framework/mekatok-framework-plugin</module>
+        <module>framework/mekatok-framework-cache</module>
+        <module>framework/mekatok-framework-queue</module>
+        <module>framework/mekatok-framework-flowable</module>
+        <module>framework/mekatok-framework-log</module>
+        <module>framework/mekatok-framework-netty</module>
+        <module>modules/mekatok-module-demo-singleton</module>
+        <module>modules/mekatok-module-demo-consumer</module>
+        <module>modules/mekatok-module-demo-provider</module>
+        <module>modules/mekatok-module-netty-server</module>
+        <module>modules/mekatok-module-netty-client</module>
+    </modules>
+
+    <properties>
+        <maven.test.skip>true</maven.test.skip>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <mekatok.version>${project.version}</mekatok.version>
+        <jna.version>5.7.0</jna.version>
+        <oshi.version>5.6.0</oshi.version>
+        <jjwt.version>0.11.2</jjwt.version>
+        <dom4j.version>2.1.3</dom4j.version>
+        <hutool.version>5.6.0</hutool.version>
+        <knife4j.version>2.0.8</knife4j.version>
+        <guava.version>30.1.1-jre</guava.version>
+        <flowable.version>6.6.0</flowable.version>
+        <swagger2.version>1.5.20</swagger2.version>
+        <kingbase8.version>8.2.0</kingbase8.version>
+        <springfox.version>2.10.5</springfox.version>
+        <reflections.version>0.9.12</reflections.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <ganymed-ssh2.version>build210</ganymed-ssh2.version>
+        <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
+        <dynamic-datasource.version>3.3.2</dynamic-datasource.version>
+    </properties>
+
+    <dependencies>
+        <!-- 测试相关依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 元数据 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 平台内模块依赖关系版本管理 开始 -->
+            <!-- 平台内项目间依赖 -->
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-core</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-plugin</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-queue</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-tool</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-security</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-stomp</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-cache</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-flowable</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-log</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-framework-netty</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+
+            <!-- 字典模块预定义 -->
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-dic-declare</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-dic-starter</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+
+            <!-- 组织用户模块预定义 -->
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-ou-declare</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-ou-starter</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+
+            <!-- 文件管理模块预定义 -->
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-disk-declare</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-disk-starter</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <!-- 平台内模块依赖关系版本管理 结束 -->
+
+            <!-- 工具库相关依赖 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!-- 反射库相关依赖 -->
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>${reflections.version}</version>
+            </dependency>
+
+            <!-- 操作系统相关依赖 -->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
+            </dependency>
+
+            <!-- JNA 链接库调用 -->
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+
+            <!-- ssh-2协议的java库 -->
+            <dependency>
+                <groupId>ch.ethz.ganymed</groupId>
+                <artifactId>ganymed-ssh2</artifactId>
+                <version>${ganymed-ssh2.version}</version>
+            </dependency>
+
+            <!-- Flowable工作流相关内容引入 -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
+
+            <!-- 数据持久化相关依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource.version}</version>
+            </dependency>
+
+            <!-- 数据库相关依赖 -->
+            <dependency>
+                <groupId>cn.com.kingbase</groupId>
+                <artifactId>kingbase8</artifactId>
+                <version>${kingbase8.version}</version>
+            </dependency>
+
+            <!-- Swagger相关依赖 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-annotations</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.version}</version>
+            </dependency>
+
+            <!-- 应用监控相关依赖 -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+
+            <!-- JWT 相关依赖 -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jjwt.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <developers>
+        <developer>
+            <id>M-0001</id>
+            <name>GuoKai</name>
+            <email>guokai0727@gmail.com</email>
+        </developer>
+    </developers>
+</project>

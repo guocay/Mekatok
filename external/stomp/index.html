@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Chat Example Using STOMP Over WebSockets</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.min.responsive.css" rel="stylesheet">
+    <style type="text/css">
+      body { padding-top: 40px; }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Stomp Over WebSocket Chat Example</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span6">
+          <div id="connect">
+            <div class="page-header">
+              <h2>Server Login</h2>
+            </div>
+            <form class="form-horizontal" id='connect_form'>
+              <fieldset>
+                <div class="control-group">
+                  <label>WebSocket URL</label>
+                  <div class="controls">
+                    <input name=url id='connect_url' value='ws://127.0.0.1:727/mekatok/stomp' type="text">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label>Token</label>
+                  <div class="controls">
+                    <input id='connect_login' placeholder="Token" type="text">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label>Destination</label>
+                  <div class="controls">
+                    <input id='destination' placeholder="Destination" value="/websocket/chat" type="text">
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button id='connect_submit' type="submit" class="btn btn-large btn-primary">Connect</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div id="connected" style="display:none">
+            <div class="page-header">
+              <h2>Chat Room</h2>
+            </div>
+            <div id="messages">
+            </div>
+            <form class="well form-search" id='send_form'>
+              <button class="btn" type="button" id='disconnect' style="float:right">Disconnect</button>
+              <input class="input-medium" id='send_channel_input' placeholder="channel" class="span6"/>
+              <br />
+              <input class="input-medium" id='send_toUser_input' placeholder="toUser" class="span6"/>
+              <br />
+              <input class="input-medium" id='send_form_input' placeholder="Type your message here" class="span6"/>
+              <button class="btn" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="page-header">
+            <h2>Debug Log</h2>
+          </div>
+          <pre id="debug"></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts placed at the end of the document so the pages load faster -->
+    <script src="jquery.min.js"></script>
+    <script src="stomp.umd.min.js"></script>
+    <script>//<![CDATA[
+    $(document).ready(function() {
+      if(window.WebSocket) {
+        var client;
+
+        var tokena = {};
+
+        $('#connect_form').submit(function() {
+
+          var url = $("#connect_url").val();
+          var token = {
+            'M-TOKEN': $("#connect_login").val()
+          };
+          tokena = token;
+          var destination = $("#destination").val();
+
+          client = StompJs.Stomp.client(url);
+
+          // this allows to display debug logs directly on the web page
+          client.debug = function(str) {
+            $("#debug").append(str + "\n");
+          };
+
+          // the client is notified when it is connected to the server.
+          client.connect(token, function(frame) {
+            client.debug("connected to Stomp");
+            $('#connect').fadeOut({ duration: 'fast' });
+            $('#connected').fadeIn();
+            client.subscribe(destination, function(message) {
+              $("#messages").append("<p>" + message.body + "</p>\n");
+            });
+          });
+          return false;
+        });
+
+        $('#disconnect').click(function() {
+          client.disconnect(function() {
+            $('#connected').fadeOut({ duration: 'fast' });
+            $('#connect').fadeIn();
+            $("#messages").html("")
+          });
+          return false;
+        });
+
+        $('#send_form').submit(function() {
+          const text = $('#send_form_input').val();
+          const channel = $('#send_channel_input').val();
+          const user = $('#send_toUser_input').val();
+
+          if (text) {
+            const req = {
+              to: [user],
+              data: text,
+              type: 'chat'
+            };
+            console.log(req);
+            client.send(channel, tokena, JSON.stringify(req));
+            $('#send_form_input').val("");
+          }
+          return false;
+        });
+      } else {
+        $("#connect").html("\
+            <h1>Get a new Web Browser!</h1>\
+            <p>\
+            Your browser does not support WebSockets. This example will not work properly.<br>\
+            Please use a Web Browser with WebSockets support (WebKit or Google Chrome).\
+            </p>\
+        ");
+      }
+    });
+    //]]></script>
+
+  </body>
+</html>

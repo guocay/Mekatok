@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: liquibase/liquibase-ou.xml
+  - include:
+      file: liquibase/liquibase-dic.xml

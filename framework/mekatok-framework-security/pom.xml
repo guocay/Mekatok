@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mekatok</artifactId>
+        <groupId>icu.guokai</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mekatok-framework-security</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>icu.guokai</groupId>
+            <artifactId>mekatok-framework-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>icu.guokai</groupId>
+            <artifactId>mekatok-framework-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>icu.guokai</groupId>
+            <artifactId>mekatok-ou-declare</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>icu.guokai</groupId>
+            <artifactId>mekatok-framework-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,31 @@
+info:
+  application:
+    boot-admin:
+      enable: false
+      url: http://127.0.0.1:906
+    cs-verify:
+      enable: true
+      server-serial:
+        - C02FD14HQ05R
+      client-ip:
+        - localhost
+        - 127.0.0.1
+spring:
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://127.0.0.1:5432/mekatok?useSSL=false
+          username: mekatok
+          password: mekatok
+        flowable:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://127.0.0.1:5432/flowable?useSSL=false
+          username: guokai
+          password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+knife4j:
+  production: false

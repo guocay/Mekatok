@@ -1,0 +1,30 @@
+${AnsiColor.BRIGHT_GREEN}
+
+MMMMMMMM               MMMMMMMM                    kkkkkkkk                                      tttt                           kkkkkkkk
+M:::::::M             M:::::::M                    k::::::k                                   ttt:::t                           k::::::k
+M::::::::M           M::::::::M                    k::::::k                                   t:::::t                           k::::::k
+M:::::::::M         M:::::::::M                    k::::::k                                   t:::::t                           k::::::k
+M::::::::::M       M::::::::::M    eeeeeeeeeeee     k:::::k    kkkkkkk  aaaaaaaaaaaaa   ttttttt:::::ttttttt       ooooooooooo    k:::::k    kkkkkkk
+M:::::::::::M     M:::::::::::M  ee::::::::::::ee   k:::::k   k:::::k   a::::::::::::a  t:::::::::::::::::t     oo:::::::::::oo  k:::::k   k:::::k
+M:::::::M::::M   M::::M:::::::M e::::::eeeee:::::ee k:::::k  k:::::k    aaaaaaaaa:::::a t:::::::::::::::::t    o:::::::::::::::o k:::::k  k:::::k
+M::::::M M::::M M::::M M::::::Me::::::e     e:::::e k:::::k k:::::k              a::::a tttttt:::::::tttttt    o:::::ooooo:::::o k:::::k k:::::k
+M::::::M  M::::M::::M  M::::::Me:::::::eeeee::::::e k::::::k:::::k        aaaaaaa:::::a       t:::::t          o::::o     o::::o k::::::k:::::k
+M::::::M   M:::::::M   M::::::Me:::::::::::::::::e  k:::::::::::k       aa::::::::::::a       t:::::t          o::::o     o::::o k:::::::::::k
+M::::::M    M:::::M    M::::::Me::::::eeeeeeeeeee   k:::::::::::k      a::::aaaa::::::a       t:::::t          o::::o     o::::o k:::::::::::k
+M::::::M     MMMMM     M::::::Me:::::::e            k::::::k:::::k    a::::a    a:::::a       t:::::t    tttttto::::o     o::::o k::::::k:::::k
+M::::::M               M::::::Me::::::::e          k::::::k k:::::k   a::::a    a:::::a       t::::::tttt:::::to:::::ooooo:::::ok::::::k k:::::k
+M::::::M               M::::::M e::::::::eeeeeeee  k::::::k  k:::::k  a:::::aaaa::::::a       tt::::::::::::::to:::::::::::::::ok::::::k  k:::::k
+M::::::M               M::::::M  ee:::::::::::::e  k::::::k   k:::::k  a::::::::::aa:::a        tt:::::::::::tt oo:::::::::::oo k::::::k   k:::::k
+MMMMMMMM               MMMMMMMM    eeeeeeeeeeeeee  kkkkkkkk    kkkkkkk  aaaaaaaaaa  aaaa          ttttttttttt     ooooooooooo   kkkkkkkk    kkkkkkk
+
+${AnsiColor.YELLOW} Application   Name:                             ${AnsiColor.BRIGHT_RED} Mekatok Web Service
+${AnsiColor.YELLOW} Application Author:                             ${AnsiColor.BRIGHT_RED} GuoKai
+${AnsiColor.YELLOW} JDK        Version:                             ${AnsiColor.BRIGHT_RED} JDK v11
+${AnsiColor.YELLOW} SpringBoot Version:                             ${AnsiColor.BRIGHT_RED} ${spring-boot.version}
+${AnsiColor.YELLOW} Listener      Port:                             ${AnsiColor.BRIGHT_RED} http(${info.application.http-port}), https(${info.application.https-port})
+${AnsiColor.YELLOW} Active     Profile:                             ${AnsiColor.BRIGHT_RED} ${spring.profiles.active}
+
+${AnsiColor.YELLOW} Log      Directory:                             ${AnsiColor.BRIGHT_RED} ${info.application.log}
+${AnsiColor.YELLOW} Resource Directory:                             ${AnsiColor.BRIGHT_RED} ${info.application.resource}
+${AnsiColor.YELLOW} Admin     Username:                             ${AnsiColor.BRIGHT_RED} ${info.application.admin-user-name}
+${AnsiColor.YELLOW} Default   Password:                             ${AnsiColor.BRIGHT_RED} ${info.application.default-password}
