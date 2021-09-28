@@ -2,7 +2,7 @@ package icu.guokai.mekatok.framework.dic.model.table;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import icu.guokai.mekatok.framework.core.model.db.Table;
+import icu.guokai.mekatok.framework.core.model.entity.Table;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

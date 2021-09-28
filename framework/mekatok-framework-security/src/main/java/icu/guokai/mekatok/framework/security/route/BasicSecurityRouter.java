@@ -67,7 +67,7 @@ public abstract class BasicSecurityRouter extends Router {
     @GetMapping(LOGOUT_URL)
     @ApiOperation(value = "退出接口", notes = "用户注销登录服务")
     public ResponseEntity<Boolean> logout(){
-        var username = UserContextHolder.getUsername();
+        var username = UserContextHolder.getLoginName();
         Assert.notNull(username,() -> NOT_LOGGED_IN);
         cache.removeUserFromCache(username);
         return success();

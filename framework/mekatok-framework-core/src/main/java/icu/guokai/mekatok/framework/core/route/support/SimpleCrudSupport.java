@@ -1,6 +1,6 @@
 package icu.guokai.mekatok.framework.core.route.support;
 
-import icu.guokai.mekatok.framework.core.model.db.Table;
+import icu.guokai.mekatok.framework.core.model.entity.Table;
 
 /**
  * 平台内单表的 增删改查 操作扩展

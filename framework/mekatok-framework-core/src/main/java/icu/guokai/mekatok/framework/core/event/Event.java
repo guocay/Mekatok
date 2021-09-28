@@ -1,5 +1,6 @@
 package icu.guokai.mekatok.framework.core.event;
 
+import icu.guokai.mekatok.framework.core.model.Model;
 import org.springframework.context.ApplicationEvent;
 
 /**
@@ -7,7 +8,7 @@ import org.springframework.context.ApplicationEvent;
  * @author GuoKai
  * @date 2021/8/31
  */
-public abstract class Event<T> extends ApplicationEvent {
+public abstract class Event<T> extends ApplicationEvent implements Model {
 
     private static final long serialVersionUID = 905529385550550456L;
 

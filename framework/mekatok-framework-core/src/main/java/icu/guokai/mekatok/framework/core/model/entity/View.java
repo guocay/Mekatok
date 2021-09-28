@@ -1,5 +1,7 @@
-package icu.guokai.mekatok.framework.core.model.db;
+package icu.guokai.mekatok.framework.core.model.entity;
 
+import cn.hutool.core.annotation.AnnotationUtil;
+import cn.hutool.core.util.ReflectUtil;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.core.enums.SqlMethod;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -8,13 +10,15 @@ import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.core.toolkit.GlobalConfigUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
-import icu.guokai.mekatok.framework.core.model.Model;
+import icu.guokai.mekatok.framework.core.model.dto.Transport;
+import icu.guokai.mekatok.framework.core.model.dto.Unboxing;
 import icu.guokai.mekatok.framework.core.page.PageUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +29,7 @@ import java.util.Map;
  * @date 2021/8/19
  */
 @SuppressWarnings("all")
-public abstract class View<T extends View> implements Model {
+public abstract class View<T extends View> implements Transport {
 
     /**
      * 日志对象,用于打印消息
@@ -95,6 +99,36 @@ public abstract class View<T extends View> implements Model {
             closeSqlSession(sqlSession);
         }
         return page;
+    }
+
+    /**
+     * 用于数据库对象装箱
+     * @param clazz 装箱的类描述
+     * @param <F> 装箱的类型
+     * @return 装箱后的对象
+     */
+    public <F extends Transport> F boxing(Class<F> clazz){
+        F tran = ReflectUtil.newInstance(clazz);
+        // todo 循环获取当前类的字段
+        Arrays.stream(ReflectUtil.getFields(getClass())).parallel()
+                // todo 过滤出需要拆箱的字段
+                .filter(field -> AnnotationUtil.hasAnnotation(field, Boxing.class))
+                .forEach(field -> {
+                    // todo 获取字段中所有 Boxing 描述信息
+                    Arrays.stream(field.getAnnotationsByType(Boxing.class)).parallel()
+                            // todo 过滤出需要转换的类
+                            .filter(anno -> clazz.isAssignableFrom(anno.clazz()))
+                            .forEach(anno -> {
+                                var tranField = ReflectUtil.getField(clazz, anno.field());
+                                // todo 设置字段反射,绕过权限校验
+                                field.setAccessible(true);
+                                tranField.setAccessible(true);
+                                // todo 设置值
+                                ReflectUtil.setFieldValue(tran, tranField, ReflectUtil.getFieldValue(this, field));
+                            });
+                });
+        return view;
+    }
     }
 
     /**

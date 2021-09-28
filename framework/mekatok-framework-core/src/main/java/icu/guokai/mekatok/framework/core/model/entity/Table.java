@@ -1,4 +1,4 @@
-package icu.guokai.mekatok.framework.core.model.db;
+package icu.guokai.mekatok.framework.core.model.entity;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -27,7 +27,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @SuppressWarnings("all")
-public abstract class Table<T extends View> extends View<T> {
+public abstract class Table<T extends Table> extends View<T> {
 
     @TableId("ID")
     @ApiModelProperty(value = "数据主键")

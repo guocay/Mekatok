@@ -1,7 +1,7 @@
 package icu.guokai.mekatok.framework.core.service.impl;
 
 import cn.hutool.core.util.ReflectUtil;
-import icu.guokai.mekatok.framework.core.model.db.Table;
+import icu.guokai.mekatok.framework.core.model.entity.Table;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
