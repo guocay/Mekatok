@@ -11,7 +11,6 @@ import com.baomidou.mybatisplus.core.toolkit.GlobalConfigUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import icu.guokai.mekatok.framework.core.model.dto.Transport;
-import icu.guokai.mekatok.framework.core.model.dto.Unboxing;
 import icu.guokai.mekatok.framework.core.page.PageUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionUtils;
@@ -127,9 +126,9 @@ public abstract class View<T extends View> implements Transport {
                                 ReflectUtil.setFieldValue(tran, tranField, ReflectUtil.getFieldValue(this, field));
                             });
                 });
-        return view;
+        return tran;
     }
-    }
+
 
     /**
      * 释放sqlSession
