@@ -1,7 +1,7 @@
 package icu.guokai.mekatok.framework.security.service;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ReflectUtil;
-import com.google.common.collect.Sets;
 import icu.guokai.mekatok.framework.ou.model.table.User;
 import icu.guokai.mekatok.framework.ou.service.IUserService;
 import icu.guokai.mekatok.framework.security.user.SecurityUser;
@@ -44,9 +44,9 @@ public class SimpleUserDetailServiceImpl implements UserDetailsService {
         var user = ReflectUtil.newInstance(User.class).setLoginName(username).queryUser();
         var userId = user.getId();
         return SecurityUser.of(user,
-                Sets.newHashSet(userService.queryAuthorityById(userId)),
-                Sets.newHashSet(userService.queryOrganizeById(userId)),
-                Sets.newHashSet(userService.queryPositionById(userId))
+                CollUtil.newHashSet(userService.queryAuthorityById(userId)),
+                CollUtil.newHashSet(userService.queryOrganizeById(userId)),
+                CollUtil.newHashSet(userService.queryPositionById(userId))
         );
     }
 }

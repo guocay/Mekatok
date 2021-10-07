@@ -184,12 +184,10 @@ public interface WebMvcMessageSupport extends MessageSupport {
      */
     @SuppressWarnings("unchecked")
     default <T, F extends Throwable> ResponseEntity<T> failure(F mistake, MultiValueMap<String, String> headers, HttpStatus status){
-        if (ObjectUtil.isNull(mistake)) {
-            mistake = (F) DEFAULT_EX;
-        }
+        mistake = Optional.ofNullable(mistake).orElse((F) DEFAULT_EX);
         var exCode = AnnotationUtil.<String>getAnnotationValue(mistake.getClass(),MistakeCode.class);
-        return WebMvcMessageUtil.receipt(Message.of().setSuccess(false).setTips(mistake.getMessage()).setData(exCode),
-                headers, status);
+        var message = Message.of().setSuccess(false).setTips(mistake.getMessage()).setData(exCode);
+        return WebMvcMessageUtil.receipt(message, headers, status);
     }
 
     /**

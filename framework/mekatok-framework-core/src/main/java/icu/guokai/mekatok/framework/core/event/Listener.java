@@ -1,5 +1,6 @@
 package icu.guokai.mekatok.framework.core.event;
 
+import icu.guokai.mekatok.framework.core.asserts.WithAssertions;
 import org.springframework.context.ApplicationListener;
 
 /**
@@ -8,7 +9,7 @@ import org.springframework.context.ApplicationListener;
  * @date 2021/9/27
  */
 @SuppressWarnings("all")
-public interface Listener<T extends Event<?>> extends ApplicationListener<T> {
+public interface Listener<T extends Event<?>> extends ApplicationListener<T>, WithAssertions {
 
     /**
      * 事件执行函数

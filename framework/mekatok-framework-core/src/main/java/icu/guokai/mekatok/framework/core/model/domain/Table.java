@@ -1,4 +1,4 @@
-package icu.guokai.mekatok.framework.core.model.entity;
+package icu.guokai.mekatok.framework.core.model.domain;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;

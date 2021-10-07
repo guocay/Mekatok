@@ -2,7 +2,7 @@ package icu.guokai.mekatok.framework.core.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import icu.guokai.mekatok.framework.core.model.entity.View;
+import icu.guokai.mekatok.framework.core.model.domain.View;
 
 import java.util.Optional;
 

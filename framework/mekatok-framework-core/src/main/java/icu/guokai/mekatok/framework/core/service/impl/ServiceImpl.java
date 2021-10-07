@@ -1,7 +1,8 @@
 package icu.guokai.mekatok.framework.core.service.impl;
 
 import cn.hutool.core.util.ReflectUtil;
-import icu.guokai.mekatok.framework.core.model.entity.Table;
+import icu.guokai.mekatok.framework.core.asserts.WithAssertions;
+import icu.guokai.mekatok.framework.core.model.domain.Table;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * @date 2021/8/5
  */
 @SuppressWarnings("all")
-public abstract class ServiceImpl {
+public abstract class ServiceImpl implements WithAssertions {
 
     /**
      * 日志对象,用于打印消息

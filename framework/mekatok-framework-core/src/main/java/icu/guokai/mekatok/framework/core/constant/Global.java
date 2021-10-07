@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
  * @author GuoKai
  * @date 2021/8/5
  */
+@SuppressWarnings("all")
 public class Global {
 
     /**
@@ -22,7 +23,6 @@ public class Global {
     public static final String BASIC_PACKAGE_NAME = "icu.guokai.mekatok";
     public static final String MODULE_PACKAGE_NAME = BASIC_PACKAGE_NAME + ".module";
     public static final String FRAMEWORK_PACKAGE_NAME = BASIC_PACKAGE_NAME + ".framework";
-    public static final String PLATFORM_NAME = "Mekatok敏捷开发框架";
     public static final String BASIC_SERVICE_PATH = "/api";
     public static final String DEFAULT_FILE_PATH = "DEFAULT_FILE_PATH";
     public static final String DEFAULT_TRASH_PATH = "DEFAULT_TRASH_PATH";
@@ -40,7 +40,7 @@ public class Global {
     public static final Integer JWT_TTL = getProperty("info.application.security.ttl",Integer.class,30*60*1000);
 
     /**
-     * 著作者
+     * Coder
      */
     public static final String GK = "GuoKai";
 
@@ -135,7 +135,6 @@ public class Global {
     /**
      * 获取application中的值
      */
-    @SuppressWarnings("all")
     public static <T> T getProperty(String key, Class<T> clazz, T defaultValue){
         return SpringUtil.getApplicationContext().getEnvironment().getProperty(key, clazz, defaultValue);
     }

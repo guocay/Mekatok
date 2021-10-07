@@ -3,7 +3,7 @@ package icu.guokai.mekatok.framework.core.route.support;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import icu.guokai.mekatok.framework.core.constant.jsr303.VerifyGroup;
 import icu.guokai.mekatok.framework.core.message.support.WebMvcMessageSupport;
-import icu.guokai.mekatok.framework.core.model.entity.Table;
+import icu.guokai.mekatok.framework.core.model.domain.Table;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

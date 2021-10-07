@@ -5,6 +5,7 @@ package icu.guokai.mekatok.framework.core.constant.jsr303;
  * @author GuoKai
  * @date 2021/8/5
  */
+@SuppressWarnings("all")
 public abstract class VerifyGroup {
 
     /** 用于标注添加的分组 */

@@ -10,6 +10,9 @@ import icu.guokai.mekatok.framework.core.mistake.MistakeCode;
  */
 @MistakeCode("M-PLUGIN-0001")
 public class NotFoundException extends MekatokException {
+
+    private static final long serialVersionUID = -1433686526077922481L;
+
     public NotFoundException() {
     }
 

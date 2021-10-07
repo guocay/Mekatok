@@ -3,7 +3,7 @@ package icu.guokai.mekatok.framework.core.model.dto;
 import cn.hutool.core.annotation.AnnotationUtil;
 import cn.hutool.core.util.ReflectUtil;
 import icu.guokai.mekatok.framework.core.model.Model;
-import icu.guokai.mekatok.framework.core.model.entity.View;
+import icu.guokai.mekatok.framework.core.model.domain.View;
 
 import java.util.Arrays;
 

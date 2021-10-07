@@ -1,6 +1,6 @@
 package icu.guokai.mekatok.framework.core.plugin;
 
-import com.google.common.collect.Lists;
+import cn.hutool.core.collection.CollUtil;
 import icu.guokai.mekatok.framework.core.event.Event;
 import lombok.Getter;
 import org.slf4j.Logger;
@@ -27,7 +27,7 @@ public abstract class Activity<T> extends Event<T> {
      * 用于存储活动已执行的插件
      */
     @Getter
-    private List<Class<? extends Plugin>> plugins = Lists.newLinkedList();
+    private List<Class<? extends Plugin>> plugins = CollUtil.newLinkedList();
 
     /**
      * 构造器

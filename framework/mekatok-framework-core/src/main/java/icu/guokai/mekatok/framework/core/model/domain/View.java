@@ -1,4 +1,4 @@
-package icu.guokai.mekatok.framework.core.model.entity;
+package icu.guokai.mekatok.framework.core.model.domain;
 
 import cn.hutool.core.annotation.AnnotationUtil;
 import cn.hutool.core.util.ReflectUtil;

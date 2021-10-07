@@ -10,6 +10,9 @@ import icu.guokai.mekatok.framework.core.mistake.MistakeCode;
  */
 @MistakeCode("M-PLUGIN-0002")
 public class ServerDistrustException extends MekatokException {
+
+    private static final long serialVersionUID = -4265485484981988755L;
+
     public ServerDistrustException() {
     }
 

@@ -10,6 +10,9 @@ import icu.guokai.mekatok.framework.core.mistake.MistakeCode;
  */
 @MistakeCode("M-SECURITY-0003")
 public class UserLoggedException extends MekatokException {
+
+    private static final long serialVersionUID = 4568325956201154973L;
+
     public UserLoggedException() {
     }
 

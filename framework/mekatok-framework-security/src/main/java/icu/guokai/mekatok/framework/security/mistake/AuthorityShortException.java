@@ -10,6 +10,9 @@ import icu.guokai.mekatok.framework.core.mistake.MistakeCode;
  */
 @MistakeCode("M-SECURITY-0000")
 public class AuthorityShortException extends MekatokException {
+
+    private static final long serialVersionUID = 7864002784052334895L;
+
     public AuthorityShortException() {
     }
 

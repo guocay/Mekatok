@@ -10,6 +10,8 @@ import icu.guokai.mekatok.framework.core.constant.Global;
 @MistakeCode(Global.MISTAKE_CODE_DEFAULT)
 public class MekatokException extends RuntimeException {
 
+    private static final long serialVersionUID = 6640942118568378064L;
+
     public MekatokException() {}
 
     public MekatokException(String message) {

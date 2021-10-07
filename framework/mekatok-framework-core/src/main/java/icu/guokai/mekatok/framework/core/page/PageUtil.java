@@ -3,7 +3,7 @@ package icu.guokai.mekatok.framework.core.page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import icu.guokai.mekatok.framework.core.constant.Global;
-import icu.guokai.mekatok.framework.core.model.entity.View;
+import icu.guokai.mekatok.framework.core.model.domain.View;
 import icu.guokai.mekatok.framework.tool.servlet.ServletUtil;
 
 import java.util.Optional;
