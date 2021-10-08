@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @date 2021/8/5
  */
 @SuppressWarnings("all")
-public interface SimpleCreateSupport <T extends Table> extends WebMvcMessageSupport {
+public interface SimpleCreateSupport <T extends Table<T>> extends WebMvcMessageSupport {
 
     /**
      * 默认的添加方法

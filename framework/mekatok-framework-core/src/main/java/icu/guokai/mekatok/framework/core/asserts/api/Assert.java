@@ -18,7 +18,7 @@ public abstract class Assert<S extends Assert<S, A>, A> {
     /**
      * 用于存储断言工具类需要抛出的异常
      */
-    private Supplier<? extends MekatokException> EXCEPTION_INFO = () -> new AssertionsException("Data Assertion Failed!");
+    private Supplier<? extends MekatokException> exInfo = () -> new AssertionsException("Data Assertion Failed!");
 
     /**
      * 待断言对象
@@ -37,7 +37,7 @@ public abstract class Assert<S extends Assert<S, A>, A> {
      * 抛出异常
      */
     protected void exception(){
-        throw EXCEPTION_INFO.get();
+        throw exInfo.get();
     }
 
     /**
@@ -59,12 +59,12 @@ public abstract class Assert<S extends Assert<S, A>, A> {
 
     /**
      * 装载 自定义异常
-     * @param supplier
+     * @param supplier 异常信息
      * @param <T> 泛型
      * @return 断言工具
      */
     public <T extends MekatokException> S as(Supplier<T> supplier){
-        this.EXCEPTION_INFO = supplier;
+        this.exInfo = supplier;
         return self();
     }
 

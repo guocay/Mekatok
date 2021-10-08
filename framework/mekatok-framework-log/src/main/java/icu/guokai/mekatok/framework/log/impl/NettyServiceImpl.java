@@ -1,6 +1,6 @@
 package icu.guokai.mekatok.framework.log.impl;
 
-import icu.guokai.mekatok.framework.core.service.impl.ServiceImpl;
+import icu.guokai.mekatok.framework.core.service.ServiceImpl;
 import icu.guokai.mekatok.framework.log.service.INettyService;
 import icu.guokai.mekatok.framework.netty.event.*;
 import org.springframework.stereotype.Service;

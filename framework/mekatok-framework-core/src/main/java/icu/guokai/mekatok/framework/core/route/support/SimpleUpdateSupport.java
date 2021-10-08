@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
  * @author GuoKai
  * @date 2021/8/5
  */
-public interface SimpleUpdateSupport <T extends Table> extends WebMvcMessageSupport {
+public interface SimpleUpdateSupport <T extends Table<T>> extends WebMvcMessageSupport {
 
     /**
      * 更新默认元素,通过主键

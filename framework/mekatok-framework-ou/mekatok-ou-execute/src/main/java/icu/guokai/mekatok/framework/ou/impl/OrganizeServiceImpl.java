@@ -2,7 +2,7 @@ package icu.guokai.mekatok.framework.ou.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import icu.guokai.mekatok.framework.core.page.PageUtil;
-import icu.guokai.mekatok.framework.core.service.impl.ServiceImpl;
+import icu.guokai.mekatok.framework.core.service.ServiceImpl;
 import icu.guokai.mekatok.framework.ou.model.table.User;
 import icu.guokai.mekatok.framework.ou.model.view.UserOrganizeView;
 import icu.guokai.mekatok.framework.ou.service.IOrganizeService;

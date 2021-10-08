@@ -1,7 +1,5 @@
 package icu.guokai.mekatok.framework.core.model;
 
-import icu.guokai.mekatok.framework.core.asserts.WithAssertions;
-
 import java.io.Serializable;
 
 /**
@@ -9,6 +7,6 @@ import java.io.Serializable;
  * @author GuoKai
  * @date 2021/8/5
  */
-public interface Model extends Serializable, Cloneable, WithAssertions {
+public interface Model extends Serializable, Cloneable{
 
 }

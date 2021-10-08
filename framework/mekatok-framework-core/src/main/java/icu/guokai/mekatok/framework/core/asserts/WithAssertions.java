@@ -1,15 +1,17 @@
 package icu.guokai.mekatok.framework.core.asserts;
 
 import icu.guokai.mekatok.framework.core.asserts.api.impl.*;
+import icu.guokai.mekatok.framework.core.mistake.MekatokException;
 import icu.guokai.mekatok.framework.core.model.domain.Table;
 import icu.guokai.mekatok.framework.core.model.domain.View;
 import icu.guokai.mekatok.framework.core.model.dto.Transport;
 
 import java.io.File;
-import java.sql.Date;
+import java.util.Date;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Map;
+import java.util.function.Supplier;
 
 /**
  * 用于实现断言功能的接口
@@ -17,6 +19,17 @@ import java.util.Map;
  * @date 2021/10/6
  */
 public interface WithAssertions {
+
+    /**
+     * 定义异常
+     * @param clazz 异常类型
+     * @param message 异常信息
+     * @param <T> 泛型
+     * @return 异常
+     */
+    default <T extends MekatokException> Supplier<T> exception(Class<T> clazz, String message){
+        return Assertions.exception(clazz, message);
+    }
 
     /**
      * 获取数组断言

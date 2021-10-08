@@ -20,7 +20,7 @@ import java.util.Arrays;
  * @date 2021/8/5
  */
 @SuppressWarnings("unchecked")
-public interface SimpleDeleteSupport <T extends Table> extends WebMvcMessageSupport {
+public interface SimpleDeleteSupport <T extends Table<T>> extends WebMvcMessageSupport {
 
     /**
      * 删除单个元素,根据主键

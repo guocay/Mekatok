@@ -1,6 +1,6 @@
 package icu.guokai.mekatok.framework.disk.impl;
 
-import icu.guokai.mekatok.framework.core.service.impl.ServiceImpl;
+import icu.guokai.mekatok.framework.core.service.ServiceImpl;
 import icu.guokai.mekatok.framework.disk.service.IDiskService;
 import org.springframework.stereotype.Service;
 

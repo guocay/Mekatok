@@ -18,7 +18,7 @@ public interface IUserService extends IService {}
 ```
 
 ```java
-import icu.guokai.mekatok.framework.core.service.impl.ServiceImpl;
+import icu.guokai.mekatok.framework.core.service.ServiceImpl;
 import org.slf4j.Logger;
 
 // ServiceImpl 定义

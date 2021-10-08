@@ -1,6 +1,8 @@
 package icu.guokai.mekatok.framework.core.asserts;
 
+import cn.hutool.core.util.ReflectUtil;
 import icu.guokai.mekatok.framework.core.asserts.api.impl.*;
+import icu.guokai.mekatok.framework.core.mistake.MekatokException;
 import icu.guokai.mekatok.framework.core.model.domain.Table;
 import icu.guokai.mekatok.framework.core.model.domain.View;
 import icu.guokai.mekatok.framework.core.model.dto.Transport;
@@ -10,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
+import java.util.function.Supplier;
 
 /**
  * 断言功能静态工具类
@@ -17,6 +20,17 @@ import java.util.Map;
  * @date 2021/10/6
  */
 public abstract class Assertions {
+
+    /**
+     * 定义异常
+     * @param clazz 异常类型
+     * @param message 异常信息
+     * @param <T> 泛型
+     * @return 异常
+     */
+    public static <T extends MekatokException> Supplier<T> exception(Class<T> clazz, String message){
+        return () -> ReflectUtil.newInstance(clazz, message);
+    }
 
     /**
      * 获取数组断言

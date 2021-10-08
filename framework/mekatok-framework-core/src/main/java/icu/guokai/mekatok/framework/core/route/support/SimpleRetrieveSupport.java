@@ -22,8 +22,8 @@ import java.util.List;
  * @author GuoKai
  * @date 2021/8/5
  */
-@SuppressWarnings("unchecked")
-public interface SimpleRetrieveSupport <T extends Table> extends WebMvcMessageSupport {
+@SuppressWarnings("all")
+public interface SimpleRetrieveSupport<T extends Table<T>> extends WebMvcMessageSupport {
 
     /**
      * 默认的查询单个对象函数
@@ -34,7 +34,7 @@ public interface SimpleRetrieveSupport <T extends Table> extends WebMvcMessageSu
     @ApiOperationSupport(order = Integer.MIN_VALUE + 4)
     @ApiOperation(value = "简单增删改查-详情",notes = "用于查询数据通过ID")
     @ApiImplicitParam(name = "id", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)
-    default ResponseEntity<T> get(@PathVariable("id") String id){
+    default ResponseEntity<T> detail(@PathVariable("id") String id){
         return script(creation(id)::detail);
     }
 

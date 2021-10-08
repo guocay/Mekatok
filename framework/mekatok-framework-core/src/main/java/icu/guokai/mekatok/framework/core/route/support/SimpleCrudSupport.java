@@ -7,6 +7,6 @@ import icu.guokai.mekatok.framework.core.model.domain.Table;
  * @author GuoKai
  * @date 2021/8/5
  */
-public interface SimpleCrudSupport <T extends Table>
+public interface SimpleCrudSupport <T extends Table<T>>
         extends SimpleCreateSupport<T>,SimpleRetrieveSupport<T>,SimpleUpdateSupport<T>,SimpleDeleteSupport<T> {
 }

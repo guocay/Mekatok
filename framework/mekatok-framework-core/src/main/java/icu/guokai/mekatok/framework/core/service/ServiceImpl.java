@@ -1,4 +1,4 @@
-package icu.guokai.mekatok.framework.core.service.impl;
+package icu.guokai.mekatok.framework.core.service;
 
 import cn.hutool.core.util.ReflectUtil;
 import icu.guokai.mekatok.framework.core.asserts.WithAssertions;

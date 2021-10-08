@@ -1,7 +1,7 @@
 package icu.guokai.mekatok.framework.ou.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import icu.guokai.mekatok.framework.core.service.impl.ServiceImpl;
+import icu.guokai.mekatok.framework.core.service.ServiceImpl;
 import icu.guokai.mekatok.framework.ou.model.view.RoleAuthorityView;
 import icu.guokai.mekatok.framework.ou.service.IRoleService;
 import lombok.NonNull;

@@ -1,14 +1,12 @@
 package icu.guokai.mekatok.framework.ou.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import icu.guokai.mekatok.framework.core.constant.Global;
-import icu.guokai.mekatok.framework.core.service.impl.ServiceImpl;
+import icu.guokai.mekatok.framework.core.service.ServiceImpl;
 import icu.guokai.mekatok.framework.ou.model.view.UserAuthorityView;
 import icu.guokai.mekatok.framework.ou.model.view.UserOrganizeView;
 import icu.guokai.mekatok.framework.ou.model.view.UserRoleView;
 import icu.guokai.mekatok.framework.ou.service.IUserService;
 import lombok.NonNull;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

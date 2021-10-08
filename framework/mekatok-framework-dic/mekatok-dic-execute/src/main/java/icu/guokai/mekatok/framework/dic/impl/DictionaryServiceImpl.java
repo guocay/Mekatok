@@ -1,6 +1,6 @@
 package icu.guokai.mekatok.framework.dic.impl;
 
-import icu.guokai.mekatok.framework.core.service.impl.ServiceImpl;
+import icu.guokai.mekatok.framework.core.service.ServiceImpl;
 import icu.guokai.mekatok.framework.dic.service.IDictionaryService;
 import org.springframework.stereotype.Service;
 

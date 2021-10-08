@@ -2,7 +2,7 @@ package icu.guokai.mekatok.framework.log.impl;
 
 import cn.hutool.json.JSONUtil;
 import icu.guokai.mekatok.framework.core.message.Message;
-import icu.guokai.mekatok.framework.core.service.impl.ServiceImpl;
+import icu.guokai.mekatok.framework.core.service.ServiceImpl;
 import icu.guokai.mekatok.framework.log.service.IRouterService;
 import icu.guokai.mekatok.framework.plugin.event.RouterCallAfter;
 import icu.guokai.mekatok.framework.plugin.event.RouterCallBefore;
