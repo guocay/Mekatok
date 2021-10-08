@@ -150,6 +150,7 @@ icu.guokai.mekatok
 * [Mekatok平台中分页的获取与使用方法](./document/Mekatok平台中分页的获取与使用方法.md)
 * [Mekatok平台中单体应用实现方案](./document/Mekatok平台中单体应用实现方案.md)
 * [Mekatok平台中同时支持单体和微服务打包](./document/Mekatok平台中同时支持单体和微服务打包.md)
+* [Mekatok平台中大屏展示解决方案](./document/Mekatok平台中大屏展示解决方案.md)
 * [Mekatok平台中如何实现数据默认缓存实现](./document/Mekatok平台中如何实现数据默认缓存实现.md)
 * [Mekatok平台中工具集使用逻辑](./document/Mekatok平台中工具集使用逻辑.md)
 * [Mekatok平台中应用健康监控使用方法](./document/Mekatok平台中应用健康监控使用方法.md)
@@ -161,8 +162,6 @@ icu.guokai.mekatok
 * [Mekatok平台中自定义异常的创建使用与规范](./document/Mekatok平台中自定义异常的创建使用与规范.md)
 * [Mekatok平台中部分配置的使用方法](./document/Mekatok平台中部分配置的使用方法.md)
 * [Mekatok平台中集合类扩展的使用](./document/Mekatok平台中集合类扩展的使用.md)
-
-
 
 ## 延伸功能
 
