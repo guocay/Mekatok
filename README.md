@@ -130,6 +130,40 @@ icu.guokai.mekatok
 
 项目启动后,除正常的启动Springboot应用外.还默认集成并配置了异步任务支持,路由环绕打印,主机序列号校验,客户端IP校验,MVC异常统一处理,http与https双通道监听,Mybatis增强与动态数据源,SpringUtil增强,Swagger与knife4j开启与配置;
 
+## 帮助文档
+
+* [Mekatok平台中ActiveRecord模式使用方法](./document/Mekatok平台中ActiveRecord模式使用方法.md)
+* [Mekatok平台中Cache的使用方法](./document/Mekatok平台中Cache的使用方法.md)
+* [Mekatok平台中Controller的开发规范](./document/Mekatok平台中Controller的开发规范.md)
+* [Mekatok平台中Flowable工作流的使用方法](./document/Mekatok平台中Flowable工作流的使用方法.md)
+* [Mekatok平台中IService和Impl的开发规范](./document/Mekatok平台中IService和Impl的开发规范.md)
+* [Mekatok平台中JSR107函数级缓存使用方法](./document/Mekatok平台中JSR107函数级缓存使用方法.md)
+* [Mekatok平台中Mapper和xml的开发规范](./document/Mekatok平台中Mapper和xml的开发规范.md)
+* [Mekatok平台中Redis消息队列的使用方法](./document/Mekatok平台中Redis消息队列的使用方法.md)
+* [Mekatok平台中Security的使用与配置方法](./document/Mekatok平台中Security的使用与配置方法.md)
+* [Mekatok平台中Swagger接口分组的使用方法](./document/Mekatok平台中Swagger接口分组的使用方法.md)
+* [Mekatok平台中WebSocket消息队列使用方法](./document/Mekatok平台中WebSocket消息队列使用方法.md)
+* [Mekatok平台中三级Bean抽象的使用方法](./document/Mekatok平台中三级Bean抽象的使用方法.md)
+* [Mekatok平台中业务级流式断言的使用](./document/Mekatok平台中业务级流式断言的使用.md)
+* [Mekatok平台中主机和客户端校验的实现方式](./document/Mekatok平台中主机和客户端校验的实现方式.md)
+* [Mekatok平台中使用Redis作为Dubbo的注册中心的使用方法](./document/Mekatok平台中使用Redis作为Dubbo的注册中心的使用方法.md)
+* [Mekatok平台中分页的获取与使用方法](./document/Mekatok平台中分页的获取与使用方法.md)
+* [Mekatok平台中单体应用实现方案](./document/Mekatok平台中单体应用实现方案.md)
+* [Mekatok平台中同时支持单体和微服务打包](./document/Mekatok平台中同时支持单体和微服务打包.md)
+* [Mekatok平台中如何实现数据默认缓存实现](./document/Mekatok平台中如何实现数据默认缓存实现.md)
+* [Mekatok平台中工具集使用逻辑](./document/Mekatok平台中工具集使用逻辑.md)
+* [Mekatok平台中应用健康监控使用方法](./document/Mekatok平台中应用健康监控使用方法.md)
+* [Mekatok平台中异步任务调度的使用方法](./document/Mekatok平台中异步任务调度的使用方法.md)
+* [Mekatok平台中微服务应用实现方案](./document/Mekatok平台中微服务应用实现方案.md)
+* [Mekatok平台中插件的使用方法](./document/Mekatok平台中插件的使用方法.md)
+* [Mekatok平台中模块划分的开发规范](./document/Mekatok平台中模块划分的开发规范.md)
+* [Mekatok平台中自定义事件的使用方法](./document/Mekatok平台中自定义事件的使用方法.md)
+* [Mekatok平台中自定义异常的创建使用与规范](./document/Mekatok平台中自定义异常的创建使用与规范.md)
+* [Mekatok平台中部分配置的使用方法](./document/Mekatok平台中部分配置的使用方法.md)
+* [Mekatok平台中集合类扩展的使用](./document/Mekatok平台中集合类扩展的使用.md)
+
+
+
 ## 延伸功能
 
 1. 基于SpringBootAdmin的应用健康监控 --  **expand/mekatok-expand-control** 应用健康服务端,可视化的查看应用健康状况,缓存,Spring BeanFactory, 内存使用,心跳等等;
