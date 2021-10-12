@@ -1,6 +1,7 @@
 root = true
 
 [*]
+charset = utf-8
 # ij_continuation_indent_size = 8
 # ij_formatter_off_tag = @formatter:off
 # ij_formatter_on_tag = @formatter:on

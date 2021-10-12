@@ -21,7 +21,7 @@ public class RouterServiceImpl extends ServiceImpl implements IRouterService {
     @Override
     public void routerCallAfter(RouterCallAfter event) {
         var source = event.getMeta();
-        log.info("Http 响应头内容为: {}", JSONUtil.toJsonStr(event.getHeaders()));
+        log.info("Http 响应头内容为: {}", event.getHeaders().toString());
         if(source instanceof Message){
             log.info("Http 响应体内容为: {}", JSONUtil.toJsonStr(((Message<?>)source).getData()));
         }
