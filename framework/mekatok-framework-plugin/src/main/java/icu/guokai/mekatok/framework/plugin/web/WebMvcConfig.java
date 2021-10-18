@@ -100,7 +100,7 @@ public class WebMvcConfig implements WebMvcConfigurer, ErrorPageRegistrar {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         WebMvcConfigurer.super.addCorsMappings(registry);
-        registry.addMapping("/**").allowedOriginPatterns("*")
+        registry.addMapping("/**").allowedOriginPatterns("*").exposedHeaders("*")
                 .allowedHeaders("*").allowedMethods("*").allowCredentials(true).maxAge(3600);
     }
 }

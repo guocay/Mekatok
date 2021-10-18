@@ -101,6 +101,7 @@ mybatis-plus:
       logic-delete-value: 10001001
       logic-not-delete-value: 10001000
       update-strategy: not_null
+      select-strategy: not_empty
     banner: false
   mapper-locations: classpath*:/mapper/**/*.xml
 
