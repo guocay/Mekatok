@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
 
     <!-- 用户表 -->
     <changeSet id="t_ou_user_20210906" author="guokai">
@@ -29,6 +29,7 @@
             <column name="PASSWORD" value="$2a$10$AW6QfTNb.kzufJ3E3MHTWu9wgeU.PnxjgtucwlmospXuFipSd/21O"/>
         </insert>
     </changeSet>
+
 
     <!-- 角色表 -->
     <changeSet id="t_ou_role_20210906" author="guokai">
