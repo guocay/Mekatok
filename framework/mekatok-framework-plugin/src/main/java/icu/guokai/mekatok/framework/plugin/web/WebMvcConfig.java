@@ -17,6 +17,7 @@ import org.springframework.boot.web.server.ErrorPageRegistrar;
 import org.springframework.boot.web.server.ErrorPageRegistry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -102,5 +103,47 @@ public class WebMvcConfig implements WebMvcConfigurer, ErrorPageRegistrar {
         WebMvcConfigurer.super.addCorsMappings(registry);
         registry.addMapping("/**").allowedOriginPatterns("*").exposedHeaders("*")
                 .allowedHeaders("*").allowedMethods("*").allowCredentials(true).maxAge(3600);
+    }
+
+    /**
+     * 用于声明一个转换前端发送的日期类字符串
+     * @return 日期对象
+     */
+    @Bean
+    public Converter<String,LocalDate> toLocalDate(){
+        return new Converter<String, LocalDate>() {
+            @Override
+            public LocalDate convert(String source) {
+                return LocalDate.parse(source,DateTimeFormatter.ofPattern(Global.DATE_FORMAT));
+            }
+        };
+    }
+
+    /**
+     * 用于声明一个转换前端发送的日期类字符串
+     * @return 时间对象
+     */
+    @Bean
+    public Converter<String,LocalTime> toLocalTime(){
+        return new Converter<String, LocalTime>() {
+            @Override
+            public LocalTime convert(String source) {
+                return LocalTime.parse(source,DateTimeFormatter.ofPattern(Global.TIME_FORMAT));
+            }
+        };
+    }
+
+    /**
+     * 用于声明一个转换前端发送的日期类字符串
+     * @return 日期时间对象
+     */
+    @Bean
+    public Converter<String,LocalDateTime> toLocalDateTime(){
+        return new Converter<String, LocalDateTime>() {
+            @Override
+            public LocalDateTime convert(String source) {
+                return LocalDateTime.parse(source,DateTimeFormatter.ofPattern(Global.DATETIME_FORMAT));
+            }
+        };
     }
 }
