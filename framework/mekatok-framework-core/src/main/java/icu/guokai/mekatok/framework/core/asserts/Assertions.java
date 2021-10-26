@@ -38,7 +38,7 @@ public abstract class Assertions {
      * @param <T> 数据类型
      * @return 断言工具
      */
-    public static <T> ArrayAssert<T> assertThat(T[] objs){
+    public static <T> ArrayAssert<T> assertThat(T... objs){
         return new ArrayAssert<T>(objs);
     }
 

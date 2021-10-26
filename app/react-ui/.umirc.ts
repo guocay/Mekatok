@@ -1,12 +1,14 @@
 import routes from './config/routes';
+import layout from './config/layouts';
 import { defineConfig } from 'umi';
 
 export default defineConfig({
   base: '/',
+  mfsu: {},
   title: process.env.APP_NAME,
   favicon: 'favicon.ico',
   routes: routes,
-  mfsu: {},
+  layout: layout,
   nodeModulesTransform: {
     type: 'none',
   },
@@ -19,11 +21,6 @@ export default defineConfig({
   antd: {},
   request: {
     dataField: 'data'
-  },
-  layout: {
-    name: process.env.APP_NAME,
-    locale: true,
-    layout: 'side',
   },
   locale:{
     antd: true

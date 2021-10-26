@@ -53,7 +53,7 @@ public class StompConfiguration implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint(Global.STOMP_PATH).addInterceptors(webSocketInterceptor())
-                .setAllowedOrigins("*").withSockJS();
+                .setAllowedOriginPatterns("*");
     }
 
     /**

@@ -37,7 +37,7 @@ public interface WithAssertions {
      * @param <T> 数据类型
      * @return 断言工具
      */
-    default <T> ArrayAssert<T> assertThat(T[] objs){
+    default <T> ArrayAssert<T> assertThat(T... objs){
         return Assertions.assertThat(objs);
     }
 
