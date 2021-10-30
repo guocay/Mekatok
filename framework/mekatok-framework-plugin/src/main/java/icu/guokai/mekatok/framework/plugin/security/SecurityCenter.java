@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @date 2021/02/20
  */
 @SuppressWarnings("unchecked")
-public abstract class SecurityUtil {
+public abstract class SecurityCenter {
 
     private static final String USER_ID_FIELD = "userId";
 

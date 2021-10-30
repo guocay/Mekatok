@@ -1,7 +1,7 @@
 package icu.guokai.mekatok.framework.stomp.plugin;
 
 import cn.hutool.core.lang.Assert;
-import icu.guokai.mekatok.framework.plugin.jwt.JwtUtil;
+import icu.guokai.mekatok.framework.plugin.jwt.JwtCenter;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +29,7 @@ public class SimplePrincipal implements Principal {
      */
     public static SimplePrincipal of(String token) {
         var principal = new SimplePrincipal();
-        var name = JwtUtil.getSubjectByToken(token);
+        var name = JwtCenter.getSubjectByToken(token);
         Assert.notNull(name, RuntimeException::new);
         return principal.setName(name);
     }

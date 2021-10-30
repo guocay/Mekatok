@@ -1,7 +1,7 @@
 package icu.guokai.mekatok.framework.security.util;
 
 import icu.guokai.mekatok.framework.ou.model.view.UserOrganizeView;
-import icu.guokai.mekatok.framework.plugin.security.SecurityUtil;
+import icu.guokai.mekatok.framework.plugin.security.SecurityCenter;
 import icu.guokai.mekatok.framework.security.user.SecurityUser;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -14,7 +14,7 @@ import java.util.Set;
  * @date 2021/8/18
  */
 @SuppressWarnings("all")
-public abstract class UserContextHolder extends SecurityUtil {
+public abstract class UserContextHolder extends SecurityCenter {
 
     /**
      * 获取当前登录用户的权限信息

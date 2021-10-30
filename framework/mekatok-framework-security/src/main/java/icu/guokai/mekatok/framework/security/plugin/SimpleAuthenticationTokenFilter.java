@@ -3,7 +3,7 @@ package icu.guokai.mekatok.framework.security.plugin;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import icu.guokai.mekatok.framework.core.constant.Global;
-import icu.guokai.mekatok.framework.plugin.jwt.JwtUtil;
+import icu.guokai.mekatok.framework.plugin.jwt.JwtCenter;
 import icu.guokai.mekatok.framework.security.service.SimpleSecurityUserCache;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,7 +37,7 @@ public class SimpleAuthenticationTokenFilter extends OncePerRequestFilter {
         var cache = SpringUtil.getBean(SimpleSecurityUserCache.class);
         // 验证Token, 并绑定至 SecurityContextHolder 对象上
         if(StrUtil.isNotBlank(token = request.getHeader(Global.JWT_TOKEN))
-                && StrUtil.isNotBlank(username = JwtUtil.getSubjectByToken(token))
+                && StrUtil.isNotBlank(username = JwtCenter.getSubjectByToken(token))
                 && cache.containsKey(username)){
             var user = cache.getUserFromCache(username);
             SecurityContextHolder.getContext().setAuthentication(

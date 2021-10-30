@@ -8,9 +8,17 @@ import java.util.stream.Collectors;
  * @author GuoKai
  * @date 2021/10/8
  */
-public class ArrayMultiMap<K, V> extends HashMap<K, List<V>> implements MultiMap<K, List<V>, V>{
+public class ArrayMultiMap<K, V> extends HashMap<K, Collection<V>> implements MultiMap<K, V>{
 
     private static final long serialVersionUID = -1182381255976579546L;
+
+    /**
+     * 创建 ArrayMultiMap
+     * @return ArrayMultiMap
+     */
+    public static <T,P> MultiMap<T,P> create() {
+        return new ArrayMultiMap<T,P>();
+    }
 
     /**
      * 检查当前key指向的集合是否为空,
@@ -18,7 +26,7 @@ public class ArrayMultiMap<K, V> extends HashMap<K, List<V>> implements MultiMap
      * @param key 键
      * @return 集合
      */
-    private List<V> check(K key){
+    private Collection<V> check(K key){
         return Optional.ofNullable(get(key)).orElse(put(key, new ArrayList<V>()));
     }
 
@@ -52,7 +60,7 @@ public class ArrayMultiMap<K, V> extends HashMap<K, List<V>> implements MultiMap
 
     @Override
     public Integer sizeAll(K key) {
-        return values().parallelStream().mapToInt(List::size).sum();
+        return values().parallelStream().mapToInt(Collection::size).sum();
     }
 
     @Override
@@ -70,7 +78,7 @@ public class ArrayMultiMap<K, V> extends HashMap<K, List<V>> implements MultiMap
     }
 
     @Override
-    public List<V> valueAll() {
+    public Collection<V> valueAll() {
         return values().parallelStream().flatMap(Collection::stream).collect(Collectors.toList());
     }
 }

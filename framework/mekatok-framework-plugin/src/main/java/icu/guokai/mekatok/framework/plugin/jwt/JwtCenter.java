@@ -22,7 +22,7 @@ import java.util.Date;
 @Slf4j
 @SuppressWarnings("all")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class JwtUtil extends cn.hutool.jwt.JWTUtil {
+public class JwtCenter extends cn.hutool.jwt.JWTUtil {
     /**
      * 加密时用到的Key
      */

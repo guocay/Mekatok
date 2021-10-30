@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import icu.guokai.mekatok.framework.core.constant.Global;
-import icu.guokai.mekatok.framework.plugin.security.SecurityUtil;
+import icu.guokai.mekatok.framework.plugin.security.SecurityCenter;
 import org.apache.ibatis.reflection.MetaObject;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -41,7 +41,7 @@ public class MyBatisPlusConfig implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         var timestamp = LocalDateTime.now();
-        var id = Optional.ofNullable(SecurityUtil.getUserId()).orElse(DEFAULT_USER_ID);
+        var id = Optional.ofNullable(SecurityCenter.getUserId()).orElse(DEFAULT_USER_ID);
         this.strictInsertFill(metaObject,"creator",String.class,id);
         this.strictInsertFill(metaObject,"updater",String.class,id);
         this.strictInsertFill(metaObject,"createTime",LocalDateTime.class,timestamp);
@@ -52,7 +52,7 @@ public class MyBatisPlusConfig implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         this.strictUpdateFill(metaObject,"updater",String.class,
-                Optional.ofNullable(SecurityUtil.getUserId()).orElse(DEFAULT_USER_ID));
+                Optional.ofNullable(SecurityCenter.getUserId()).orElse(DEFAULT_USER_ID));
         this.strictUpdateFill(metaObject,"updateTime",LocalDateTime.class,LocalDateTime.now());
     }
 

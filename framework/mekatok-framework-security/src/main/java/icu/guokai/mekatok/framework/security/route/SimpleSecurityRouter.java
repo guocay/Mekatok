@@ -2,7 +2,7 @@ package icu.guokai.mekatok.framework.security.route;
 
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import icu.guokai.mekatok.framework.core.constant.Global;
-import icu.guokai.mekatok.framework.plugin.jwt.JwtUtil;
+import icu.guokai.mekatok.framework.plugin.jwt.JwtCenter;
 import icu.guokai.mekatok.framework.security.service.SimpleSecurityUserCache;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -44,7 +44,7 @@ public class SimpleSecurityRouter extends BasicSecurityRouter {
         var auth = new UsernamePasswordAuthenticationToken(username,password);
         // 认证并装载
         manager.authenticate(auth);
-        return success(JwtUtil.createTokenByAuth(auth));
+        return success(JwtCenter.createTokenByAuth(auth));
     }
 
 }

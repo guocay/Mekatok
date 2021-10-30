@@ -9,7 +9,7 @@ import java.util.Map;
  * @date 2021/10/8
  */
 @SuppressWarnings("all")
-public interface MultiMap<K, C extends Collection<V>, V> extends Map<K, C> {
+public interface MultiMap<K, V> extends Map<K, Collection<V>> {
 
     /**
      * 添加元素
@@ -66,6 +66,6 @@ public interface MultiMap<K, C extends Collection<V>, V> extends Map<K, C> {
      * 所有值的集合
      * @return 集合
      */
-    C valueAll();
+    Collection<V> valueAll();
 
 }
