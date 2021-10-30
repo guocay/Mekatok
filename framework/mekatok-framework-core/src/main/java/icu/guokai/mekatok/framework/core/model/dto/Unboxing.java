@@ -1,5 +1,7 @@
 package icu.guokai.mekatok.framework.core.model.dto;
 
+import icu.guokai.mekatok.framework.core.model.domain.View;
+
 import java.lang.annotation.*;
 
 /**
@@ -18,7 +20,7 @@ public @interface Unboxing {
      * 用于指定装箱的数据传输类
      * @return 装箱的类
      */
-    Class<? extends Transport> clazz();
+    Class<? extends View> clazz();
 
     /**
      * 用于指定类中的字段

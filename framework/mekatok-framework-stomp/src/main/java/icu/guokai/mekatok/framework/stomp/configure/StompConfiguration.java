@@ -58,7 +58,7 @@ public class StompConfiguration implements WebSocketMessageBrokerConfigurer {
 
     /**
      * 配置发送与接收的消息参数，可以指定消息字节大小，缓存大小，发送超时时间
-     * @param registry
+     * @param registry 注册对象
      */
     @Override
     public void configureWebSocketTransport(WebSocketTransportRegistration registry) {
@@ -94,7 +94,7 @@ public class StompConfiguration implements WebSocketMessageBrokerConfigurer {
 
     /**
      * 设置输出消息通道的线程数，默认线程为1，可以自己自定义线程数，最大线程数，线程存活时间
-     * @param registration
+     * @param registra j'j'j'j'jtion
      */
     @Override
     public void configureClientOutboundChannel(ChannelRegistration registration) {

@@ -118,7 +118,6 @@ icu.guokai.mekatok
 |    ganymed-ssh2    | build210 |  ssh-2协议的java库  |
 | dynamic-datasource |  3.3.2   |   多数据源管理工具    |
 | spring-boot-admin  |  2.3.1   | spring应用监控  |
-|        jjwt        |  0.11.2  | java web token 工具 |
 
 ## 快速上手
 

@@ -1,6 +1,5 @@
 package icu.guokai.mekatok.framework.security.route;
 
-import cn.hutool.core.lang.Assert;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import icu.guokai.mekatok.framework.core.constant.Global;
 import icu.guokai.mekatok.framework.plugin.jwt.JwtUtil;
@@ -41,11 +40,11 @@ public class SimpleSecurityRouter extends BasicSecurityRouter {
             @ApiImplicitParam(name = "password", value = "密码", required = true, dataTypeClass = String.class)
     })
     public ResponseEntity<String> login(@NonNull String username, @NonNull String password){
-        Assert.isFalse(cache.containsKey(username), () -> USER_LOGGED);
+        // Assert.isFalse(cache.containsKey(username), () -> USER_LOGGED);
         var auth = new UsernamePasswordAuthenticationToken(username,password);
         // 认证并装载
         manager.authenticate(auth);
-        return success(JwtUtil.createToken(auth));
+        return success(JwtUtil.createTokenByAuth(auth));
     }
 
 }

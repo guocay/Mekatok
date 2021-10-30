@@ -49,7 +49,7 @@
         <oshi.version>5.6.0</oshi.version>
         <jjwt.version>0.11.2</jjwt.version>
         <dom4j.version>2.1.3</dom4j.version>
-        <hutool.version>5.6.0</hutool.version>
+        <hutool.version>5.7.15</hutool.version>
         <knife4j.version>2.0.8</knife4j.version>
         <guava.version>30.1.1-jre</guava.version>
         <flowable.version>6.6.0</flowable.version>
@@ -175,16 +175,6 @@
             <!-- 平台内模块依赖关系版本管理 结束 -->
 
             <!-- 工具库相关依赖 -->
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
 
             <!-- 反射库相关依赖 -->
             <dependency>
@@ -292,25 +282,6 @@
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${spring-boot-admin.version}</version>
-            </dependency>
-
-            <!-- JWT 相关依赖 -->
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt-api</artifactId>
-                <version>${jjwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt-impl</artifactId>
-                <version>${jjwt.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt-jackson</artifactId>
-                <version>${jjwt.version}</version>
-                <scope>runtime</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -9,6 +9,7 @@ info:
         - C02FD14HQ05R
       client-ip:
         - localhost
+        - 0:0:0:0:0:0:0:1
         - 127.0.0.1
 spring:
   datasource:

@@ -27,12 +27,6 @@ public class StompInterceptor implements ChannelInterceptor {
     public Message<?> preSend(Message<?> message, MessageChannel channel) {
         var accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
         switch (accessor.getCommand()){
-            // 建立连接
-            case CONNECT:
-                // 绑定 客户端信息至 accessor
-                // 报错则拒绝连接... 兼顾了安全校验
-                accessor.setUser(SimplePrincipal.of(accessor.getNativeHeader(Global.JWT_TOKEN).get(0)));
-                break;
             // 断开连接
             case DISCONNECT:
                 break;
@@ -42,10 +36,10 @@ public class StompInterceptor implements ChannelInterceptor {
             // 关闭订阅
             case UNSUBSCRIBE:
                 break;
-            // 发送消息
-            case SEND:
-                break;
             default:
+                // 绑定 客户端信息至 accessor
+                // 报错则拒绝连接... 兼顾了安全校验
+                accessor.setUser(SimplePrincipal.of(accessor.getNativeHeader(Global.JWT_TOKEN).get(0)));
                 break;
         }
         return message;
