@@ -91,6 +91,7 @@ logging:
     icu.guokai.mekatok: debug
     com.baomidou.dynamic.datasource: debug
     springfox.documentation.spring: error
+    com.yomahub.liteflow.util.LOGOPrinter: error
 
 mybatis-plus:
   configuration:

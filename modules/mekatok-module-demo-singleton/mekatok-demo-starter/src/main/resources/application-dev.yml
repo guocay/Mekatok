@@ -11,6 +11,9 @@ info:
         - localhost
         - 0:0:0:0:0:0:0:1
         - 127.0.0.1
+    liteflow:
+      rule-sources:
+        - liteflow/liteflow-demo.xml
 spring:
   datasource:
     dynamic:

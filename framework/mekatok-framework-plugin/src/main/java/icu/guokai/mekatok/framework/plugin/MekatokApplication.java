@@ -3,6 +3,7 @@ package icu.guokai.mekatok.framework.plugin;
 import icu.guokai.mekatok.framework.plugin.advice.EnableWebMvc;
 import icu.guokai.mekatok.framework.plugin.async.EnableTask;
 import icu.guokai.mekatok.framework.plugin.jdbc.EnableMyBatisPlus;
+import icu.guokai.mekatok.framework.plugin.liteflow.EnableLiteFlow;
 import icu.guokai.mekatok.framework.plugin.router.EnableRouterPlus;
 import icu.guokai.mekatok.framework.plugin.spring.EnableSpring;
 import icu.guokai.mekatok.framework.plugin.swagger.EnableSwagger;
@@ -27,6 +28,7 @@ import java.lang.annotation.*;
 @EnableSpring
 @EnableServer
 @EnableSwagger
+@EnableLiteFlow
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

@@ -24,15 +24,15 @@
         <module>framework/mekatok-framework-tool</module>
         <module>framework/mekatok-framework-security</module>
         <module>framework/mekatok-framework-stomp</module>
-        <module>framework/mekatok-framework-ou</module>
-        <module>framework/mekatok-framework-disk</module>
-        <module>framework/mekatok-framework-dic</module>
         <module>framework/mekatok-framework-plugin</module>
         <module>framework/mekatok-framework-cache</module>
         <module>framework/mekatok-framework-queue</module>
         <module>framework/mekatok-framework-flowable</module>
         <module>framework/mekatok-framework-log</module>
         <module>framework/mekatok-framework-netty</module>
+        <module>foundation/mekatok-foundation-ou</module>
+        <module>foundation/mekatok-foundation-disk</module>
+        <module>foundation/mekatok-foundation-dic</module>
         <module>modules/mekatok-module-demo-singleton</module>
         <module>modules/mekatok-module-demo-consumer</module>
         <module>modules/mekatok-module-demo-provider</module>
@@ -49,10 +49,11 @@
         <oshi.version>5.6.0</oshi.version>
         <jjwt.version>0.11.2</jjwt.version>
         <dom4j.version>2.1.3</dom4j.version>
-        <forest.version>1.5.11</forest.version>
         <hutool.version>5.7.15</hutool.version>
+        <forest.version>1.5.11</forest.version>
         <knife4j.version>2.0.8</knife4j.version>
         <guava.version>30.1.1-jre</guava.version>
+        <liteflow.version>2.6.3</liteflow.version>
         <flowable.version>6.6.0</flowable.version>
         <swagger2.version>1.5.20</swagger2.version>
         <kingbase8.version>8.2.0</kingbase8.version>
@@ -291,9 +292,27 @@
                 <artifactId>forest-core</artifactId>
                 <version>${forest.version}</version>
             </dependency>
+
+            <!-- Liteflow 流程编排引擎 -->
+            <dependency>
+                <groupId>com.yomahub</groupId>
+                <artifactId>liteflow-core</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.zookeeper</groupId>
+                        <artifactId>zookeeper</artifactId>
+                    </exclusion>
+                </exclusions>
+                <version>${liteflow.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yomahub</groupId>
+                <artifactId>liteflow-script-groovy</artifactId>
+                <version>${liteflow.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
 
     <build>
         <plugins>

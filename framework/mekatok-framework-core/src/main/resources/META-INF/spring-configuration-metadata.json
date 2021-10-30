@@ -145,6 +145,11 @@
       "name": "info.application.netty.port",
       "type": "java.lang.Integer",
       "description": "Netty服务器端口"
+    },
+    {
+      "name": "info.application.liteflow.rule-sources",
+      "type": "java.lang.String[]",
+      "description": "需要加载的用于流程编排的定义文件."
     }
   ]
 }

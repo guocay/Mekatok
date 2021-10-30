@@ -2,6 +2,8 @@ package icu.guokai.mekatok.framework.core.service;
 
 import cn.hutool.core.util.ReflectUtil;
 import icu.guokai.mekatok.framework.core.asserts.WithAssertions;
+import icu.guokai.mekatok.framework.core.liteflow.Plugin;
+import icu.guokai.mekatok.framework.core.liteflow.WithLiteFlow;
 import icu.guokai.mekatok.framework.core.model.domain.Table;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +14,7 @@ import org.slf4j.LoggerFactory;
  * @date 2021/8/5
  */
 @SuppressWarnings("all")
-public abstract class ServiceImpl implements WithAssertions {
+public abstract class ServiceImpl extends Plugin implements WithAssertions, WithLiteFlow {
 
     /**
      * 日志对象,用于打印消息
@@ -79,5 +81,10 @@ public abstract class ServiceImpl implements WithAssertions {
         return (T) of(clazz).setId(id);
     }
 
-
+    /**
+     * process 默认实现
+     * @throws Exception
+     */
+    @Override
+    public void process() throws Exception {}
 }

@@ -10,13 +10,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mekatok-module-demo-singleton</artifactId>
-
+    <artifactId>mekatok-foundation-dic</artifactId>
     <packaging>pom</packaging>
+
     <modules>
-        <module>mekatok-demo-declare</module>
-        <module>mekatok-demo-execute</module>
-        <module>mekatok-demo-starter</module>
+        <module>mekatok-dic-declare</module>
+        <module>mekatok-dic-execute</module>
+        <module>mekatok-dic-starter</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>icu.guokai</groupId>
+                <artifactId>mekatok-dic-execute</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

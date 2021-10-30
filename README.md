@@ -54,15 +54,16 @@ icu.guokai.mekatok
     |- Nacos                                # Nacos服务器
     |- Redis                                # Redis服务器
     |- ...                                  # 其他外部依赖
- |- framework                               # 平台基础功能
+ |- foundation                              # 平台基础功能
+    |- mekatok-foundation-ou                # 组织用户功能集
+    |- mekatok-foundation-disk              # 文件管理功能集
+    |- mekatok-foundation-dic               # 字典功能集
+ |- framework                               # 框架基础功能
     |- mekatok-framework-core               # 框架基础功能
     |- mekatok-framework-cache              # 框架缓存功能
     |- mekatok-framework-tool               # 框架工具集
     |- mekatok-framework-security           # 安全认证功能
     |- mekatok-framework-stomp              # 简单的消息队列
-    |- mekatok-framework-ou                 # 组织用户功能集
-    |- mekatok-framework-disk               # 文件管理功能集
-    |- mekatok-framework-dic                # 字典功能集
     |- mekatok-framework-plugin             # 平台级默认配置
     |- mekatok-framework-queue              # 框架队列功能
     |- mekatok-framework-flowable           # 工作流相关功能
