@@ -108,7 +108,7 @@ icu.guokai.mekatok
 |        JDK         |   11+    |    java开发工具     |
 |    Spring Boot     |  2.4.1   |    Spring全家桶     |
 |       Hutool       |  5.6.0   |     静态工具类      |
-|       Guava        |  30.1.1  |      集合扩展       |
+|       Forest       |  1.5.11  |     函数式http client     |
 |      MyBatis       |  3.5.6   |     持久化工具      |
 |    MyBatis-Plus    |  3.4.2   |   持久化工具扩展    |
 |      knife4j       |  2.0.8   |   Swagger UI增强    |
@@ -119,6 +119,7 @@ icu.guokai.mekatok
 |    ganymed-ssh2    | build210 |  ssh-2协议的java库  |
 | dynamic-datasource |  3.3.2   |   多数据源管理工具    |
 | spring-boot-admin  |  2.3.1   | spring应用监控  |
+| liteflow | 2.6.3 | 流程编排工具 |
 
 ## 快速上手
 
