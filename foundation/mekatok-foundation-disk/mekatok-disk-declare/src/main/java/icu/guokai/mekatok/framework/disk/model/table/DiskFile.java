@@ -18,30 +18,29 @@ import lombok.experimental.Accessors;
 @ApiModel("文件对象")
 @TableName("T_DISK_FILE")
 public class DiskFile extends Table<DiskFile> {
-
     private static final long serialVersionUID = 7303959609731870740L;
 
-    @TableField("NAME")
+    @TableField("FILE_NAME")
     @ApiModelProperty("文件名")
-    private String name;
+    private String fileName;
 
     @TableField("ORIGINAL_NAME")
     @ApiModelProperty("原文件名")
     private String originalName;
 
-    @TableField("PARENT")
+    @TableField("FILE_PARENT")
     @ApiModelProperty("父级目录")
-    private String parent;
+    private String fileParent;
 
-    @TableField("ORIGINAL_DIR")
-    @ApiModelProperty("原目录ID(回收站特有)")
-    private String originalDir;
+    @TableField("IS_TRASH")
+    @ApiModelProperty("是否垃圾箱")
+    private Boolean trash;
 
-    @TableField("TYPE")
+    @TableField("FILE_TYPE")
     @ApiModelProperty("文件类型")
-    private String type;
+    private String fileType;
 
-    @TableField("SIZE")
+    @TableField("FILE_SIZE")
     @ApiModelProperty("文件大小")
-    private String size;
+    private String fileSize;
 }
