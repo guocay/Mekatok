@@ -3,7 +3,7 @@
 
 # external file
 zookeeper/
-redis/
+external/redis/
 
 # Redis dump
 dump.rdb

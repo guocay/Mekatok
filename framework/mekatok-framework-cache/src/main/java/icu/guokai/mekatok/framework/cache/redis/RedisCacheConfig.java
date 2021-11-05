@@ -1,10 +1,15 @@
 package icu.guokai.mekatok.framework.cache.redis;
 
 import cn.hutool.extra.spring.SpringUtil;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import icu.guokai.mekatok.framework.cache.key.CacheKeyGenerator;
 import icu.guokai.mekatok.framework.cache.redis.deploy.RedisCacheGroup;
 import icu.guokai.mekatok.framework.cache.redis.error.RedisCacheErrorHandler;
@@ -24,6 +29,7 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -55,7 +61,13 @@ public class RedisCacheConfig implements CachingConfigurer {
         var template = new RedisTemplate<String,Object>();
         template.setConnectionFactory(factory);
         template.setKeySerializer(StringRedisSerializer.UTF_8);
-        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        var serializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
+        serializer.setObjectMapper(
+                new ObjectMapper().registerModules(new ParameterNamesModule(), new Jdk8Module(), new JavaTimeModule())
+                        .enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL)
+                        .setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY)
+        );
+        template.setValueSerializer(serializer);
         // todo 如果存在空的属性,使用默认值.
         template.afterPropertiesSet();
         return template;
