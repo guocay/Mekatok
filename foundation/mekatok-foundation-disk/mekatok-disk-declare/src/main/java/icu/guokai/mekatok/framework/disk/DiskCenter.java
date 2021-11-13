@@ -136,10 +136,19 @@ public abstract class DiskCenter {
      * @param fileId 目录主键
      * @return 文件对象
      */
-    public static DiskFileTran file(String fileId){
-        var diskFile = new DiskFile().setId(fileId).detail();
+    public static DiskFileTran download(String fileId){
+        var diskFile = file(fileId);
         Assertions.assertThat(diskFile).hasId();
         return new DiskFileTran().setFileName(diskFile.getOriginalName()).setFile(new File(Global.RESOURCE_FILE_PATH + diskFile.getFileName()));
+    }
+
+    /**
+     * 获取文件数据库对象
+     * @param fileId 目录主键
+     * @return 文件对象
+     */
+    public static DiskFile file(String fileId){
+        return new DiskFile().setId(fileId).detail();
     }
 
 }

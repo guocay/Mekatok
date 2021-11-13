@@ -1,7 +1,7 @@
 package icu.guokai.mekatok.framework.disk.route;
 
 import icu.guokai.mekatok.framework.core.route.Router;
-import icu.guokai.mekatok.framework.core.route.support.SimpleCreateSupport;
+import icu.guokai.mekatok.framework.core.route.support.SimpleCrudSupport;
 import icu.guokai.mekatok.framework.disk.DiskCenter;
 import icu.guokai.mekatok.framework.disk.DiskModuleInfo;
 import icu.guokai.mekatok.framework.disk.model.table.DiskDirectory;
@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 @SuppressWarnings("all")
 @Api(tags = "磁盘相关接口路由")
 @RequestMapping(DiskModuleInfo.MODULE_ROUTE_URI + "/disk")
-public class DiskRouter extends Router implements SimpleCreateSupport<DiskDirectory> {
+public class DiskRouter extends Router implements SimpleCrudSupport<DiskDirectory> {
 
     @ApiOperation(value = "上传文件", notes = "上传至默认目录")
     @PostMapping(value = "/file",consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
@@ -66,5 +66,6 @@ public class DiskRouter extends Router implements SimpleCreateSupport<DiskDirect
     public ResponseEntity<Boolean> dirToTrash(@ApiParam("目录ID") @PathVariable(value = "dirId") String dirId){
         return script(() -> DiskCenter.fileToTrash(dirId));
     }
+
 
 }
