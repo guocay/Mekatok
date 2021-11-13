@@ -32,7 +32,16 @@ public interface SimpleDeleteSupport <T extends Table<T>> extends WebMvcMessageS
     @ApiOperation(value = "简单增删改查-删除",notes = "用于删除数据")
     @ApiImplicitParam(name = "id", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)
     default ResponseEntity<Boolean> delete(@PathVariable("id") String id){
-        return script(creation(id)::delete);
+        return script(creation(deleteBefore(id))::delete);
+    }
+
+    /**
+     * 删除的前置处理,用于实现类的重写
+     * @param id 主键
+     * @return 主键
+     */
+    default String deleteBefore(String id){
+        return id;
     }
 
     /**

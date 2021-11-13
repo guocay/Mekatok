@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 平台内单表的查询操作扩展
@@ -35,7 +36,7 @@ public interface SimpleRetrieveSupport<T extends Table<T>> extends WebMvcMessage
     @ApiOperation(value = "简单增删改查-详情",notes = "用于查询数据通过ID")
     @ApiImplicitParam(name = "id", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)
     default ResponseEntity<T> detail(@PathVariable("id") String id){
-        return script(creation(id)::detail);
+        return success(queryAfter(creation(id).detail()));
     }
 
     /**
@@ -47,7 +48,27 @@ public interface SimpleRetrieveSupport<T extends Table<T>> extends WebMvcMessage
     @ApiOperationSupport(order = Integer.MIN_VALUE+4)
     @ApiOperation(value = "简单增删改查-分页",notes = "用于查询数据通过分页")
     default ResponseEntity<List<T>> page(@Validated(VerifyGroup.QUERY.class) T bean){
-        return script(bean::selectPage);
+        var page = bean.selectPage();
+        page.setRecords(forEach(page.getRecords()));
+        return script(() -> page);
+    }
+
+    /**
+     * 查询的前置处理,用于实现类的重写
+     * @param bean 查询对象
+     * @return 查询对象
+     */
+    default T queryAfter(T bean){
+        return bean;
+    }
+
+    /**
+     * 循环处理返回数据
+     * @param list 返回的数据
+     * @return 返回的数据
+     */
+    private List<T> forEach(List<T> list){
+        return list.stream().map(this::queryAfter).collect(Collectors.toList());
     }
 
     /**

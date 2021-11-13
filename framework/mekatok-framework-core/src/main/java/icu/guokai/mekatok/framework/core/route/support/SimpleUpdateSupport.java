@@ -26,6 +26,15 @@ public interface SimpleUpdateSupport <T extends Table<T>> extends WebMvcMessageS
     @ApiOperationSupport(order = Integer.MIN_VALUE + 3)
     @ApiOperation(value = "简单增删改查-更新",notes = "用于更新数据")
     default ResponseEntity<Boolean> update(@Validated(VerifyGroup.UPDATE.class) T bean){
-        return script(bean::update);
+        return script(updateBefore(bean)::update);
+    }
+
+    /**
+     * 更新的前置处理,用于实现类的重写
+     * @param bean 更新对象
+     * @return 更新对象
+     */
+    default T updateBefore(T bean){
+        return bean;
     }
 }

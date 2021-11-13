@@ -25,7 +25,17 @@ public interface SimpleCreateSupport <T extends Table<T>> extends WebMvcMessageS
     @PostMapping
     @ApiOperationSupport(order = Integer.MIN_VALUE)
     @ApiOperation(value = "简单增删改查-添加",notes = "用于添加数据")
-    default ResponseEntity<Boolean> insert(@Validated(VerifyGroup.ADD.class) T bean){
-        return script(bean::insert);
+    default ResponseEntity<T> insert(@Validated(VerifyGroup.ADD.class) T bean){
+        return script(insertBefore(bean)::insert);
     }
+
+    /**
+     * 新增函数的前置处理,用于实现类重写
+     * @param bean 新增对象
+     * @return 新增对象
+     */
+    default T insertBefore(T bean){
+        return bean;
+    }
+
 }
