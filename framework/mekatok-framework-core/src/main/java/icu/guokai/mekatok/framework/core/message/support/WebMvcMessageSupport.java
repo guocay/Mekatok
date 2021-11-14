@@ -12,11 +12,13 @@ import icu.guokai.mekatok.framework.core.mistake.MistakeCode;
 import icu.guokai.mekatok.framework.tool.servlet.ServletUtil;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -27,7 +29,7 @@ import java.util.function.Supplier;
  * @author GuoKai
  * @date 2021/8/13
  */
-@SuppressWarnings({"rawtypes"})
+@SuppressWarnings({"rawtypes", "unchecked"})
 public interface WebMvcMessageSupport extends MessageSupport {
 
     /**
@@ -98,7 +100,6 @@ public interface WebMvcMessageSupport extends MessageSupport {
      * @param status 状态
      * @return 返回对象
      */
-    @SuppressWarnings("unchecked")
     default <T> ResponseEntity<T> success(T body, MultiValueMap<String, String> headers, HttpStatus status){
         Object data = body;
         String current ="1", size = "-1", total = "1";
@@ -119,6 +120,20 @@ public interface WebMvcMessageSupport extends MessageSupport {
         headers.set(Global.DATA_SIZE_MARK, size);
         headers.set(Global.DATA_TOTAL_MARK, total);
         return WebMvcMessageUtil.receipt(DEFAULT_MES.clone().setData(data), headers, status);
+    }
+
+    /**
+     * 文件下载
+     * @param fileName 文件名称
+     * @param file 文件
+     * @return 下载对象
+     */
+    default ResponseEntity downloadFile(String fileName, byte[] file){
+        var header = new HttpHeaders();
+        header.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        header.add(HttpHeaders.CONTENT_DISPOSITION, String.format("attachment;filename=%s",
+                new String(fileName.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1)));
+        return new ResponseEntity(file, header, HttpStatus.OK);
     }
 
     /**
@@ -182,7 +197,6 @@ public interface WebMvcMessageSupport extends MessageSupport {
      * @param status 状态
      * @return 返回对象
      */
-    @SuppressWarnings("unchecked")
     default <T, F extends Throwable> ResponseEntity<T> failure(F mistake, MultiValueMap<String, String> headers, HttpStatus status){
         mistake = Optional.ofNullable(mistake).orElse((F) DEFAULT_EX);
         var exCode = AnnotationUtil.<String>getAnnotationValue(mistake.getClass(),MistakeCode.class);

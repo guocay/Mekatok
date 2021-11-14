@@ -23,9 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserRouter extends Router implements SimpleCrudSupport<User> {
 
     @Override
-    public ResponseEntity<Boolean> insert(User bean) {
-        bean.setPassword(Global.ENCODER.encode(bean.getPassword()));
-        return SimpleCrudSupport.super.insert(bean);
+    public User insertBefore(User bean) {
+        return bean.setPassword(Global.ENCODER.encode(bean.getPassword()));
     }
-
 }

@@ -23,5 +23,5 @@ public class DiskFileTran implements Transport {
     private String fileName;
 
     @ApiModelProperty("文件对象")
-    private File file;
+    private byte[] file;
 }

@@ -1,7 +1,7 @@
 package icu.guokai.mekatok.framework.disk.route;
 
 import icu.guokai.mekatok.framework.core.route.Router;
-import icu.guokai.mekatok.framework.core.route.support.SimpleCrudSupport;
+import icu.guokai.mekatok.framework.core.route.support.SimpleCreateSupport;
 import icu.guokai.mekatok.framework.disk.DiskCenter;
 import icu.guokai.mekatok.framework.disk.DiskModuleInfo;
 import icu.guokai.mekatok.framework.disk.model.table.DiskDirectory;
@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+
 /**
  * 磁盘相关接口路由
  * @author GuoKai
@@ -24,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 @SuppressWarnings("all")
 @Api(tags = "磁盘相关接口路由")
 @RequestMapping(DiskModuleInfo.MODULE_ROUTE_URI + "/disk")
-public class DiskRouter extends Router implements SimpleCrudSupport<DiskDirectory> {
+public class DiskRouter extends Router implements SimpleCreateSupport<DiskDirectory> {
 
     @ApiOperation(value = "上传文件", notes = "上传至默认目录")
     @PostMapping(value = "/file",consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
@@ -67,5 +68,12 @@ public class DiskRouter extends Router implements SimpleCrudSupport<DiskDirector
         return script(() -> DiskCenter.fileToTrash(dirId));
     }
 
+    @GetMapping("/file/{fileId}")
+    @ApiOperation(value = "下载文件",notes = "用于下载文件")
+    @ApiImplicitParam(name = "fileId", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)
+    public ResponseEntity download(@ApiParam("文件ID") @PathVariable(value = "fileId") String fileId){
+        var file = DiskCenter.download(fileId);
+        return downloadFile(file.getFileName(), file.getFile());
+    }
 
 }
