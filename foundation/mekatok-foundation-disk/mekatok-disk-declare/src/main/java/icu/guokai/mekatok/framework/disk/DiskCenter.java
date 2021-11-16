@@ -139,7 +139,7 @@ public abstract class DiskCenter {
     public static DiskFileTran download(String fileId){
         var diskFile = file(fileId);
         Assertions.assertThat(diskFile).hasId();
-        return new DiskFileTran().setOriginalName(diskFile.getFileName()).setFileName(diskFile.getFileName())
+        return new DiskFileTran().setOriginalName(diskFile.getOriginalName()).setFileName(diskFile.getFileName())
                 .setFile(FileUtil.readBytes(Global.RESOURCE_FILE_PATH + diskFile.getFileName()));
     }
 
