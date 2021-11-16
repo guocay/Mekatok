@@ -1,14 +1,13 @@
-import routes from './config/routes';
-import layout from './config/layouts';
+import routes from './config/routers.config';
 import { defineConfig } from 'umi';
 
 export default defineConfig({
   base: '/',
   mfsu: {},
+  // mock: false,
   title: process.env.APP_NAME,
   favicon: 'favicon.ico',
-  routes: routes,
-  layout: layout,
+  routes: [routes],
   nodeModulesTransform: {
     type: 'none',
   },
@@ -23,6 +22,7 @@ export default defineConfig({
     dataField: 'data'
   },
   locale:{
+    default: 'zh-CN',
     antd: true
   }
 });
