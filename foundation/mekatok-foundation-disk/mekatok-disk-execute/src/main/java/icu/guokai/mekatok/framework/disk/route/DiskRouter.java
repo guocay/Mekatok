@@ -1,11 +1,14 @@
 package icu.guokai.mekatok.framework.disk.route;
 
+import cn.hutool.core.io.FileUtil;
+import icu.guokai.mekatok.framework.core.constant.Global;
 import icu.guokai.mekatok.framework.core.route.Router;
 import icu.guokai.mekatok.framework.core.route.support.SimpleCreateSupport;
 import icu.guokai.mekatok.framework.disk.DiskCenter;
 import icu.guokai.mekatok.framework.disk.DiskModuleInfo;
 import icu.guokai.mekatok.framework.disk.model.table.DiskDirectory;
 import icu.guokai.mekatok.framework.disk.model.table.DiskFile;
+import icu.guokai.mekatok.framework.tool.word.WordUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -14,6 +17,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 
 
 /**
@@ -68,12 +73,23 @@ public class DiskRouter extends Router implements SimpleCreateSupport<DiskDirect
         return script(() -> DiskCenter.fileToTrash(dirId));
     }
 
-    @GetMapping("/file/{fileId}")
-    @ApiOperation(value = "下载文件",notes = "用于下载文件")
+    @GetMapping(value = "/file/{fileId}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @ApiOperation(value = "下载文件",notes = "用于下载文件", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     @ApiImplicitParam(name = "fileId", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)
     public ResponseEntity download(@ApiParam("文件ID") @PathVariable(value = "fileId") String fileId){
         var file = DiskCenter.download(fileId);
-        return downloadFile(file.getFileName(), file.getFile());
+        return downloadFile(file.getOriginalName(), file.getFile());
+    }
+
+    @GetMapping(value = "/file/pdf/{fileId}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @ApiOperation(value = "下载文件-PDF版",notes = "用于下载word文件的PDF版", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @ApiImplicitParam(name = "fileId", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)
+    public ResponseEntity downloadPDF(@ApiParam("文件ID") @PathVariable(value = "fileId") String fileId){
+        var file = DiskCenter.download(fileId);
+        var tmpFileName = String.format("%s.pdf", file.getOriginalName());
+        var tmpFilePath = String.format("%s%s%s", FileUtil.getTmpDirPath(), File.separator, tmpFileName);
+        WordUtil.convertDocxToPDF(String.format("%s%s", Global.RESOURCE_FILE_PATH, file.getFileName()), tmpFilePath);
+        return downloadFile(tmpFileName, FileUtil.readBytes(tmpFilePath));
     }
 
 }

@@ -19,8 +19,11 @@ import java.io.File;
 public class DiskFileTran implements Transport {
     private static final long serialVersionUID = -3956123398561188070L;
 
-    @ApiModelProperty("原文件名")
+    @ApiModelProperty("文件名")
     private String fileName;
+
+    @ApiModelProperty("原文件名")
+    private String originalName;
 
     @ApiModelProperty("文件对象")
     private byte[] file;

@@ -47,6 +47,7 @@
         <mekatok.version>${project.version}</mekatok.version>
         <jna.version>5.7.0</jna.version>
         <oshi.version>5.6.0</oshi.version>
+        <aspose.version>20.11</aspose.version>
         <hutool.version>5.7.15</hutool.version>
         <forest.version>1.5.11</forest.version>
         <knife4j.version>2.0.8</knife4j.version>
@@ -309,6 +310,13 @@
                 <artifactId>liteflow-script-groovy</artifactId>
                 <version>${liteflow.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.aspose</groupId>
+                <artifactId>aspose-words</artifactId>
+                <version>${aspose.version}</version>
+                <classifier>jdk17</classifier>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -327,6 +335,14 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://repository.aspose.com/repo/</url>
+        </repository>
+    </repositories>
 
     <developers>
         <developer>

@@ -18,6 +18,7 @@ import org.springframework.util.MultiValueMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Optional;
@@ -132,7 +133,7 @@ public interface WebMvcMessageSupport extends MessageSupport {
         var header = new HttpHeaders();
         header.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         header.add(HttpHeaders.CONTENT_DISPOSITION, String.format("attachment;filename=%s",
-                new String(fileName.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1)));
+                URLEncoder.encode(fileName,StandardCharsets.UTF_8)));
         return new ResponseEntity(file, header, HttpStatus.OK);
     }
 
