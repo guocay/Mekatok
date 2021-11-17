@@ -110,7 +110,7 @@ icu.guokai.mekatok
 |       Hutool       |  5.6.0   |     静态工具类      |
 |       Forest       |  1.5.11  |     函数式http client     |
 |      MyBatis       |  3.5.6   |     持久化工具      |
-|    MyBatis-Plus    |  3.4.2   |   持久化工具扩展    |
+|    MyBatis-Plus    |  3.4.3   |   持久化工具扩展    |
 |      knife4j       |  2.0.8   |   Swagger UI增强    |
 |      Swagger       |  2.10.5  |    在线接口文档     |
 |  flowable-spring   |  6.6.0   |     工作流引擎      |

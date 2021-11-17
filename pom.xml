@@ -58,7 +58,7 @@
         <kingbase8.version>8.2.0</kingbase8.version>
         <springfox.version>2.10.5</springfox.version>
         <reflections.version>0.9.12</reflections.version>
-        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <ganymed-ssh2.version>build210</ganymed-ssh2.version>
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
         <dynamic-datasource.version>3.3.2</dynamic-datasource.version>

@@ -96,7 +96,6 @@ logging:
 mybatis-plus:
   configuration:
     jdbc-type-for-null: null
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
   global-config:
     db-config:
       logic-delete-value: 10001001
