@@ -31,7 +31,7 @@ public interface SimpleRetrieveSupport<T extends Table<T>> extends WebMvcMessage
      * @param id 对象主键
      * @return 对象数据
      */
-    @GetMapping("/{id}")
+    @GetMapping("/data/{id}")
     @ApiOperationSupport(order = Integer.MIN_VALUE + 4)
     @ApiOperation(value = "简单增删改查-详情",notes = "用于查询数据通过ID")
     @ApiImplicitParam(name = "id", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)

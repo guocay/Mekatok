@@ -27,7 +27,7 @@ public interface SimpleDeleteSupport <T extends Table<T>> extends WebMvcMessageS
      * @param id 主键
      * @return 操作成功
      */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/data/{id}")
     @ApiOperationSupport(order = Integer.MIN_VALUE + 1)
     @ApiOperation(value = "简单增删改查-删除",notes = "用于删除数据")
     @ApiImplicitParam(name = "id", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)
