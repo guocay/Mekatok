@@ -12,6 +12,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import icu.guokai.mekatok.framework.core.constant.Global;
+import icu.guokai.mekatok.framework.plugin.json.EnableJsonFormat;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.ErrorPageRegistrar;
 import org.springframework.boot.web.server.ErrorPageRegistry;
@@ -37,18 +39,12 @@ import java.util.List;
  * @date 2021/8/16
  */
 @Configuration
+@EnableJsonFormat
 @SuppressWarnings("all")
 public class WebMvcConfig implements WebMvcConfigurer, ErrorPageRegistrar {
 
-    /**
-     * 用于在序列化时对空值的转换
-     */
-    private static final JsonSerializer<Object> NULL_VALUE_SERIALIZER = new JsonSerializer<Object>() {
-        @Override
-        public void serialize(Object value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-            gen.writeNull();
-        }
-    };
+    @Autowired
+    private ObjectMapper mapper;
 
     /**
      * 注册 消息转换器 至队列
@@ -56,29 +52,7 @@ public class WebMvcConfig implements WebMvcConfigurer, ErrorPageRegistrar {
      */
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.add(0,new MappingJackson2HttpMessageConverter(defaultObjectMapping()));
-    }
-
-    /**
-     * 定义转换映射
-     * @return 转换映射
-     */
-    @Bean
-    public ObjectMapper defaultObjectMapping() {
-        var mapping = new ObjectMapper();
-        // 控制转换为 {}
-        mapping.getSerializerProvider().setNullValueSerializer(NULL_VALUE_SERIALIZER);
-        //加载序列化和反序列化规则
-        var simpleModule = new SimpleModule();
-        simpleModule.addSerializer(LocalTime.class,new LocalTimeSerializer(DateTimeFormatter.ofPattern(Global.TIME_FORMAT)))
-                .addSerializer(LocalDate.class,new LocalDateSerializer(DateTimeFormatter.ofPattern(Global.DATE_FORMAT)))
-                .addSerializer(LocalDateTime.class,new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(Global.DATETIME_FORMAT)))
-                .addDeserializer(LocalTime.class,new LocalTimeDeserializer(DateTimeFormatter.ofPattern(Global.TIME_FORMAT)))
-                .addDeserializer(LocalDate.class,new LocalDateDeserializer(DateTimeFormatter.ofPattern(Global.DATE_FORMAT)))
-                .addDeserializer(LocalDateTime.class,new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(Global.DATETIME_FORMAT)));
-        //注册至映射
-        mapping.registerModule(simpleModule);
-        return mapping;
+        converters.add(0,new MappingJackson2HttpMessageConverter(mapper));
     }
 
     /**

@@ -2,7 +2,7 @@
 ### Java template
 
 # external file
-zookeeper/
+external/zookeeper/
 external/redis/
 
 # Redis dump
