@@ -1,6 +1,8 @@
 package icu.guokai.mekatok.framework.cache;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -45,14 +47,26 @@ public abstract class CacheCenter {
      * @param <T> 缓存的值的类型
      * @return 缓存的值
      */
-    public static <T extends Serializable> T get(String cache, String key){
+    public static Object get(String cache, String key){
         var value = cache(cache).get(key);
         if (ObjectUtil.isNull(value)){
             return null;
         }
-        return (T) value.get();
+        return value.get();
     }
 
+    /**
+     * 在指定缓存集合中取出缓存数据
+     * @param cache 缓存集合
+     * @param key 缓存的键
+     * @param <T> 缓存的值的类型
+     * @return 缓存的值
+     */
+    public static <T extends Serializable> T get(String cache, String key, Class<T> clazz){
+        var value = ReflectUtil.newInstance(clazz);
+        BeanUtil.copyProperties(get(cache, key), value);
+        return value;
+    }
     /**
      * 删除指定缓存集合中的数据.
      * @param cache 缓存集合

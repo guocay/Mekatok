@@ -23,7 +23,7 @@ public class SimpleSecurityUserCache implements UserCache {
      */
     @Override
     public SecurityUser getUserFromCache(String username) {
-        return CacheCenter.<SecurityUser>get(Global.SECURITY_USER_CACHE, username);
+        return CacheCenter.get(Global.SECURITY_USER_CACHE, username, SecurityUser.class);
     }
 
     /**
