@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @Data
 @Accessors
 @ApiModel("消息对象")
+@SuppressWarnings("all")
 public class Message<T> implements Cloneable{
 
     @ApiModelProperty("数据")
@@ -48,14 +49,13 @@ public class Message<T> implements Cloneable{
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public Message<T> clone(){
         try {
-            return (Message<T>) super.clone();
+            var message = (Message<T>) super.clone();
+            return message.setTimestamp(LocalDateTime.now());
         } catch (CloneNotSupportedException e) {
             throw new MekatokException("",e);
         }
     }
-
 
 }
