@@ -2,6 +2,8 @@
 
 # 以下为V3版README文档
 
+# 详情可查看V3分支
+
 ------------------------
 
 ![img](./document/static/logo.png)
