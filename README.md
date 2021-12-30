@@ -2,11 +2,9 @@
 
 # 以下为V3版README文档
 
-
-
 ------------------------
 
-![img](file:///Users/guokai/Documents/WorkSpace/Mekatok-v3/document/static/logo.png)
+![img](./document/static/logo.png)
 
 
 
@@ -45,7 +43,7 @@ Mekatok的名字来源于网络游戏"魔兽世界"中,联盟阵营侏儒领袖-
 
 
 
-![img](file:///Users/guokai/Documents/WorkSpace/Mekatok-v3/document/static/architecture.jpg)
+![img](./document/static/architecture.jpg)
 
 
 
@@ -142,7 +140,7 @@ icu.guokai.mekatok
 
 项目启动后,除正常的启动Springboot应用外.还默认集成并配置了异步任务支持,路由环绕打印,主机序列号校验,客户端IP校验,MVC异常统一处理,http与https双通道监听,Mybatis增强与动态数据源,SpringUtil增强,Swagger与knife4j开启与配置;
 
-## 帮助文档
+## 帮助文档 (链接失效, 请前往V3分支查看.)
 
 - [Mekatok平台中ActiveRecord模式使用方法](./document/Mekatok平台中ActiveRecord模式使用方法.md)
 - [Mekatok平台中Cache的使用方法](./document/Mekatok平台中Cache的使用方法.md)
