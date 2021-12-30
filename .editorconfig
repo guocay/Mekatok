@@ -1,0 +1,10 @@
+root = true
+
+[*]
+charset = utf-8
+
+[*.java]
+
+[{*.ant,*.fxml,*.jhm,*.jnlp,*.jrxml,*.pom,*.rng,*.tld,*.wadl,*.wsdd,*.wsdl,*.xjb,*.xml,*.xsd,*.xsl,*.xslt,*.xul}]
+
+[{*.yaml,*.yml}]

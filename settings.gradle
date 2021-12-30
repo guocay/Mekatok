@@ -1,0 +1,9 @@
+rootProject.name = 'Mekatok'
+
+include 'framework-core'
+include 'framework-common'
+include 'framework-cache'
+include 'framework-queue'
+include 'framework-config'
+include 'framework-discovery'
+

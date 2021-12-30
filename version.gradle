@@ -1,0 +1,9 @@
+ext {
+    target_jdk_version = '17'
+    lombok_version = '1.18.16'
+    spring_boot_version = '2.4.2'
+    spring_cloud_version = '2020.0.1'
+    spring_cloud_alibaba_version = '2021.1'
+    hutool_version = '5.7.18'
+    io_spring_dependency_management_version = '1.0.10.RELEASE'
+}
