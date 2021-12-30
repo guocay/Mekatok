@@ -1,3 +1,0 @@
-# auto configure
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  icu.guokai.mekatok.framework.dic.DicAutoConfiguration

@@ -1,7 +1,0 @@
-info:
-  application:
-    netty:
-      port: 9999
-spring:
-  banner:
-    location: classpath:banner/banner.txt
