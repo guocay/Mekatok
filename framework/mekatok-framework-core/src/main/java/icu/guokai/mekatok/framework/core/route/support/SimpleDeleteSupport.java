@@ -3,8 +3,11 @@ package icu.guokai.mekatok.framework.core.route.support;
 import cn.hutool.core.util.ClassUtil;
 import cn.hutool.core.util.ReflectUtil;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
+import icu.guokai.mekatok.framework.core.event.EventCenter;
 import icu.guokai.mekatok.framework.core.message.support.WebMvcMessageSupport;
 import icu.guokai.mekatok.framework.core.model.domain.Table;
+import icu.guokai.mekatok.framework.core.route.support.event.Commands;
+import icu.guokai.mekatok.framework.core.route.support.event.DataCommandEvent;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +35,12 @@ public interface SimpleDeleteSupport <T extends Table<T>> extends WebMvcMessageS
     @ApiOperation(value = "简单增删改查-删除",notes = "用于删除数据")
     @ApiImplicitParam(name = "id", value = "主键", paramType = "path", required = true, dataTypeClass = String.class)
     default ResponseEntity<Boolean> delete(@PathVariable("id") String id){
-        return script(creation(deleteBefore(id))::delete);
+        return script((() -> {
+            var bean = creation(deleteBefore(id));
+            var success = bean.delete();
+            EventCenter.publish(new DataCommandEvent(bean, Commands.DELETE));
+            return success;
+        }));
     }
 
     /**

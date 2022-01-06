@@ -2,8 +2,11 @@ package icu.guokai.mekatok.framework.core.route.support;
 
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import icu.guokai.mekatok.framework.core.constant.jsr303.VerifyGroup;
+import icu.guokai.mekatok.framework.core.event.EventCenter;
 import icu.guokai.mekatok.framework.core.message.support.WebMvcMessageSupport;
 import icu.guokai.mekatok.framework.core.model.domain.Table;
+import icu.guokai.mekatok.framework.core.route.support.event.Commands;
+import icu.guokai.mekatok.framework.core.route.support.event.DataCommandEvent;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -26,7 +29,11 @@ public interface SimpleUpdateSupport <T extends Table<T>> extends WebMvcMessageS
     @ApiOperationSupport(order = Integer.MIN_VALUE + 3)
     @ApiOperation(value = "简单增删改查-更新",notes = "用于更新数据")
     default ResponseEntity<Boolean> update(@Validated(VerifyGroup.UPDATE.class) T bean){
-        return script(updateBefore(bean)::update);
+        return script((() -> {
+            updateBefore(bean).update();
+            EventCenter.publish(new DataCommandEvent(bean, Commands.UPDATE));
+            return bean;
+        }));
     }
 
     /**
