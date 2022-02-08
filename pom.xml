@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.guokaia</groupId>
+    <artifactId>mekatok</artifactId>
+    <version>2022.02</version>
+
+    <packaging>pom</packaging>
+    <inceptionYear>2022</inceptionYear>
+    <description>Mekatok框架微服务版本</description>
+
+    <properties>
+        <maven.test.skip>true</maven.test.skip>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <mekatok.version>${project.version}</mekatok.version>
+        <jar.output.path>/Users/guokai/Workspace/mekatok</jar.output.path>
+        <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
+        <spring.cloud.albaba.version>2.2.7.RELEASE</spring.cloud.albaba.version>
+        <spring.boot.actuator.version>2.3.1</spring.boot.actuator.version>
+        <jna.version>5.10.0</jna.version>
+        <oshi.version>6.1.0</oshi.version>
+        <mysql.version>8.0.22</mysql.version>
+        <hutool.version>5.7.20</hutool.version>
+        <knife4j.version>2.0.9</knife4j.version>
+        <mybatis.version>3.5.9</mybatis.version>
+        <swagger.version>1.5.22</swagger.version>
+        <flowable.version>6.6.0</flowable.version>
+        <easyexcel.version>3.0.5</easyexcel.version>
+        <reflections.version>0.9.11</reflections.version>
+        <mybatis.plus.version>3.5.1</mybatis.plus.version>
+    </properties>
+
+    <modules>
+        <module>mekatok-foundation-core</module>
+        <module>mekatok-foundation-common</module>
+        <module>mekatok-foundation-context</module>
+        <module>mekatok-foundation-jdbc</module>
+        <module>mekatok-foundation-message</module>
+        <module>mekatok-foundation-webmvc</module>
+        <module>mekatok-foundation-webflux</module>
+        <module>mekatok-foundation-websocket</module>
+        <module>mekatok-foundation-openapi</module>
+        <module>mekatok-foundation-junit</module>
+        <module>mekatok-foundation-microservice</module>
+        <module>mekatok-foundation-redis</module>
+        <module>mekatok-platform-oss</module>
+        <module>mekatok-platform-auth</module>
+        <module>mekatok-platform-user</module>
+        <module>mekatok-platform-dic</module>
+        <module>mekatok-platform-gateway</module>
+        <module>mekatok-platform-actuator</module>
+        <module>mekatok-platform-notice</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--Spring Boot, Spring Cloud, Spring Cloud Alibaba-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.albaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--
+                重新定义MySQL的版本是因为在8.0.23版本后,驱动包将把DATATIME通过getObject()默认转换为LocalDateTime.而不是之前的String.
+                如果调用方不做适配,将抛出 ClassCastException(LocaoDateTime -> String).
+                在这里,liquibase是最先中招的.所以,将版本降级. PS: SpringBoot v2.4.2用的就是 8.0.22
+                详情可查看: https://github.com/liquibase/liquibase/issues/1647
+            -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- 平台依赖管理 -->
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-core</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-common</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-context</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-jdbc</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-message</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-webmvc</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-webflux</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-websocket</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-openapi</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-redis</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-junit</artifactId>
+                <version>${mekatok.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guokaia</groupId>
+                <artifactId>mekatok-foundation-microservice</artifactId>
+                <version>${mekatok.version}</version>
+            </dependency>
+
+            <!-- 工具包 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <!-- Swagger 增强 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring.boot.actuator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring.boot.actuator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <includeSystemScope>true</includeSystemScope>
+                    </configuration>
+                </plugin>
+                <!-- 通过 ant 运行 task, 将jar拷贝到 jars 目录 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.8</version>
+                    <executions>
+                        <execution>
+                            <id>copy-jar</id>
+                            <phase>package</phase>
+                            <configuration>
+                                <target>
+                                    <copy file="target/${project.build.finalName}.${project.packaging}"
+                                          tofile="${jar.output.path}/jars/${project.build.finalName}.${project.packaging}" />
+                                </target>
+                            </configuration>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>ali maven</id>
+            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+
+    <developers>
+        <developer>
+            <name>GuoKai</name>
+            <url>guokaia.github.io</url>
+            <email>guokai0727@gmail.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+        </license>
+    </licenses>
+</project>

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.github.guokaia.mekatok.redis.RedisConnectionAutoConfiguration,\
+com.github.guokaia.mekatok.redis.RedisCacheAutoConfiguration

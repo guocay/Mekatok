@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.github.guokaia.mekatok.webmvc.whoami.MyselfRegistration,\
+com.github.guokaia.mekatok.webmvc.GeneralWebMvcConfigurer,\
+com.github.guokaia.mekatok.webmvc.advice.WebExceptionAutoConfiguration

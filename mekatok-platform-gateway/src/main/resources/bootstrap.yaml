@@ -1,0 +1,78 @@
+server:
+  port: 11202
+---
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    logfile:
+      external-file: ${logging.file.name}
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  level:
+    com.github.guokaia.mekatok.gateway: debug
+---
+seata:
+  enabled: false
+  service:
+    grouplist:
+      default: guokai.me:8091
+    vgroup-mapping:
+      default: default
+---
+spring:
+  application:
+    name: mekatok-platform-gateway
+  pid:
+    file: logs/${spring.application.name}.pid
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: default
+    nacos:
+      server-addr: guokai.me:8848
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+      routes:
+        - id: mekatok-platform-dic
+          uri: lb://mekatok-platform-dic
+          predicates:
+            - Path=/mekatok-platform-dic/**
+          filters:
+            - StripPrefix=1
+            - Auth=/api/auth/login
+        - id: mekatok-platform-user
+          uri: lb://mekatok-platform-user
+          predicates:
+            - Path=/mekatok-platform-user/**
+          filters:
+            - StripPrefix=1
+        - id: mekatok-platform-oss
+          uri: lb://mekatok-platform-oss
+          predicates:
+            - Path=/mekatok-platform-oss/**
+          filters:
+            - StripPrefix=1
+        - id: mekatok-platform-auth
+          uri: lb://mekatok-platform-auth
+          predicates:
+            - Path=/mekatok-platform-auth/**
+          filters:
+            - StripPrefix=1
+        - id: mekatok-platform-notice
+          uri: lb:ws://mekatok-platform-notice
+          predicates:
+            - Path=/mekatok-platform-notice/**
+          filters:
+            - StripPrefix=1

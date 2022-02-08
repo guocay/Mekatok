@@ -1,0 +1,39 @@
+{
+  "properties": [
+    {
+      "name": "mekatok.swagger.title",
+      "type": "java.lang.String",
+      "description": "Swagger 分组的标题.",
+      "sourceType": "com.github.guokaia.mekatok.openapi.SwaggerDocketProperties",
+      "defaultValue": "Mekatok"
+    },
+    {
+      "name": "mekatok.swagger.basePackage",
+      "type": "java.lang.String",
+      "description": "Swagger 分组的扫描路径.",
+      "sourceType": "com.github.guokaia.mekatok.openapi.SwaggerDocketProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "mekatok.swagger.version",
+      "type": "java.lang.String",
+      "description": "Swagger 分组的版本.",
+      "sourceType": "com.github.guokaia.mekatok.openapi.SwaggerDocketProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "mekatok.swagger.author",
+      "type": "java.lang.String",
+      "description": "Swagger 分组的著作者.",
+      "sourceType": "com.github.guokaia.mekatok.openapi.SwaggerDocketProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "mekatok.swagger.description",
+      "type": "java.lang.String",
+      "description": "Swagger 分组的备注.",
+      "sourceType": "com.github.guokaia.mekatok.openapi.SwaggerDocketProperties",
+      "defaultValue": ""
+    }
+  ]
+}
