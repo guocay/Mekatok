@@ -36,6 +36,9 @@ spring:
         tx-service-group: default
     nacos:
       server-addr: guokai.me:8848
+    sentinel:
+      transport:
+        dashboard: guokai.me:8858
     gateway:
       globalcors:
         cors-configurations:

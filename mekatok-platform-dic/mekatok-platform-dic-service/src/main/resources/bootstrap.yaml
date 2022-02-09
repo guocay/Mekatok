@@ -20,6 +20,8 @@ spring:
     sentinel:
       log:
         switch-pid: true
+      transport:
+        dashboard: guokai.me:8858
     alibaba:
       seata:
         tx-service-group: default
