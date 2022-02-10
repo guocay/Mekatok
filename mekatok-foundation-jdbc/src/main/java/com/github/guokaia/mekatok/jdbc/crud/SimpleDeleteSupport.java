@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
  * @date 2022/2/2
  */
-public interface SimpleDeleteSupport<T extends Table<T>> extends WebMvcConverter, ViewBuilder<T> {
+public interface SimpleDeleteSupport<T extends Table<T>> extends WebMvcConverter, TableInfoBuilder<T> {
 
     /**
      * 删除单个元素,根据主键

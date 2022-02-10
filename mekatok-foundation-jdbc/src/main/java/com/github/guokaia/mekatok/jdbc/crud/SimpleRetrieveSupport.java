@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
  * @date 2022/2/2
  */
-public interface SimpleRetrieveSupport<T extends Table<T>> extends SimpleViewQuerySupport<T>, ViewBuilder<T> {
+public interface SimpleRetrieveSupport<T extends Table<T>> extends SimpleViewQuerySupport<T>, TableInfoBuilder<T> {
 
     /**
      * 默认的查询单个对象函数

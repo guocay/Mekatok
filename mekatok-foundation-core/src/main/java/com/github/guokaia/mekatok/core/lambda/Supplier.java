@@ -9,8 +9,9 @@ public interface Supplier<T> {
 
     /**
      * Gets a result.
-     *
-     * @return a result
+     * @return result
+     * @throws Throwable 异常
      */
     T get() throws Throwable;
+
 }

@@ -1,8 +1,6 @@
 package com.github.guokaia.mekatok.common.asserts;
 
-import cn.hutool.core.util.ReflectUtil;
 import com.github.guokaia.mekatok.common.asserts.impl.*;
-import com.github.guokaia.mekatok.core.exception.MekatokException;
 import com.github.guokaia.mekatok.core.model.Require;
 import com.github.guokaia.mekatok.core.model.store.Table;
 
@@ -11,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
-import java.util.function.Supplier;
 
 /**
  * 断言功能静态工具类
@@ -21,36 +18,6 @@ import java.util.function.Supplier;
 public class Assertions {
 
     private Assertions(){}
-
-    /**
-     * 定义异常
-     * @param clazz 异常类型
-     * @param <T> 泛型
-     * @return 异常
-     */
-    public static <T extends MekatokException> Supplier<T> ex(Class<T> clazz){
-        return ex(clazz, "");
-    }
-
-    /**
-     * 定义异常
-     * @param message 异常信息
-     * @return 异常
-     */
-    public static Supplier<MekatokException> ex(String message){
-        return ex(MekatokException.class, message);
-    }
-
-    /**
-     * 定义异常
-     * @param clazz 异常类型
-     * @param message 异常信息
-     * @param <T> 泛型
-     * @return 异常
-     */
-    public static <T extends MekatokException> Supplier<T> ex(Class<T> clazz, String message){
-        return () -> ReflectUtil.newInstance(clazz, message);
-    }
 
     /**
      * 获取布尔断言

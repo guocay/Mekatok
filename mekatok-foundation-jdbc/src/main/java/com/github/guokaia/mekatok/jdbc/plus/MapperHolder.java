@@ -1,7 +1,6 @@
 package com.github.guokaia.mekatok.jdbc.plus;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.enums.SqlMethod;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.*;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
@@ -15,12 +14,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.baomidou.mybatisplus.core.enums.SqlMethod.*;
+
 /**
  * 全局Mapper对象
  * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
  * @date 2022/2/4
  */
-@SuppressWarnings("all")
 public class MapperHolder {
 
     private MapperHolder(){}
@@ -48,7 +48,7 @@ public class MapperHolder {
      * @return 是否存在
      */
     public static <T extends Table<T>> Boolean has(T domain){
-        Boolean has = Objects.nonNull(domain.getId());
+        boolean has = Objects.nonNull(domain.getId());
         if(has){
             has = Objects.nonNull(domain = get(domain));
         }
@@ -62,11 +62,11 @@ public class MapperHolder {
      * @return 持久化对象
      */
     public static <T extends Table<T>> T insert(T domain){
-        Class clazz = domain.getClass();
-        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SqlMethod.INSERT_ONE.getMethod());
-        SqlSession seesion = SqlHelper.sqlSession(clazz);
-        seesion.insert(sqlStatement, domain);
-        SqlSessionUtils.closeSqlSession(seesion, GlobalConfigUtils.currentSessionFactory(clazz));
+        Class<?> clazz = domain.getClass();
+        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(INSERT_ONE.getMethod());
+        SqlSession session = SqlHelper.sqlSession(clazz);
+        session.insert(sqlStatement, domain);
+        SqlSessionUtils.closeSqlSession(session, GlobalConfigUtils.currentSessionFactory(clazz));
         return domain;
     }
 
@@ -78,13 +78,13 @@ public class MapperHolder {
      */
     public static <T extends Table<T>> Integer update(T domain){
         Assert.isFalse(StringUtils.checkValNull(domain.getId()), "updateById primaryKey is null.");
-        Class clazz = domain.getClass();
+        Class<?> clazz = domain.getClass();
         Map<Object, Object> map = CollectionUtils.newHashMapWithExpectedSize(1);
         map.put(Constants.ENTITY, domain);
-        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SqlMethod.UPDATE_BY_ID.getMethod());
-        SqlSession seesion = SqlHelper.sqlSession(clazz);
-        Integer row = seesion.update(sqlStatement, map);
-        SqlSessionUtils.closeSqlSession(seesion, GlobalConfigUtils.currentSessionFactory(clazz));
+        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(UPDATE_BY_ID.getMethod());
+        SqlSession session = SqlHelper.sqlSession(clazz);
+        Integer row = session.update(sqlStatement, map);
+        SqlSessionUtils.closeSqlSession(session, GlobalConfigUtils.currentSessionFactory(clazz));
         return row;
     }
 
@@ -96,11 +96,11 @@ public class MapperHolder {
      */
     public static <T extends Table<T>> T get(T domain){
         Assert.isFalse(StringUtils.checkValNull(domain.getId()), "buildById primaryKey is null.");
-        Class clazz = domain.getClass();
-        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SqlMethod.SELECT_BY_ID.getMethod());
-        SqlSession seesion = SqlHelper.sqlSession(clazz);
-        domain = seesion.selectOne(sqlStatement, domain.getId());
-        SqlSessionUtils.closeSqlSession(seesion, GlobalConfigUtils.currentSessionFactory(clazz));
+        Class<?> clazz = domain.getClass();
+        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SELECT_BY_ID.getMethod());
+        SqlSession session = SqlHelper.sqlSession(clazz);
+        domain = session.selectOne(sqlStatement, domain.getId());
+        SqlSessionUtils.closeSqlSession(session, GlobalConfigUtils.currentSessionFactory(clazz));
         return domain;
     }
 
@@ -112,11 +112,11 @@ public class MapperHolder {
      */
     public static <T extends Table<T>> Integer delete(T domain){
         Assert.isFalse(StringUtils.checkValNull(domain.getId()),"deleteById primaryKey is null.");
-        Class clazz = domain.getClass();
-        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SqlMethod.DELETE_BY_ID.getMethod());
-        SqlSession seesion = SqlHelper.sqlSession(clazz);
-        Integer row = seesion.delete(sqlStatement, domain);
-        SqlSessionUtils.closeSqlSession(seesion, GlobalConfigUtils.currentSessionFactory(clazz));
+        Class<?> clazz = domain.getClass();
+        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(DELETE_BY_ID.getMethod());
+        SqlSession session = SqlHelper.sqlSession(clazz);
+        Integer row = session.delete(sqlStatement, domain);
+        SqlSessionUtils.closeSqlSession(session, GlobalConfigUtils.currentSessionFactory(clazz));
         return row;
     }
 
@@ -127,13 +127,13 @@ public class MapperHolder {
      * @return 查询后对象
      */
     public static <T extends View<T>> List<T> list(T domain){
-        Class clazz = domain.getClass();
+        Class<?> clazz = domain.getClass();
         Map<String, Object> map = CollectionUtils.newHashMapWithExpectedSize(1);
         map.put(Constants.WRAPPER, Wrappers.query(domain));
-        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SqlMethod.SELECT_LIST.getMethod());
-        SqlSession seesion = SqlHelper.sqlSession(clazz);
-        List<T> list = seesion.selectList(sqlStatement, map);
-        SqlSessionUtils.closeSqlSession(seesion, GlobalConfigUtils.currentSessionFactory(clazz));
+        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SELECT_LIST.getMethod());
+        SqlSession session = SqlHelper.sqlSession(clazz);
+        List<T> list = session.selectList(sqlStatement, map);
+        SqlSessionUtils.closeSqlSession(session, GlobalConfigUtils.currentSessionFactory(clazz));
         return list;
     }
 
@@ -155,19 +155,19 @@ public class MapperHolder {
      * @return 分页信息
      */
     public static <T extends View<T>> IPage<T> page(T domain, IPage<T> page){
-        Class clazz = domain.getClass();
-        QueryWrapper queryWrapper = Wrappers.query(domain);
+        Class<?> clazz = domain.getClass();
+        QueryWrapper<T> queryWrapper = Wrappers.query(domain);
         Map<String, Object> map = CollectionUtils.newHashMapWithExpectedSize(2);
         map.put(Constants.WRAPPER, queryWrapper);
         map.put("page", page);
-        SqlSession seesion = SqlHelper.sqlSession(clazz);
-        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SqlMethod.SELECT_PAGE.getMethod());
-        page.setRecords(seesion.selectList(sqlStatement, map));
+        SqlSession session = SqlHelper.sqlSession(clazz);
+        String sqlStatement = SqlHelper.table(clazz).getSqlStatement(SELECT_PAGE.getMethod());
+        page.setRecords(session.selectList(sqlStatement, map));
         // 如果不分页, 将记录的条数赋值给总条数.
         if(page.getSize() == -1){
             page.setTotal(page.getRecords().size());
         }
-        SqlSessionUtils.closeSqlSession(seesion, GlobalConfigUtils.currentSessionFactory(clazz));
+        SqlSessionUtils.closeSqlSession(session, GlobalConfigUtils.currentSessionFactory(clazz));
         return page;
     }
 

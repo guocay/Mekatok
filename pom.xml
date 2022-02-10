@@ -13,15 +13,16 @@
     <description>Mekatok框架微服务版本</description>
 
     <properties>
+        <!-- build version -->
         <maven.test.skip>true</maven.test.skip>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <mekatok.version>${project.version}</mekatok.version>
         <jar.output.path>/Users/guokai/Workspace/mekatok</jar.output.path>
-        <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
-        <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
-        <spring.cloud.albaba.version>2.2.7.RELEASE</spring.cloud.albaba.version>
-        <spring.boot.actuator.version>2.3.1</spring.boot.actuator.version>
+        <!-- plugin version -->
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <!-- lib version -->
         <jna.version>5.10.0</jna.version>
         <oshi.version>6.1.0</oshi.version>
         <mysql.version>8.0.22</mysql.version>
@@ -33,6 +34,10 @@
         <easyexcel.version>3.0.5</easyexcel.version>
         <reflections.version>0.9.11</reflections.version>
         <mybatis.plus.version>3.5.1</mybatis.plus.version>
+        <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
+        <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
+        <spring.boot.actuator.version>2.3.1</spring.boot.actuator.version>
+        <spring.cloud.albaba.version>2.2.7.RELEASE</spring.cloud.albaba.version>
     </properties>
 
     <modules>
@@ -189,16 +194,11 @@
             </dependency>
 
             <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${spring.boot.actuator.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-annotation</artifactId>
                 <version>${mybatis.plus.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
@@ -212,7 +212,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>${maven-source-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -227,6 +227,7 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
                     <executions>
                         <execution>
                             <goals>
@@ -242,7 +243,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
-                    <version>1.8</version>
+                    <version>${maven-antrun-plugin.version}</version>
                     <executions>
                         <execution>
                             <id>copy-jar</id>

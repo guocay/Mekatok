@@ -23,6 +23,43 @@ public class Exceptions {
      */
     private Exceptions(){}
 
+    /**
+     * 定义异常
+     * @param clazz 异常类型
+     * @param <T> 泛型
+     * @return 异常
+     */
+    public static <T extends MekatokException> java.util.function.Supplier<T> ex(Class<T> clazz){
+        return ex(clazz, "");
+    }
+
+
+    /**
+     * 定义异常
+     * @param message 异常信息
+     * @return 异常
+     */
+    public static java.util.function.Supplier<MekatokException> ex(String message){
+        return ex(MekatokException.class, message);
+    }
+
+    /**
+     * 定义异常
+     * @param clazz 异常类型
+     * @param message 异常信息
+     * @param <T> 泛型
+     * @return 异常
+     */
+    public static <T extends MekatokException> java.util.function.Supplier<T> ex(Class<T> clazz, String message){
+        return () -> ReflectUtil.newInstance(clazz, message);
+    }
+
+    /**
+     * 静态构建函数
+     * @param clazz
+     * @param <Exception>
+     * @return
+     */
     public static <Exception extends MekatokException> Exception create(Class<Exception> clazz){
         return create(clazz, null);
     }

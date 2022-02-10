@@ -2,6 +2,7 @@ package com.github.guokaia.mekatok.user.service.handler;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.guokaia.mekatok.common.asserts.Assertions;
+import com.github.guokaia.mekatok.common.foreign.Exceptions;
 import com.github.guokaia.mekatok.common.handler.AbstractHandler;
 import com.github.guokaia.mekatok.user.expose.model.table.User;
 import com.github.guokaia.mekatok.user.service.mapper.UserMapper;
@@ -26,8 +27,8 @@ public class UserHandlerImpl extends AbstractHandler implements UserHandler {
     @Override
     public User matches(String loginName, String password) {
         User user = mapper.selectOne(Wrappers.<User>lambdaQuery().eq(User::getLoginName, loginName));
-        Assertions.assertThat(user).as(Assertions.ex("当前用户不存在")).isNotNull();
-        Assertions.assertThat(ENCODER.matches(password, user.getPassword())).as(Assertions.ex("当前用户密码错误")).isTrue();
+        Assertions.assertThat(user).as(Exceptions.ex("当前用户不存在")).isNotNull();
+        Assertions.assertThat(ENCODER.matches(password, user.getPassword())).as(Exceptions.ex("当前用户密码错误")).isTrue();
         return user;
     }
 }
