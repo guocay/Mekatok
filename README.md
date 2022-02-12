@@ -5,7 +5,6 @@
   <br />
 	<img alt="JDK" src="https://img.shields.io/badge/JDK-8-green.svg" />
     <img alt="GitHub" src="https://img.shields.io/github/license/guokaia/mekatok">
-    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/guokaia/mekatok.svg?style=social">
 </p>
 
 ## 简介
@@ -38,7 +37,7 @@ Mekatok的名字来源于网络游戏"魔兽世界"中,联盟阵营侏儒领袖-
 
 ## 项目结构
 
-```shell
+```
 mekatok
  |- docker                                                    # 编排文件
  |- docs                                                      # 编辑器格式设置
