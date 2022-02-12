@@ -5,8 +5,8 @@
   <br />
 	<img alt="JDK" src="https://img.shields.io/badge/JDK-8-green.svg" />
     <img alt="GitHub" src="https://img.shields.io/github/license/guokaia/mekatok">
+    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/guokaia/mekatok.svg?style=social">
 </p>
-
 
 ## 简介
 
@@ -129,6 +129,8 @@ mekatok
     5.  com.github.guokaia.mekatok.notice.service.NoticeApplication
     6.  com.github.guokaia.mekatok.oss.service.OssApplication
     7.  com.github.guokaia.mekatok.user.service.UserApplication
+    
+14. 用户名密码均为: mekatok;
 
 
 ## 开发监控
