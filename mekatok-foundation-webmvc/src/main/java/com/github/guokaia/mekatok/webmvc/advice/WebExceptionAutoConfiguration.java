@@ -4,6 +4,7 @@ import com.github.guokaia.mekatok.core.exception.MekatokException;
 import com.github.guokaia.mekatok.core.model.Foreign;
 import com.github.guokaia.mekatok.webmvc.router.AbstractRouter;
 import com.github.guokaia.mekatok.webmvc.servlet.ServletHolder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,9 +13,9 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 /**
  * 异常拦截器
- * 用于拦截在运行过程中，发生的已知和未知的所有异常。避免返回前台部友善信息。
+ * 用于拦截在运行过程中，发生的已知和未知的所有异常。避免返回前台不友善信息.
  * 在这个类中添加拦截器的时候，一定要注意顺序。因为，异常一旦匹配后，就不会再往下处理，
- * 也就是说，越是子类，就要越靠前。
+ * 也就是说，越是子类，就要越靠前.
  * todo 处理逻辑还没写.
  * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
  * @date 2022/2/3
@@ -22,6 +23,16 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 @RestControllerAdvice
 @Configuration(proxyBeanMethods = false)
 public class WebExceptionAutoConfiguration extends AbstractRouter {
+
+    /**
+     * 应用名称
+     */
+    private final String applicationName;
+
+    public WebExceptionAutoConfiguration(@Value("${spring.application.name:mekatok-application}") String applicationName) {
+        this.applicationName = applicationName;
+    }
+
 
     /**
      * 拦截平台内自定义异常的流程
@@ -32,7 +43,7 @@ public class WebExceptionAutoConfiguration extends AbstractRouter {
     public Foreign<MekatokException> mekatokException(MekatokException ex){
         log.error(ex.getMessage(), ex);
         ServletHolder.getResponse().setStatus(HttpStatus.PRECONDITION_FAILED.value());
-        return fail(ex);
+        return fail(ex, applicationName);
     }
 
     /**

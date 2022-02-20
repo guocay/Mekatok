@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.github.guokaia.mekatok.microservice.OpenFeignAutoConfiguration,\
 com.github.guokaia.mekatok.microservice.OpenFeignMappingAutoConfiguration,\
-com.github.guokaia.mekatok.microservice.OpenFeignMessageConverterConfiguration
+com.github.guokaia.mekatok.microservice.OpenFeignMessageConverterConfiguration,\
+com.github.guokaia.mekatok.microservice.idempotent.WebIdempotentRegistration

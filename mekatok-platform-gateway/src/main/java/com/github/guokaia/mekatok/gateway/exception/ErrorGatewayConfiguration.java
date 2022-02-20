@@ -35,7 +35,6 @@ import java.util.stream.Collectors;
 @EnableConfigurationProperties({ ServerProperties.class, ResourceProperties.class })
 public class ErrorGatewayConfiguration {
 
-
     private final ServerProperties serverProperties;
 
     public ErrorGatewayConfiguration(ServerProperties serverProperties) {

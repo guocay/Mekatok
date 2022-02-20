@@ -1,7 +1,6 @@
 package com.github.guokaia.mekatok.auth.service;
 
 import com.github.guokaia.mekatok.context.MekatokApplication;
-import com.github.guokaia.mekatok.message.redis.EnableRedisMessageQueue;
 import org.springframework.cloud.client.SpringCloudApplication;
 
 /**
@@ -10,7 +9,6 @@ import org.springframework.cloud.client.SpringCloudApplication;
  * @date 2022/2/5
  */
 @SpringCloudApplication
-@EnableRedisMessageQueue
 public class AuthApplication {
     public static void main(String[] args) {
         MekatokApplication.run(AuthApplication.class, args);

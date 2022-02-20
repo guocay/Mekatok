@@ -50,7 +50,7 @@ mekatok
  |- mekatok-foundation-message                                # 消息队列模块
  |- mekatok-foundation-microservice                           # 微服务依赖(事务,流控,RPC)
  |- mekatok-foundation-openapi                                # 开放文档模块
- |- mekatok-foundation-redis                                  # redis模块
+ |- mekatok-foundation-redisson                               # redis模块
  |- mekatok-foundation-webflux                                # 响应模式依赖
  |- mekatok-foundation-webmvc                                 # mvc模式依赖
  |- mekatok-foundation-websocket                              # socket模式依赖

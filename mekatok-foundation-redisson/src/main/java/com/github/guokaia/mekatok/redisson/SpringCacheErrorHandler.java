@@ -1,4 +1,4 @@
-package com.github.guokaia.mekatok.redis;
+package com.github.guokaia.mekatok.redisson;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
@@ -11,7 +11,7 @@ import org.springframework.cache.interceptor.CacheErrorHandler;
  */
 @SuppressWarnings("all")
 @Slf4j
-public class RedisCacheErrorHandler implements CacheErrorHandler {
+public class SpringCacheErrorHandler implements CacheErrorHandler {
 
     /**
      * 获取异常处理

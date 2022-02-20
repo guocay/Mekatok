@@ -17,6 +17,10 @@
             <groupId>com.github.guokaia</groupId>
             <artifactId>mekatok-foundation-webmvc</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.guokaia</groupId>
+            <artifactId>mekatok-foundation-redisson</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

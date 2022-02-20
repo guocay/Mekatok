@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import static com.github.guokaia.mekatok.auth.expose.GeneralApplicationDefinition.JWT_SEPARATOR;
 import static com.github.guokaia.mekatok.common.Global.AUTHENTICATION_MARK;
 import static com.github.guokaia.mekatok.common.Global.BASIC_SERVICE_PATH;
 
@@ -28,10 +27,12 @@ public class AuthMarkGlobalFilter implements GlobalFilter {
         if(request.getURI().getPath().startsWith(BASIC_SERVICE_PATH)){
             try {
                 String token = request.getHeaders().getFirst(Global.JWT_TOKEN);
-                String userId = JwtHolder.payload(token).split(JWT_SEPARATOR)[1];
-                ServerHttpRequest rebuild = request.mutate().header(AUTHENTICATION_MARK, userId).build();
+                ServerHttpRequest rebuild = request.mutate()
+                    .header(AUTHENTICATION_MARK, JwtHolder.payload(token)).build();
                 return chain.filter(exchange.mutate().request(rebuild).build());
-            }catch (Exception ex){}
+            }catch (Exception ex){
+                // Don't do anything.
+            }
         }
         return chain.filter(exchange);
     }

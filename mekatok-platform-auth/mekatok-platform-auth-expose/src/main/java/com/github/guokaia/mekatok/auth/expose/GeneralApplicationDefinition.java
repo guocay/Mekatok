@@ -17,8 +17,4 @@ public class GeneralApplicationDefinition implements ApplicationDefinition {
      */
     public static final String SERVICE_NAME = "mekatok-platform-auth";
 
-    /**
-     * JWT 分隔符
-     */
-    public static final String JWT_SEPARATOR = "-";
 }

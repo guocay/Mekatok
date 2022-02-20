@@ -7,7 +7,7 @@ import com.github.guokaia.mekatok.core.exception.MekatokException;
  * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
  * @date 2022/2/6
  */
-@ExceptionDefinition(code = "M_DATABSE_0001", message = "MyBatis 持久化异常")
+@ExceptionDefinition(code = "M-DATABSE-0001", message = "MyBatis 持久化异常")
 public class DatabaseException extends MekatokException {
     public DatabaseException() {
     }

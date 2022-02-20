@@ -10,6 +10,8 @@ mekatok:
     version: 2022.02
     author: GuoKai
     description: 认证相关服务
+  token-ttl: 30
+
 ---
 spring:
   application:

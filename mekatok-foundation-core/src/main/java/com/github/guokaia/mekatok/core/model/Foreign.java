@@ -20,4 +20,10 @@ public interface Foreign<ExceptionClass extends MekatokException> extends Contai
      * @return 提示文本
      */
     String getMessage();
+
+    /**
+     * 获取错误来自哪个服务器
+     * @return 服务名称
+     */
+    String getServer();
 }

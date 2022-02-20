@@ -1,0 +1,11 @@
+{
+  "properties": [
+    {
+      "name": "mekatok.idempotent.enable",
+      "type": "java.lang.Boolean",
+      "description": "是否开启接口幂等功能",
+      "sourceType": "com.github.guokaia.mekatok.microservice.idempotent.WebIdempotentRegistration",
+      "defaultValue": "false"
+    }
+  ]
+}

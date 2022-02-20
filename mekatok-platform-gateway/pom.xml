@@ -20,6 +20,11 @@
 
         <dependency>
             <groupId>com.github.guokaia</groupId>
+            <artifactId>mekatok-foundation-redisson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.guokaia</groupId>
             <artifactId>mekatok-foundation-microservice</artifactId>
             <exclusions>
                 <exclusion>

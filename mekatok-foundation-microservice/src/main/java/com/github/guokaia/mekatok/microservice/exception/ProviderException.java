@@ -8,7 +8,7 @@ import com.github.guokaia.mekatok.core.exception.MekatokException;
  * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
  * @date 2022/2/2
  */
-@ExceptionDefinition(code = "M_PROVIDER_001", message = "远程调用异常")
+@ExceptionDefinition(code = "M-PROVIDER-001", message = "远程调用异常")
 public class ProviderException extends MekatokException {
     public ProviderException() {
         super();

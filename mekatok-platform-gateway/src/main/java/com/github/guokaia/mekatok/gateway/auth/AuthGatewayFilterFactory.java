@@ -1,22 +1,17 @@
 package com.github.guokaia.mekatok.gateway.auth;
 
+import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.guokaia.mekatok.common.Global;
-import com.github.guokaia.mekatok.common.foreign.GeneralForeign;
-import com.github.guokaia.mekatok.core.exception.MekatokException;
+import com.github.guokaia.mekatok.common.foreign.Exceptions;
+import com.github.guokaia.mekatok.gateway.exception.AuthenticationException;
 import com.github.guokaia.mekatok.gateway.service.provider.AuthServiceProdiver;
 import lombok.Data;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.core.io.buffer.DataBuffer;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
-import org.springframework.web.server.ServerWebExchange;
-import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,10 +32,12 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<AuthG
 
     private static final String SWAGGER_MARK = "/v2/api-docs";
 
+    private static AuthServiceProdiver authService;
 
-    private AuthServiceProdiver authService;
-
-    private ObjectMapper mapper;
+    /**
+     * JSON 转换
+     */
+    private static ObjectMapper mapper;
 
     public AuthGatewayFilterFactory(){
         super(Config.class);
@@ -74,27 +71,12 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<AuthG
                     return chain.filter(exchange);
                 }
             }
-            String tokan = request.getHeaders().getFirst(Global.JWT_TOKEN);
-            Boolean login = authService.checkLogin(tokan).findFirst().getValue();
-            if(!login){
-                return denyAccess(exchange);
+            String token = request.getHeaders().getFirst(Global.JWT_TOKEN);
+            if(StrUtil.isEmpty(token) || !authService.checkLogin(token).findFirst().getValue()){
+                throw Exceptions.create(AuthenticationException.class, "用户未登录!");
             }
             return chain.filter(exchange);
         };
-    }
-
-    /**
-     * 拦截并返回自定义的json字符串
-     */
-    @SneakyThrows
-    private Mono<Void> denyAccess(ServerWebExchange exchange) {
-        ServerHttpResponse response = exchange.getResponse();
-        response.setStatusCode(HttpStatus.UNAUTHORIZED);
-        // 这里在返回头添加编码，否则中文会乱码.
-        response.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
-        byte[] bytes = mapper.writeValueAsBytes(GeneralForeign.of(new MekatokException("用户未登录!")));
-        DataBuffer buffer = response.bufferFactory().wrap(bytes);
-        return response.writeWith(Mono.just(buffer));
     }
 
     @Data

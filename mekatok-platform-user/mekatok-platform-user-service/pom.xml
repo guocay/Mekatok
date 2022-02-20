@@ -36,7 +36,7 @@
         </dependency>
         <dependency>
             <groupId>com.github.guokaia</groupId>
-            <artifactId>mekatok-foundation-redis</artifactId>
+            <artifactId>mekatok-foundation-redisson</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.guokaia</groupId>

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.github.guokaia.mekatok.redisson.RedissonAutoConfiguration,\
+com.github.guokaia.mekatok.redisson.SpringCacheAutoConfiguration

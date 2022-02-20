@@ -1,15 +1,14 @@
 package com.github.guokaia.mekatok.microservice;
 
-import com.github.guokaia.mekatok.common.Global;
-import com.github.guokaia.mekatok.common.foreign.Exceptions;
 import com.github.guokaia.mekatok.common.foreign.GeneralForeign;
 import com.github.guokaia.mekatok.context.json.JsonFormatHolder;
 import com.github.guokaia.mekatok.microservice.exception.ProviderException;
-import feign.Logger;
-import feign.Request;
-import feign.Retryer;
+import feign.*;
 import feign.codec.ErrorDecoder;
+import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
+
+import java.io.IOException;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -20,6 +19,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
  * @date 2022/2/2
  */
+@SuppressWarnings("all")
 public class OpenFeignDefaultConfiguration {
 
     /**
@@ -70,12 +70,13 @@ public class OpenFeignDefaultConfiguration {
      */
     @Bean
     public ErrorDecoder openFeignErrorDecoder(){
-        return (methodKey, response) ->
-                 Exceptions.run(()-> {
-                    byte[] body = feign.Util.toByteArray(response.body().asInputStream());
-                    String messageBody = new String(body, Global.DEFAULT_CHARSET);
-                    GeneralForeign<?> foreign = JsonFormatHolder.get().readValue(messageBody, GeneralForeign.class);
-                    return new ProviderException(String.format("%s: %s", EXCEPTION_MESSAGE, foreign.getMessage()));
-                });
+        return new ErrorDecoder.Default(){
+            @Override
+            @SneakyThrows(IOException.class)
+            public Exception decode(String methodKey, Response response) {
+                GeneralForeign<?> foreign = JsonFormatHolder.get().readValue(Util.toString(response.body().asReader()), GeneralForeign.class);
+                return new ProviderException(foreign.getMessage());
+            }
+        };
     }
 }

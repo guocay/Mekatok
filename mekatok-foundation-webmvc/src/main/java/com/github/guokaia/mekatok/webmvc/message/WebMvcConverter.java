@@ -61,7 +61,19 @@ public interface WebMvcConverter extends Converter {
      * @return 异常传输容器
      */
     default <T extends MekatokException> GeneralForeign<T> fail(T exception){
-        return GeneralForeign.of(exception);
+        return fail(exception, null);
+    }
+
+    /**
+     * 发送错误数据
+     * @param exception 错误信息
+     * @param server 服务名称
+     * @param <T> 错误泛型
+     * @return 异常传输容器
+     */
+    default <T extends MekatokException> GeneralForeign<T> fail(T exception, String server){
+        GeneralForeign<T> foreign = GeneralForeign.of(exception);
+        return foreign.setServer(server);
     }
 
 }

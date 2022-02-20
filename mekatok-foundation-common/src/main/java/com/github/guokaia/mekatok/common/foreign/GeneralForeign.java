@@ -43,6 +43,11 @@ public class GeneralForeign<Exception extends MekatokException> implements Forei
      */
     private LocalDateTime timestamp;
 
+    /**
+     * 错误信息由哪个服务返回
+     */
+    private String server;
+
     @SuppressWarnings("unchecked")
     public GeneralForeign(){
         this((Exception) new MekatokException());

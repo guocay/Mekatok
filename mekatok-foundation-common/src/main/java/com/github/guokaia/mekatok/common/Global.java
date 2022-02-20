@@ -46,14 +46,16 @@ public class Global {
     public static final String JWT_TOKEN = "M-TOKEN";
 
     /**
+     * 幂等保证, 表示Http Header中用于幂等的标识
+     */
+    public static final String IDEMPOTENT_GUARANTEE = "IDEMPOTENT-GUARANTEE";
+
+    /**
      * 分页相关配置
      */
     public static final String PAGE_CURRENT_MARK = "M-PAGE-CURRENT";
     public static final String PAGE_SIZE_MARK = "M-PAGE-SIZE";
     public static final String IS_PAGINATION_MARK = "M-PAGE-PAGINATION";
-    public static final String DATA_TOTAL_MARK = "M-DATA-TOTAL";
-    public static final String DATA_SIZE_MARK = "M-DATA-SIZE";
-    public static final String DATA_CURRENT_MARK = "M-DATA-CURRENT";
 
     /**
      * 线程池相关配置

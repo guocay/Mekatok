@@ -5,6 +5,7 @@ import com.github.guokaia.mekatok.common.foreign.Exceptions;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;
+import net.minidev.json.JSONObject;
 
 /**
  * JWT 的静态操作实现类, 基于nimbus-jose-jwt实现.
@@ -13,6 +14,9 @@ import com.nimbusds.jose.crypto.MACVerifier;
  */
 public class JwtHolder {
 
+    private static final String USER = "user";
+
+    private static final String NOW = "now";
 
     /**
      * jwt的header部分
@@ -22,11 +26,11 @@ public class JwtHolder {
     /**
      * 用于验证签名的对象
      */
-    private static JWSVerifier JWS_VERIFIER;
+    private static final JWSVerifier JWS_VERIFIER;
     /**
      * 用于加密的私钥
      */
-    private static JWSSigner JWS_SIGNER;
+    private static final JWSSigner JWS_SIGNER;
 
     static {
         try {
@@ -41,11 +45,12 @@ public class JwtHolder {
 
     /**
      * 根据 名称 创建jwt字符串
-     * @param detail 内容
+     * @param userId 内容
      * @return jwt
      */
-    public static String create(String detail){
-        Payload payload = new Payload(detail);
+    public static String create(String userId){
+        Payload payload = new Payload(new JSONObject()
+            .appendField(USER, userId).appendField(NOW, System.currentTimeMillis()));
         JWSObject obj = new JWSObject(JWS_HEADER, payload);
         Exceptions.run(() -> obj.sign(JWS_SIGNER));
         return obj.serialize();
@@ -58,7 +63,7 @@ public class JwtHolder {
      */
     public static String payload(String jwt){
         JWSObject obj = Exceptions.run(() -> JWSObject.parse(jwt));
-        return obj.getPayload().toString();
+        return obj.getPayload().toJSONObject().getAsString(USER);
     }
 
     /**

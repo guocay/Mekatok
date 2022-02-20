@@ -30,6 +30,7 @@
         <knife4j.version>2.0.9</knife4j.version>
         <mybatis.version>3.5.9</mybatis.version>
         <swagger.version>1.5.22</swagger.version>
+        <redisson.version>3.16.8</redisson.version>
         <flowable.version>6.6.0</flowable.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <reflections.version>0.9.11</reflections.version>
@@ -52,7 +53,7 @@
         <module>mekatok-foundation-openapi</module>
         <module>mekatok-foundation-junit</module>
         <module>mekatok-foundation-microservice</module>
-        <module>mekatok-foundation-redis</module>
+        <module>mekatok-foundation-redisson</module>
         <module>mekatok-platform-oss</module>
         <module>mekatok-platform-auth</module>
         <module>mekatok-platform-user</module>
@@ -147,7 +148,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.guokaia</groupId>
-                <artifactId>mekatok-foundation-redis</artifactId>
+                <artifactId>mekatok-foundation-redisson</artifactId>
                 <version>${mekatok.version}</version>
             </dependency>
             <dependency>

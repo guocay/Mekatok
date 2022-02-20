@@ -1,6 +1,6 @@
 package com.github.guokaia.mekatok.message.redis;
 
-import com.github.guokaia.mekatok.redis.RedisCacheHolder;
+import com.github.guokaia.mekatok.redisson.RedissonHolder;
 
 /**
  * redis 消息队列的静态工具类
@@ -17,7 +17,7 @@ public class RedisMessageQueueHolder {
      * @param message 消息
      */
     public static void convertAndSend(String channel,String message){
-        RedisCacheHolder.redisTemplate().convertAndSend(channel,message);
+        RedissonHolder.getClient().getTopic(channel).publish(message);
     }
 
 }
