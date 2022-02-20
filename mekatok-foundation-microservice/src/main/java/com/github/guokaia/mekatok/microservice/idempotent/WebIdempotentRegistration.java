@@ -97,6 +97,8 @@ public class WebIdempotentRegistration {
          */
         private void denyAccess(HttpServletResponse response) throws IOException {
             GeneralForeign foreign = GeneralForeign.of(Exceptions.create(IdempotentException.class), HttpStatus.FORBIDDEN);
+            response.setStatus(HttpStatus.FORBIDDEN.value());
+            response.setCharacterEncoding(Global.DEFAULT_CHARSET_NAME);
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             response.getWriter().append(JsonFormatHolder.get().writeValueAsString(foreign.setServer(applicationName)));
         }

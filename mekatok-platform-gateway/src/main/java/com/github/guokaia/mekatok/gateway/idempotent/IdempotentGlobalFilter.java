@@ -7,6 +7,7 @@ import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.core.Ordered;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
@@ -24,7 +25,7 @@ import static com.github.guokaia.mekatok.common.Global.IDEMPOTENT_GUARANTEE;
  */
 @SuppressWarnings("all")
 @Component
-public class IdempotentGlobalFilter implements GlobalFilter {
+public class IdempotentGlobalFilter implements GlobalFilter, Ordered {
 
     /**
      * 分布式幂等缓存
@@ -62,4 +63,8 @@ public class IdempotentGlobalFilter implements GlobalFilter {
         return chain.filter(exchange);
     }
 
+    @Override
+    public int getOrder() {
+        return Ordered.HIGHEST_PRECEDENCE;
+    }
 }
