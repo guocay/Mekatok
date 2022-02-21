@@ -4,7 +4,7 @@ import java.lang.annotation.*;
 
 /**
  * 平台内用于定义 异常的编码
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/27
  */
 @Documented

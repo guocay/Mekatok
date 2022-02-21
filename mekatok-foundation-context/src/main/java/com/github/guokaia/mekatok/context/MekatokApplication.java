@@ -13,7 +13,7 @@ import org.springframework.core.io.ResourceLoader;
  * 除封装了一些启动时的逻辑外,没做任何改变.<br/>
  * <li>修改启动时打印的Banner.</li>
  * <li>记录启动时应用服务的PID信息到文件.</li>
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  */
 public class MekatokApplication extends SpringApplication {
 

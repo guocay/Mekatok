@@ -5,7 +5,7 @@ import com.github.guokaia.mekatok.core.exception.MekatokException;
 
 /**
  * 远程调用异常
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 @ExceptionDefinition(code = "M-PROVIDER-001", message = "远程调用异常")

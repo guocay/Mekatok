@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 /**
  * 异常信息自动配置
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/4
  */
 @Configuration(proxyBeanMethods = false)

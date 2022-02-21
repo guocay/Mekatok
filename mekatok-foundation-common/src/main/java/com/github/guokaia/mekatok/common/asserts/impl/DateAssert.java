@@ -9,7 +9,7 @@ import java.time.Year;
 import java.util.Date;
 
 /**
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 public class DateAssert extends AbstractAssert<DateAssert, Date> {

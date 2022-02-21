@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 
 /**
  * 目录表
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/6
  */
 @Data

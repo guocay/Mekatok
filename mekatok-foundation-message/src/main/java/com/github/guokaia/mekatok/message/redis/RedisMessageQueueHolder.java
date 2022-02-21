@@ -4,7 +4,7 @@ import com.github.guokaia.mekatok.redisson.RedissonHolder;
 
 /**
  * redis 消息队列的静态工具类
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 public class RedisMessageQueueHolder {

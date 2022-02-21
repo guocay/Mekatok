@@ -12,7 +12,7 @@ import static com.github.guokaia.mekatok.common.Global.ENCODER;
 
 /**
  * 用户服务处理器
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/7
  */
 @Service

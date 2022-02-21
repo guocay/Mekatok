@@ -17,7 +17,7 @@ import static com.github.guokaia.mekatok.common.Global.USER_LOGIN_STATUS_CACHE_N
 
 /**
  * 认证服务实现
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/7
  */
 @Service

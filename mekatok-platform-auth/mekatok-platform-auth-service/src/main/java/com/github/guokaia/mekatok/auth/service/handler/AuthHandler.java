@@ -5,7 +5,7 @@ import com.github.guokaia.mekatok.core.handler.IHadnler;
 
 /**
  * 认证服务接口
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/7
  */
 public interface AuthHandler extends IHadnler {

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 /**
  * 平台内单表的更新操作扩展
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 public interface SimpleUpdateSupport<T extends Table<T>> extends WebMvcConverter {

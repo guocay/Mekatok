@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 /**
  * 用于定义所有断言接口的基类
  * 模仿 assertJ 流式断言机制实现的业务级断言工具
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 @SuppressWarnings("all")

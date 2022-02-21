@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * 拷贝自:<br/>
  * spring-security-core包 org.springframework.security.crypto.bcrypt.BCrypt
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/6
  */
 @SuppressWarnings("all")

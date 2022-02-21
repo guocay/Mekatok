@@ -18,7 +18,7 @@ import static com.baomidou.mybatisplus.core.enums.SqlMethod.*;
 
 /**
  * 全局Mapper对象
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/4
  */
 public class MapperHolder {

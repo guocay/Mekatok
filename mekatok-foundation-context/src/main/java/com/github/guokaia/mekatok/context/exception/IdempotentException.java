@@ -5,7 +5,7 @@ import com.github.guokaia.mekatok.core.exception.MekatokException;
 
 /**
  * 幂等异常
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/20
  */
 @ExceptionDefinition(code = "M-IDEMPOTENT-001", message = "触发服务幂等拦截")

@@ -20,7 +20,7 @@ import static com.github.guokaia.mekatok.common.Global.IDEMPOTENT_GUARANTEE;
 
 /**
  * 网关层用于幂等的保证.
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/20
  */
 @SuppressWarnings("all")

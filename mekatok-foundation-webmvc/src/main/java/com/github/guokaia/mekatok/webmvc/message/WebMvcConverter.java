@@ -11,7 +11,7 @@ import com.github.guokaia.mekatok.core.model.Packing;
 
 /**
  * 平台内用于返回WebMvcMessageSupport的扩展支持
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 public interface WebMvcConverter extends Converter {

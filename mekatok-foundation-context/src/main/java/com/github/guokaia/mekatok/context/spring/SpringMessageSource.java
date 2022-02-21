@@ -6,7 +6,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 
 /**
  * 自定义消息服务
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/26
  */
 public class SpringMessageSource extends ResourceBundleMessageSource implements InitializingBean {

@@ -26,7 +26,7 @@ import java.util.List;
 
 /**
  * 配置stomp服务器
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/5
  */
 @SuppressWarnings("all")

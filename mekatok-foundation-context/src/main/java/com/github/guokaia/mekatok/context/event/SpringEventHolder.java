@@ -5,7 +5,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * Spring Event 操作静态工具类
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 @EnableAsync

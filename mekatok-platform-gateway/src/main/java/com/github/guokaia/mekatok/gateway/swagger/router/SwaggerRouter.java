@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * 用于定义 Swagger资源 的映射器
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/31
  */
 @RestController

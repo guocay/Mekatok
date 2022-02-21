@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 
 /**
  * 用于 容器对象的转换静态工具类
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/4
  */
 public class Containers {

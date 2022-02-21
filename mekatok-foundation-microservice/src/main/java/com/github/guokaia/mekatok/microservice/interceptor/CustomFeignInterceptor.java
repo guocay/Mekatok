@@ -12,7 +12,7 @@ import static com.github.guokaia.mekatok.common.Global.IDEMPOTENT_GUARANTEE;
 
 /**
  * 自定义的feign拦截器
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @Component

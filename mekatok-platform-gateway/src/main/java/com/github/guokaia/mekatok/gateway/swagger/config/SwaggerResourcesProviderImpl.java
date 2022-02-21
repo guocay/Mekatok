@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * Swagger 资源配置
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/31
  */
 @Primary

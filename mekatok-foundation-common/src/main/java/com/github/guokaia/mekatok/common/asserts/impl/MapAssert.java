@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 public class MapAssert<K,V> extends AbstractAssert<MapAssert<K,V>, Map<K,V>> {

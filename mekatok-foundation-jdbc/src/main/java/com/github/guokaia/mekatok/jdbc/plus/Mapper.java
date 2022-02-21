@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * 项目中所有Mapper的基类
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 public interface Mapper<T extends View<T>> extends BaseMapper<T> {

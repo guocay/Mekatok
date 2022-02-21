@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.CacheErrorHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,10 +19,11 @@ import java.util.Map;
 
 /**
  * Spring Cache 缓存配置
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/20
  */
 @SuppressWarnings("all")
+@EnableCaching
 @Configuration(proxyBeanMethods = false)
 @AutoConfigureAfter(RedissonAutoConfiguration.class)
 public class SpringCacheAutoConfiguration extends CachingConfigurerSupport implements BeanPostProcessor {

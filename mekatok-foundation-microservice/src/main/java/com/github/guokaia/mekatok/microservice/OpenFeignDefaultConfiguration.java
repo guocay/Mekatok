@@ -16,7 +16,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * 关于 feign 的 默认配置 <br/>
  * 一定不要为 feign 配置默认的 Encoder 和 Decoder, 让它复用{@link org.springframework.http.converter.HttpMessageConverter}<br/>
  * 参考 {@link org.springframework.cloud.openfeign.FeignClientsConfiguration}
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 @SuppressWarnings("all")

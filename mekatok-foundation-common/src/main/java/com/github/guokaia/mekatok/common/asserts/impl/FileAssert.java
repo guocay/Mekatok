@@ -6,7 +6,7 @@ import com.github.guokaia.mekatok.common.asserts.AbstractAssert;
 import java.io.File;
 
 /**
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 public class FileAssert extends AbstractAssert<FileAssert, File> {

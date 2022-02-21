@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 获取容器中用于转换JSON的对象
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @Component

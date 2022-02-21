@@ -5,7 +5,7 @@ import org.springframework.cloud.client.SpringCloudApplication;
 
 /**
  * Gateway 网关应用
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  */
 @SpringCloudApplication
 public class GatewayApplication {

@@ -5,7 +5,7 @@ import com.github.guokaia.mekatok.common.asserts.AbstractAssert;
 import lombok.NonNull;
 
 /**
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 public class ObjectAssert<T> extends AbstractAssert<ObjectAssert<T>, T> {

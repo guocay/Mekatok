@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 /**
  * 异步事件监听
  * 作为 @EventListener 的延伸
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 @Async

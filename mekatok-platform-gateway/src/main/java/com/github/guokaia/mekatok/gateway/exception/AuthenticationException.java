@@ -5,7 +5,7 @@ import com.github.guokaia.mekatok.core.exception.MekatokException;
 
 /**
  * 用户认证失败异常
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/20
  */
 @ExceptionDefinition(code = "M-AUTH-001", message = "用户认证失败")

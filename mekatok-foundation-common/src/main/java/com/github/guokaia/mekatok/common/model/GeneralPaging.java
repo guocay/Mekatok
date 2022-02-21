@@ -13,7 +13,7 @@ import java.util.Objects;
 
 /**
  * 通用的分页对象
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/4
  */
 @Data

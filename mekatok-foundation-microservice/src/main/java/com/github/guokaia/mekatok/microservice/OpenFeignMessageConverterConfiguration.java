@@ -11,7 +11,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 
 /**
  * 消息自动配置
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/8
  */
 @Configuration

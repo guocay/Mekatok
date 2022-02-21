@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 角色权力服务定义
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/6
  */
 @RequestMapping(Global.BASIC_SERVICE_PATH + "/role/power")

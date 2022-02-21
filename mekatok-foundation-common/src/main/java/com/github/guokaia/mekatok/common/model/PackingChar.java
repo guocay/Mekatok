@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 字符串包装壳
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/4
  */
 @Data

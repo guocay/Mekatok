@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 
 /**
  * 用户服务 提供者
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/7
  */
 @FeignClient(GeneralApplicationDefinition.SERVICE_NAME)

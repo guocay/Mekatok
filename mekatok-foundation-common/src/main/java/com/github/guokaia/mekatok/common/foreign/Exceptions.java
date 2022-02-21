@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 /**
  * 异常操作工具类
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/27
  */
 @SuppressWarnings("all")

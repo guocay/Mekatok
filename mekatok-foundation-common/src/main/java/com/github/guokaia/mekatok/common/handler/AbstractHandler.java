@@ -8,7 +8,7 @@ import org.springframework.beans.factory.InitializingBean;
 /**
  * 抽象实现类<br/>
  * 暴露一个 log对象
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 public abstract class AbstractHandler implements IHadnler, InitializingBean {

@@ -17,7 +17,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
  * 在这个类中添加拦截器的时候，一定要注意顺序。因为，异常一旦匹配后，就不会再往下处理，
  * 也就是说，越是子类，就要越靠前.
  * todo 处理逻辑还没写.
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @RestControllerAdvice

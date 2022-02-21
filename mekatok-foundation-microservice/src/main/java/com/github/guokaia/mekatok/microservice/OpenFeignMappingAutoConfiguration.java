@@ -12,7 +12,7 @@ import java.util.Objects;
  * 这个类是为了处理在 @FeignClient 接口中不能使用 @RequestMapping 注解.<br/>
  * PS: 不能用的原因是 RequestMappingHandlerMapping 中 只要是@RequestMapping注解的类都会被添加到映射中.<br/>
  * 所以,这里要重写下里面的 isHandler(), 过滤掉包括 @FeignClient注解的类.
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @SuppressWarnings("all")

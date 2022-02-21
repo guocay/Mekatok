@@ -4,7 +4,7 @@ import cn.hutool.core.util.NumberUtil;
 import com.github.guokaia.mekatok.common.asserts.AbstractAssert;
 
 /**
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 public class NumberAssert<T extends Number> extends AbstractAssert<NumberAssert<T>, T> {

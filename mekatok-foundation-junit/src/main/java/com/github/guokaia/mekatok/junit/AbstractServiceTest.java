@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 /**
  * 抽象的服务测试类, 封装测试的统一逻辑.<br/>
  * 用于测试类继承
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 public abstract class AbstractServiceTest {

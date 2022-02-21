@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * 通用的全局的MVC配置
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @SuppressWarnings("all")

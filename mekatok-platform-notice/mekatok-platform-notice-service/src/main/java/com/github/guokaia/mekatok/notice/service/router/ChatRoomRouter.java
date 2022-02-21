@@ -14,7 +14,7 @@ import java.security.Principal;
  *  连接地址: ws://ip:port/stomp
  *  订阅通道: /user/websocket/chat
  *  推送通道: /chat
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/5
  */
 @RestController

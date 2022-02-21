@@ -3,7 +3,7 @@ package com.github.guokaia.mekatok.webmvc.whoami;
 /**
  * 用于在当前线程中存储用户标识<br/>
  * PS: 一定要在请求的同一线程中获取,否则取不到哦.
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 public class MyselfHolder {
@@ -32,5 +32,5 @@ public class MyselfHolder {
     protected static void remove(){
         THREAD_LOCAL.remove();
     }
-    
+
 }

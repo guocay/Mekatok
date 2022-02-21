@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 /**
  * 数据传输对象 接口
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/27
  */
 public interface Container<T> {

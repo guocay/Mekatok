@@ -1,7 +1,7 @@
 package com.github.guokaia.mekatok.core.lambda;
 
 /**
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @FunctionalInterface

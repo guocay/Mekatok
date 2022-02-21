@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Redisson Cache 持有者
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/20
  */
 @Component

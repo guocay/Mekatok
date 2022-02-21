@@ -14,7 +14,7 @@ import java.io.IOException;
 
 /**
  * 用于将请求中带着的 用户标识 放到当前线程的 ThreadLocal 中.
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @SuppressWarnings("all")

@@ -4,7 +4,7 @@ import com.github.guokaia.mekatok.core.exception.ExceptionDefinition;
 import com.github.guokaia.mekatok.core.exception.MekatokException;
 
 /**
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @ExceptionDefinition(code = "M_COMMON_002", message = "JWT内置对象构建异常")

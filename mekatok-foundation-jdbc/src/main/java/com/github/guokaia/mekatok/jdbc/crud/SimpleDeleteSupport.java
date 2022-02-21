@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * 平台内单表的删除操作扩展
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 public interface SimpleDeleteSupport<T extends Table<T>> extends WebMvcConverter, TableInfoBuilder<T> {

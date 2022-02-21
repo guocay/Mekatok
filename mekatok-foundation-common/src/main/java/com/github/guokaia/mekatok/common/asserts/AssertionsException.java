@@ -5,7 +5,7 @@ import com.github.guokaia.mekatok.core.exception.MekatokException;
 
 /**
  * 业务断言的基础类
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 @ExceptionDefinition(code = "M-ASSERTION-0001", message = "业务断言异常")

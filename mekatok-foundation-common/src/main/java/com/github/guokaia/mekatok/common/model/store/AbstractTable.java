@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  * 抽象的数据库映射对象,平台内的数据库映射对象均需要实现这个方法.<br/>
  * 表名定义: T_{ModuleName}_{DomainName}
  * <li>ModuleName ~ MC: ModuleName 模块核心</li>
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @SuppressWarnings("all")

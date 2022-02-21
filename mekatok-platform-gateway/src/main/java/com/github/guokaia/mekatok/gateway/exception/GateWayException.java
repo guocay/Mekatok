@@ -5,7 +5,7 @@ import com.github.guokaia.mekatok.core.exception.MekatokException;
 
 /**
  * 自定义网关异常
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/4
  */
 @ExceptionDefinition(code = "M-GATEWAY-001",message = "网关路由异常")

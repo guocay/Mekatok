@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * 用于获取分页信息的静态工具类
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 @SuppressWarnings("all")

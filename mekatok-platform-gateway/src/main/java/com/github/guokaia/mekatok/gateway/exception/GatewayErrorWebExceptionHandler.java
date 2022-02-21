@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  * 配置网关的异常处理
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/4
  */
 @SuppressWarnings("all")

@@ -30,7 +30,7 @@ import static com.github.guokaia.mekatok.common.Global.IDEMPOTENT_GUARANTEE;
 
 /**
  * 抗重放, 保证幂等的过滤器
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/20
  */
 @SuppressWarnings("all")

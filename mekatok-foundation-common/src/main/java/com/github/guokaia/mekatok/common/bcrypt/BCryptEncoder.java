@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /**
  * 拷贝自:<br/>
  * spring-security-core包 org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/6
  */
 @SuppressWarnings("all")

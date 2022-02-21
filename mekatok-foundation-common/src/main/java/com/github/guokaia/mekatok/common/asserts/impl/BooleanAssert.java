@@ -4,7 +4,7 @@ import com.github.guokaia.mekatok.common.asserts.AbstractAssert;
 
 /**
  * 布尔值 断言工具
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 public class BooleanAssert extends AbstractAssert<BooleanAssert,Boolean> {

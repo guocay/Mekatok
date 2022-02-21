@@ -9,7 +9,7 @@ import net.minidev.json.JSONObject;
 
 /**
  * JWT 的静态操作实现类, 基于nimbus-jose-jwt实现.
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 public class JwtHolder {

@@ -2,7 +2,7 @@ package com.github.guokaia.mekatok.core.validation;
 
 /**
  * 用于字段校验的分组标识
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 @SuppressWarnings("all")

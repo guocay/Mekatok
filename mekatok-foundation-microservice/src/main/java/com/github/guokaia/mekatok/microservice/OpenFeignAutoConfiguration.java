@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 /**
  * openfeign 的自动配置<br/>
  * 定义的 FeignClient 必须在 **.service.provider 包下,才能被扫描进容器
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/2
  */
 @SuppressWarnings("all")

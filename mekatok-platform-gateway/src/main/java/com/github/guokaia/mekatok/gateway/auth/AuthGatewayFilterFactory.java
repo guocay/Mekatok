@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * 用于标记需要认证的服务,并对服务进行登录验证
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/8
  */
 @SuppressWarnings("all")

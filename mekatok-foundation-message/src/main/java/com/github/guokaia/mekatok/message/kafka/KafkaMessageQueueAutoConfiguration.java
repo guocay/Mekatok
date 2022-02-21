@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  * 配置 kafka 消息队列
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/1
  */
 @SuppressWarnings("all")

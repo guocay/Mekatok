@@ -4,7 +4,7 @@ import com.github.guokaia.mekatok.context.MekatokApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 
 /**
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/5
  */
 @SpringCloudApplication

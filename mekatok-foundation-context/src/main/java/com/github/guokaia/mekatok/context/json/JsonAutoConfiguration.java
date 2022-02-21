@@ -25,7 +25,7 @@ import java.time.LocalTime;
 
 /**
  * 平台内默认的JSON序列化配置
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/3
  */
 @SuppressWarnings("all")

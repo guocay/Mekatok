@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Spring 工具类<br/>
  * 这是一个静态工具类, 请勿实例化使用.
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/26
  */
 @SuppressWarnings("all")

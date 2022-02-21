@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 /**
  * 平台内 所有数据库表映射的接口
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/27
  */
 public interface Table<T extends Table<T>> extends View<T>{

@@ -4,7 +4,7 @@ import java.util.Collection;
 
 /**
  * 传输对象中的分页载体
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/27
  */
 public interface Paging<T extends Packing<T>> extends Container<T> {

@@ -15,7 +15,7 @@ import static com.github.guokaia.mekatok.common.Global.BASIC_SERVICE_PATH;
 /**
  * GateWay global filter, <br/>
  * 用于添加用户主键字段.
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/2/4
  */
 @Component

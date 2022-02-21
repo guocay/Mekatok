@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * 用于将 swagger的doc.html 转发至 根路径
- * @author <a href="mailto:guokai0727@gmail.com">GuoKai</a>
+ * @author GuoKai
  * @date 2022/1/31
  */
 @SuppressWarnings("all")
