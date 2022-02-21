@@ -11,4 +11,10 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CountDownLock {
+
+    /**
+     * 获取锁名称
+     * @return 锁名称
+     */
+    String value();
 }

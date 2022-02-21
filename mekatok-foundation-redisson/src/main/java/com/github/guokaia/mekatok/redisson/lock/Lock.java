@@ -25,18 +25,6 @@ public @interface Lock {
     long autoUnlockSeconds() default -1L;
 
     /**
-     * 等待加锁时间
-     * @return 加锁时间
-     */
-    long awitLockSeconds() default -1L;
-
-    /**
-     * 是否异步执行
-     * @return 是否
-     */
-    boolean isAsync() default false;
-
-    /**
      * 是否公平锁
      * @return 是否
      */

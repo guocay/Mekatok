@@ -11,4 +11,17 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ReadLock {
+
+    /**
+     * 获取锁名称
+     * @return 锁名称
+     */
+    String value();
+
+    /**
+     * 自动开锁时间
+     * @return 开锁时间
+     */
+    long autoUnlockSeconds() default -1L;
+
 }
