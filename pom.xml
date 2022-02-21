@@ -90,7 +90,7 @@
 
             <!--
                 重新定义MySQL的版本是因为在8.0.23版本后,驱动包将把DATATIME通过getObject()默认转换为LocalDateTime.而不是之前的String.
-                如果调用方不做适配,将抛出 ClassCastException(LocaoDateTime -> String).
+                如果调用方不做适配,将抛出 ClassCastException(LocalDateTime -> String).
                 在这里,liquibase是最先中招的.所以,将版本降级. PS: SpringBoot v2.4.2用的就是 8.0.22
                 详情可查看: https://github.com/liquibase/liquibase/issues/1647
             -->

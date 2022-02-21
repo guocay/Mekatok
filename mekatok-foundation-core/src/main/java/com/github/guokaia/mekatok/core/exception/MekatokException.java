@@ -1,5 +1,8 @@
 package com.github.guokaia.mekatok.core.exception;
 
+import java.io.PrintStream;
+import java.io.PrintWriter;
+
 /**
  * 平台自定义异常类
  * @author GuoKai
@@ -25,5 +28,15 @@ public class MekatokException extends RuntimeException {
 
     public MekatokException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
+    }
+
+    @Override
+    public void printStackTrace(PrintWriter s) {
+        super.printStackTrace(s);
+    }
+
+    @Override
+    public void printStackTrace(PrintStream s) {
+        super.printStackTrace(s);
     }
 }
