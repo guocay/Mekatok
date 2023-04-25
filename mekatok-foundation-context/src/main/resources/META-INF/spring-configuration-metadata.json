@@ -1,0 +1,45 @@
+{
+  "properties": [
+    {
+      "name": "mekatok.thread-pool.useForkJoinPool",
+      "type": "java.lang.Boolean",
+      "description": "是否使用ForkJoinPool线程池(为false时,线程池其他配置将失效)",
+      "sourceType": "com.github.guokaia.mekatok.context.thread.ThreadPoolProperties",
+      "defaultValue": "true"
+    },
+    {
+      "name": "mekatok.thread-pool.corePoolSize",
+      "type": "java.lang.Integer",
+      "description": "线程池的核心线程数",
+      "sourceType": "com.github.guokaia.mekatok.context.thread.ThreadPoolProperties",
+      "defaultValue": "16"
+    },
+    {
+      "name": "mekatok.thread-pool.maxPoolSize",
+      "type": "java.lang.Integer",
+      "description": "线程池的最大线程数",
+      "sourceType": "com.github.guokaia.mekatok.context.thread.ThreadPoolProperties",
+      "defaultValue": "16"
+    },
+    {
+      "name": "mekatok.thread-pool.keepAliveSeconds",
+      "type": "java.lang.Integer",
+      "description": "线程池的线程等待时间(秒)",
+      "sourceType": "com.github.guokaia.mekatok.context.thread.ThreadPoolProperties",
+      "defaultValue": "10"
+    },
+    {
+      "name": "mekatok.thread-pool.queueCapacity",
+      "type": "java.lang.Integer",
+      "description": "等待队列大小",
+      "sourceType": "com.github.guokaia.mekatok.context.thread.ThreadPoolProperties",
+      "defaultValue": "32"
+    },
+    {
+      "name": "mekatok.token-ttl",
+      "type": "java.lang.Long",
+      "description": "用户Token和服务幂等有效期(分钟)",
+      "defaultValue": "30"
+    }
+  ]
+}

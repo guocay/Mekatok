@@ -1,0 +1,11 @@
+root = true
+
+[*]
+# 字符集
+charset = utf-8
+
+[*.java]
+# 缩进空格为4个
+indent_size = 4
+# 不保留行末的空格
+trim_trailing_whitespace = true

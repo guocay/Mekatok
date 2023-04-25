@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "spring.redis.redisson.config",
+      "type": "java.lang.String",
+      "description": "redisson配置信息",
+      "sourceType": "com.github.guokaia.mekatok.redisson.RedissonProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.redis.redisson.file",
+      "type": "java.lang.String",
+      "description": "redisson配置文件",
+      "sourceType": "com.github.guokaia.mekatok.redisson.RedissonProperties",
+      "defaultValue": ""
+    }
+  ]
+}

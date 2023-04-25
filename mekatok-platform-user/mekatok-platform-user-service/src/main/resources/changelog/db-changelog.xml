@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="t_mc_user_20220206" author="GuoKai">
+        <createTable tableName="T_MC_USER" remarks="用户表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_mc_user_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="bool" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="LOGIN_NAME" type="varchar(255)" remarks="登录名称" >
+                <constraints unique="true" nullable="false" uniqueConstraintName="t_mc_user_login_name_key"/>
+            </column>
+            <column name="REAL_NAME" type="varchar(255)" remarks="真实名称" />
+            <column name="PASSWORD" type="varchar(255)" remarks="登录名称" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="t_mc_user_20220206_insert" author="GuoKai">
+        <insert tableName="T_MC_USER">
+            <column name="ID" value="mekatok" />
+            <column name="DATA_STATUS" valueBoolean="true" />
+            <column name="CREATOR" value="liquibase" />
+            <column name="CREATE_TIME" valueComputed="current_timestamp" />
+            <column name="UPDATER" value="liquibase" />
+            <column name="UPDATE_TIME" valueComputed="current_timestamp" />
+            <column name="LOGIN_NAME" value="mekatok"/>
+            <column name="REAL_NAME" value="管理员"/>
+            <column name="PASSWORD" value="$2a$10$qoz2Ggdx64Q0Y7qx2YIXuODsJQkSNdNsqmsAKfTa3s0l5ddITx2Bm"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="t_mc_role_20220206" author="GuoKai">
+        <createTable tableName="T_MC_ROLE" remarks="角色表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_mc_role_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="bool" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="MARK" type="varchar(255)" remarks="名称" />
+            <column name="REMARK" type="varchar(255)" remarks="备注" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="t_mc_power_20220206" author="GuoKai">
+        <createTable tableName="T_MC_POWER" remarks="权力表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_mc_power_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="bool" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="MARK" type="varchar(255)" remarks="名称" />
+            <column name="REMARK" type="varchar(255)" remarks="备注" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="t_mc_group_20220206" author="GuoKai">
+        <createTable tableName="T_MC_GROUP" remarks="组织表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_mc_group_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="bool" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="PARENT" type="varchar(255)" remarks="父级" />
+            <column name="MARK" type="varchar(255)" remarks="名称" />
+            <column name="REMARK" type="varchar(255)" remarks="备注" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="t_mc_role_power_20220206" author="GuoKai">
+        <createTable tableName="T_MC_ROLE_POWER" remarks="角色权力表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_mc_role_power_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="bool" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="ROLE_ID" type="varchar(19)" remarks="角色主键" />
+            <column name="POWER_ID" type="varchar(19)" remarks="权力主键" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="t_mc_user_group_20220206" author="GuoKai">
+        <createTable tableName="T_MC_USER_GROUP" remarks="用户组织表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_mc_user_group_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="bool" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="USER_ID" type="varchar(19)" remarks="用户主键" />
+            <column name="GROUP_ID" type="varchar(19)" remarks="组织主键" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="t_mc_user_role_20220206" author="GuoKai">
+        <createTable tableName="T_MC_USER_ROLE" remarks="用户角色表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_mc_user_role_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="bool" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="USER_ID" type="varchar(19)" remarks="用户主键" />
+            <column name="ROLE_ID" type="varchar(19)" remarks="角色主键" />
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
