@@ -1,0 +1,155 @@
+{
+  "properties": [
+    {
+      "name": "info.application.name",
+      "type": "java.lang.String",
+      "defaultValue": "mekatok",
+      "description": "平台名称(项目路径)"
+    },
+    {
+      "name": "info.application.version",
+      "type": "java.lang.String",
+      "description": "平台版本"
+    },
+    {
+      "name": "info.application.author",
+      "type": "java.lang.String",
+      "description": "著作者"
+    },
+    {
+      "name": "info.application.log",
+      "type": "java.lang.String",
+      "description": "日志目录"
+    },
+    {
+      "name": "info.application.resource",
+      "type": "java.lang.String",
+      "description": "文件目录"
+    },
+    {
+      "name": "info.application.trash",
+      "type": "java.lang.String",
+      "description": "垃圾箱ID"
+    },
+    {
+      "name": "info.application.date-format",
+      "type": "java.lang.String",
+      "description": "默认日期格式"
+    },
+    {
+      "name": "info.application.time-format",
+      "type": "java.lang.String",
+      "description": "默认时间格式"
+    },
+    {
+      "name": "info.application.datetime-format",
+      "type": "java.lang.String",
+      "description": "默认日期时间格式"
+    },
+    {
+      "name": "info.application.admin-user-name",
+      "type": "java.lang.String",
+      "description": "管理用户名"
+    },
+    {
+      "name": "info.application.default-password",
+      "type": "java.lang.String",
+      "description": "默认用户密码(管理密码)"
+    },
+    {
+      "name": "info.application.boot-admin.enable",
+      "type": "java.lang.Boolean",
+      "defaultValue": true,
+      "description": "开启Spring Boot Admin连接"
+    },
+    {
+      "name": "info.application.boot-admin.url",
+      "type": "java.lang.String",
+      "description": "Spring Boot Admin 地址"
+    },
+    {
+      "name": "info.application.default-page-size",
+      "type": "java.lang.Integer",
+      "defaultValue": 10,
+      "description": "默认分页大小"
+    },
+    {
+      "name": "info.application.https-port",
+      "type": "java.lang.Integer",
+      "defaultValue": 9999,
+      "description": "HTTPS端口"
+    },
+    {
+      "name": "info.application.http-port",
+      "type": "java.lang.Integer",
+      "defaultValue": 8888,
+      "description": "HTTP端口"
+    },
+    {
+      "name": "info.application.security.enable",
+      "type": "java.lang.Boolean",
+      "defaultValue": true,
+      "description": "开启Security路径过滤,关闭后将不保护所有接口."
+    },
+    {
+      "name": "info.application.security.ttl",
+      "type": "java.lang.Integer",
+      "description": "登录缓存有效期."
+    },
+    {
+      "name": "info.application.security.permit",
+      "type": "java.lang.String",
+      "description": "被Security保护的路由,默认仅保护'/api/**'的路由."
+    },
+    {
+      "name": "info.application.security.captcha",
+      "type": "java.lang.Boolean",
+      "description": "是否开启验证码登陆验证"
+    },
+    {
+      "name": "info.application.security.oauth.grant-type",
+      "type": "java.lang.String",
+      "description": "认证类型"
+    },
+    {
+      "name": "info.application.security.oauth.client-id",
+      "type": "java.lang.String",
+      "description": "客户端ID"
+    },
+    {
+      "name": "info.application.security.oauth.client-secret",
+      "type": "java.lang.String",
+      "description": "客户端证书"
+    },
+    {
+      "name": "info.application.security.oauth.redirect-uri",
+      "type": "java.lang.String",
+      "description": "转发地址"
+    },
+    {
+      "name": "info.application.cs-verify.enable",
+      "type": "java.lang.Boolean",
+      "description": "是否开启主机序列号与客户端IP校验."
+    },
+    {
+      "name": "info.application.cs-verify.server-serial",
+      "type": "java.lang.String[]",
+      "description": "允许启动的服务器序列号."
+    },
+    {
+      "name": "info.application.cs-verify.client-ip",
+      "type": "java.lang.String[]",
+      "description": "允许接入的客户端IP."
+    },
+    {
+      "name": "info.application.netty.port",
+      "type": "java.lang.Integer",
+      "description": "Netty服务器端口"
+    },
+    {
+      "name": "info.application.liteflow.rule-sources",
+      "type": "java.lang.String[]",
+      "description": "需要加载的用于流程编排的定义文件."
+    }
+  ]
+}

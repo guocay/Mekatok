@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+
+    <!-- 树状字典表 -->
+    <changeSet id="t_dic_tree_20210906" author="guokai">
+        <createTable tableName="T_DIC_TREE" remarks="字典表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="t_dic_tree_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="KEY" type="varchar(255)" remarks="键" >
+                <constraints unique="true" nullable="false" uniqueConstraintName="t_dic_tree_login_key_key"/>
+            </column>
+            <column name="VALUE" type="varchar(255)" remarks="值" />
+            <column name="PARENT" type="varchar(255)" remarks="上级" />
+        </createTable>
+        <insert tableName="T_DIC_TREE">
+            <column name="ID" value="root" />
+            <column name="DATA_STATUS" value="10001000" />
+            <column name="CREATOR" value="liquibase" />
+            <column name="UPDATER" value="liquibase" />
+            <column name="KEY" value="M_"/>
+            <column name="VALUE" value="根目录"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

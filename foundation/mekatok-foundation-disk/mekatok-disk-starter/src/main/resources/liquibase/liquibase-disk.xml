@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet id="T_DISK_DIRECTORY_20211104" author="GuoKai">
+        <createTable tableName="T_DISK_DIRECTORY" remarks="文件夹表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="T_DISK_DIRECTORY_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="DIR_CODE" type="varchar(200)" remarks="目录编码" >
+                <constraints unique="true" nullable="false" uniqueConstraintName="T_DISK_DIRECTORY_DIR_CODE_key"/>
+            </column>
+            <column name="DIR_NAME" type="varchar(200)" remarks="目录名称" />
+            <column name="PARENT_DIR" type="varchar(200)" remarks="父级目录" />
+            <column name="IS_TRASH" type="bool" remarks="是否在垃圾箱" />
+        </createTable>
+        <insert tableName="T_DISK_DIRECTORY">
+            <column name="ID" value="DEFAULT_FILE_PATH" />
+            <column name="DATA_STATUS" value="10001000" />
+            <column name="CREATOR" value="liquibase" />
+            <column name="UPDATER" value="liquibase" />
+            <column name="DIR_CODE" value="DEFAULT_FILE_PATH" />
+            <column name="DIR_NAME" value="默认目录" />
+        </insert>
+        <insert tableName="T_DISK_DIRECTORY">
+            <column name="ID" value="DEFAULT_TRASH_PATH" />
+            <column name="DATA_STATUS" value="10001000" />
+            <column name="CREATOR" value="liquibase" />
+            <column name="UPDATER" value="liquibase" />
+            <column name="DIR_CODE" value="DEFAULT_TRASH_PATH" />
+            <column name="DIR_NAME" value="垃圾箱" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="T_DISK_FILE_20211104" author="GuoKai">
+        <createTable tableName="T_DISK_FILE" remarks="文件表">
+            <column name="ID" type="varchar(19)" remarks="主键">
+                <constraints primaryKey="true" nullable="false" unique="true" primaryKeyName="T_DISK_FILE_id_primary_key" />
+            </column>
+            <column name="DATA_STATUS" type="varchar(8)" remarks="数据状态" />
+            <column name="CREATOR" type="varchar(19)" remarks="创建者" />
+            <column name="CREATE_TIME" type="timestamp" remarks="创建时间" />
+            <column name="UPDATER" type="varchar(19)" remarks="更新者" />
+            <column name="UPDATE_TIME" type="timestamp" remarks="更新时间" />
+            <column name="FILE_NAME" type="varchar(200)" remarks="文件名称" />
+            <column name="ORIGINAL_NAME" type="varchar(200)" remarks="原文件名称" />
+            <column name="FILE_PARENT" type="varchar(200)" remarks="父级目录" />
+            <column name="IS_TRASH" type="bool" remarks="是否在垃圾箱" />
+            <column name="FILE_TYPE" type="varchar(200)" remarks="文件类型" />
+            <column name="FILE_SIZE" type="varchar(200)" remarks="文件大小" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="V_DISK_ELEMENT_20211104" author="GuoKai">
+        <createView viewName="V_DISK_ELEMENT" replaceIfExists="true">
+            SELECT TDF.ID AS ELEMENT_KEY, 'FILE' AS ELEMENT_TYPE, TDF.ORIGINAL_NAME AS ELEMENT_NAME FROM T_DISK_FILE TDF
+            UNION ALL
+            SELECT TDD.DIR_CODE AS ELEMENT_KEY, 'DIRECTORY' AS ELEMENT_TYPE, TDD.DIR_NAME AS ELEMENT_NAME FROM T_DISK_DIRECTORY TDD
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

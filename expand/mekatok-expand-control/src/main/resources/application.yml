@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: default
+  application:
+    name: admin-server
+  boot:
+    admin:
+      ui:
+        title: Mekatok应用健康监控看板
+        brand: <img src="assets/img/icon-spring-boot-admin.svg"><span>${spring.boot.admin.ui.title}</span>
+  banner:
+    location: classpath:banner/banner.txt
+server:
+  port: 906

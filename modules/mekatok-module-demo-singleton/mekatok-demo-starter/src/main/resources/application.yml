@@ -1,0 +1,134 @@
+info:
+  application:
+    name: mekatok
+    version: 0.0.1
+    author: GuoKai
+    log: /Users/guokai/Documents/Shared/log
+    resource: /Users/guokai/Documents/Shared/resource
+    date-format: yyyy-MM-dd
+    time-format: HH:mm:ss
+    datetime-format: ${info.application.date-format} ${info.application.time-format}
+    default-page-size: 10
+    admin-user-name: admin
+    default-password: 123456
+    http-port: 727
+    https-port: 508
+    security:
+      enable: false
+      ttl: 1800000
+      permit:
+        - /demo
+
+server:
+  error:
+    path: /mistake
+  port: ${info.application.https-port}
+  servlet:
+    context-path: /${info.application.name}
+    session:
+      timeout: 1800s
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+  ssl:
+    enabled: true
+    key-store: classpath:key/mekatok.p12
+    key-alias: mekatok
+    key-store-type: PKCS12
+    key-store-password: taiji123
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: ${info.application.name}
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 150MB
+  banner:
+    location: classpath:banner/banner.txt
+  output:
+    ansi:
+      enabled: always
+  messages:
+    encoding: UTF-8
+  boot:
+    admin:
+      client:
+        enabled: ${info.application.boot-admin.enable}
+        url: ${info.application.boot-admin.url}
+        instance:
+          name: ${info.application.name}
+          prefer-ip: true
+          metadata:
+            context-path: ${server.servlet.context-path}
+  redis:
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: -1ms
+        max-idle: 5
+        min-idle: 0
+  cache:
+    type: REDIS
+    redis:
+      time-to-live: 1d
+  jackson:
+    time-zone: GMT+8
+  # flowable 默认使用的数据库Sql版本管理器,这里先关掉吧.
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase-master.yml
+    database-change-log-table: T_BASE_LUQUIBASE
+    database-change-log-lock-table: ${spring.liquibase.database-change-log-table}_LOCK
+logging:
+  config: classpath:config/spring-logback.xml
+  level:
+    root: info
+    icu.guokai.mekatok: debug
+    com.baomidou.dynamic.datasource: debug
+    springfox.documentation.spring: error
+    com.yomahub.liteflow.util.LOGOPrinter: error
+
+mybatis-plus:
+  configuration:
+    jdbc-type-for-null: null
+  global-config:
+    db-config:
+      logic-delete-value: 10001001
+      logic-not-delete-value: 10001000
+      update-strategy: not_null
+      select-strategy: not_empty
+    banner: false
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+knife4j:
+  enable: true
+  setting:
+    enableDocumentManage: true
+    enableSwaggerModels: true
+    swaggerModelName: 实体映射
+    enableFooter: false
+    enableFooterCustom: true
+    footerCustomContent: Talk is cheap, Show me the code.
+  basic:
+    enable: true
+    username: ${info.application.admin-user-name}
+    password: ${info.application.default-password}
+  documents:
+    -
+      name: 平台文档
+      locations: classpath*:swagger/*
+  production: true
