@@ -42,7 +42,7 @@
         <module>mekatok-adapter-webflux</module>
         <module>mekatok-adapter-websocket</module>
         <module>mekatok-adapter-webmvc</module>
-    </modules>
+	</modules>
 
 	<dependencies>
 		<dependency>
