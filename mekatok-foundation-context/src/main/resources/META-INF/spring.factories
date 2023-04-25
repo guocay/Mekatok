@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.github.guokaia.mekatok.context.spring.SpringAutoConfiguration,\
-com.github.guokaia.mekatok.context.thread.ThreadPoolAutoConfiguration,\
-com.github.guokaia.mekatok.context.thread.TaskSchedulingAutoConfiguration,\
-com.github.guokaia.mekatok.context.json.JsonAutoConfiguration

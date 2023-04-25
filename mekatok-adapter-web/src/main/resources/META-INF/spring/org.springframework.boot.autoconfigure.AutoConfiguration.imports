@@ -1,0 +1,2 @@
+mekatok.adapter.web.SpringWebAutoConfiguration
+mekatok.adapter.web.JacksonAutoConfiguration
