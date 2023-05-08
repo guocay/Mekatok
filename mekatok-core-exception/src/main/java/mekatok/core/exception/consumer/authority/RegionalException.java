@@ -4,7 +4,7 @@ import mekatok.core.exception.ExceptionMark;
 
 /**
  * 地域黑名单
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A0325", message = "Regional blacklist")

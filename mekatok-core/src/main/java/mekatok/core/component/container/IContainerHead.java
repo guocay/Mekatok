@@ -2,7 +2,7 @@ package mekatok.core.component.container;
 
 /**
  * 容器 消息头
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public interface IContainerHead {

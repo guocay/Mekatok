@@ -4,7 +4,7 @@ import mekatok.core.exception.ExceptionMark;
 
 /**
  * 账户已作废
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A0203", message = "Account has been cancelled")

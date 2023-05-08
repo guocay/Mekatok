@@ -2,7 +2,7 @@ package mekatok.core.definition;
 
 /**
  * 命令类型
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public enum EventType {

@@ -4,7 +4,7 @@ import mekatok.core.exception.ExceptionMark;
 
 /**
  * 线程池资源消耗殆尽
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "B0315", message = "Thread resources exhausted")

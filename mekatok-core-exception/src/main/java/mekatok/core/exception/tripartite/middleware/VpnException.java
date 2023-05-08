@@ -4,7 +4,7 @@ import mekatok.core.exception.ExceptionMark;
 
 /**
  * VPN 服务出错
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "C0151", message = "VPN service error")

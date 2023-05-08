@@ -4,7 +4,7 @@ import mekatok.core.exception.ExceptionMark;
 
 /**
  * 账号验证码输入次数过多
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A0241", message = "Account verification code entered too many times")

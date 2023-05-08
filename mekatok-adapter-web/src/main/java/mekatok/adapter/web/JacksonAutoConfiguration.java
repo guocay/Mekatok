@@ -9,7 +9,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 /**
  * Jackson 自动化配置类
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 @Configuration(proxyBeanMethods = false)

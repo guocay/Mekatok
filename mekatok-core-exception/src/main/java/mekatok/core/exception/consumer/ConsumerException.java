@@ -5,7 +5,7 @@ import mekatok.core.exception.ExceptionMark;
 
 /**
  * 消费者 主异常
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A0001", message = "consumer error")

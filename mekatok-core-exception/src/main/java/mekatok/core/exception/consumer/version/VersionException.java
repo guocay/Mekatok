@@ -5,7 +5,7 @@ import mekatok.core.exception.consumer.ConsumerException;
 
 /**
  * 用户版本错误
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A0800", message = "wrong user version")

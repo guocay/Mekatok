@@ -5,7 +5,7 @@ import mekatok.core.exception.consumer.ConsumerException;
 
 /**
  * 消费者 访问权限异常
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A0300", message = "Access permission error")

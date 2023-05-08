@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 
 /**
  * 将domain对象注入Spring容器, 以非单例模式
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.20
  */
 @Inherited

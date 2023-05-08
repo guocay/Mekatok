@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /**
  * 事件上下文, 用于存放一些附属信息.
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public class EventContext extends HashMap<String, Object> {

@@ -2,7 +2,7 @@ package mekatok.core.util;
 
 /**
  * 缓存池
- * @author aCay
+ * @author GuoCay
  * @since 2023.04.04
  */
 public interface BufferPool<KEY, VALUE>{

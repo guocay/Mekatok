@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 /**
  * 用于定义异常编码
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @Documented

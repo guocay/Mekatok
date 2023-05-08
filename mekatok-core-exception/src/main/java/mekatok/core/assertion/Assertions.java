@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * 断言工具类
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public abstract class Assertions {

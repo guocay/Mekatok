@@ -2,7 +2,7 @@ package mekatok.core.executor;
 
 /**
  * 事件(行为)触发的任务 - 用于通过事件触发的任务
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public interface ActionTriggerTask<ACTION> extends Task {

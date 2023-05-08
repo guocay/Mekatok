@@ -4,7 +4,7 @@ import mekatok.core.component.exception.PlatformException;
 
 /**
  * 平台内无异常的异常表示
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "0000", message = "everything is ok")

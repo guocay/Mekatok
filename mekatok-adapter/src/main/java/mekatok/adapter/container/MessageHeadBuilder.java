@@ -5,7 +5,7 @@ import mekatok.core.component.container.IContainerHeadBuilder;
 
 /**
  * 消息队列 的消息头 构造者
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class MessageHeadBuilder implements IContainerHeadBuilder {

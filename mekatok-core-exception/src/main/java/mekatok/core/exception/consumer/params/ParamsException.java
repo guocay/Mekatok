@@ -5,7 +5,7 @@ import mekatok.core.exception.consumer.ConsumerException;
 
 /**
  * 账户请求参数错误
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A0400", message = "Account request parameter error")

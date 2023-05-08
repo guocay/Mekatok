@@ -5,7 +5,7 @@ import mekatok.core.exception.consumer.ConsumerException;
 
 /**
  * 消费者设备错误
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A1000", message = "Consumer Device Error")

@@ -12,7 +12,7 @@ import static mekatok.core.exception.Exceptions.getMessage;
 
 /**
  * Spring MVC 异常环绕处理
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 @RestControllerAdvice

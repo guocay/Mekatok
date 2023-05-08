@@ -2,7 +2,7 @@ package mekatok.adapter.web.validator;
 
 /**
  * 用于字段校验的分组标识
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.11
  */
 interface ValidatorTag {

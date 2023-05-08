@@ -2,7 +2,7 @@ package mekatok.core.assertion;
 
 /**
  * 字符串 断言工具
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class StringAssertion extends AbstractAssertion<StringAssertion, String> {

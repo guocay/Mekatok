@@ -2,7 +2,7 @@ package mekatok.core.component.container;
 
 /**
  * 构造器 接口
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.13
  */
 public interface IBuilder<T> {

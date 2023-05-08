@@ -14,7 +14,7 @@ import static java.lang.Thread.MAX_PRIORITY;
 
 /**
  * 构造者设计模式下的线程构造者
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class ThreadPoolBuilder {

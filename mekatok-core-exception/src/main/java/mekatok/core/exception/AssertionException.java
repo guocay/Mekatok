@@ -4,7 +4,7 @@ import mekatok.core.component.exception.PlatformException;
 
 /**
  * 断言异常
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/10
  */
 @ExceptionMark(code = "D0001", message = AssertionException.EXCEPTION_MESSAGE)

@@ -5,7 +5,7 @@ import mekatok.core.exception.consumer.ConsumerException;
 
 /**
  * 用户资源错误
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "A0600", message = "User resource error")

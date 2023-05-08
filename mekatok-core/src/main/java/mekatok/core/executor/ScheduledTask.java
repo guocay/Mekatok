@@ -2,7 +2,7 @@ package mekatok.core.executor;
 
 /**
  * 可调度的任务 - 适用于一些延迟, 周期调度的任务.
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public interface ScheduledTask extends Task {

@@ -5,7 +5,7 @@ import mekatok.core.executor.ApplicationExecutor;
 
 /**
  * 领域服务编排(布局)
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public abstract class AbstractApplicationExecutor implements ApplicationExecutor {

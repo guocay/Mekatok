@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * 断言类 接口
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public interface IAssertion<S,A> {

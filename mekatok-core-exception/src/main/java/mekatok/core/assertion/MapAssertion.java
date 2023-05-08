@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * Map 断言工具类
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class MapAssertion<K,V> extends AbstractAssertion<MapAssertion<K,V>, Map<K,V>>{

@@ -5,7 +5,7 @@ import mekatok.core.exception.tripartite.TripartiteException;
 
 /**
  * 第三方容灾策略被触发
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "C0400", message = "A third-party disaster recovery strategy is triggered")

@@ -2,7 +2,7 @@ package mekatok.core.component.exception;
 
 /**
  * 平台异常信息 主类
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 public abstract class PlatformException extends RuntimeException{

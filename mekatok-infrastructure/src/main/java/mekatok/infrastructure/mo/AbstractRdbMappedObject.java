@@ -2,7 +2,7 @@ package mekatok.infrastructure.mo;
 
 /**
  * 抽象的关系型数据库映射对象
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public abstract class AbstractRdbMappedObject extends AbstractMappedObject{

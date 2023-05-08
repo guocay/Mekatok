@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 /**
  * 抽象的断言对象
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class AbstractAssertion<S extends AbstractAssertion<S, A>, A> implements IAssertion<S,A> {

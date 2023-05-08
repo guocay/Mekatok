@@ -5,7 +5,7 @@ import mekatok.core.exception.ExceptionMark;
 
 /**
  * 服务端错误
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "B0001", message = "server error")

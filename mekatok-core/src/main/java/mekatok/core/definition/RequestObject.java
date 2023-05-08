@@ -2,7 +2,7 @@ package mekatok.core.definition;
 
 /**
  * 请求对象
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public interface RequestObject extends Definition{

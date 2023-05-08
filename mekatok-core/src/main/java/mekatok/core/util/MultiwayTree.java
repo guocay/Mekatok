@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 多路树 主要用在编码表
- * @author aCay
+ * @author GuoCay
  * @since 2023.04.04
  */
 @SuppressWarnings("rawtypes")

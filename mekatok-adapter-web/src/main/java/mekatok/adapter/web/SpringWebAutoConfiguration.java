@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Import;
 
 /**
  * Spring MVC 自动配置类
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 @Configuration

@@ -4,7 +4,7 @@ import mekatok.core.definition.EventType;
 
 /**
  * 查询对象
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public abstract class QueryEventObject extends AbstractEventObject {

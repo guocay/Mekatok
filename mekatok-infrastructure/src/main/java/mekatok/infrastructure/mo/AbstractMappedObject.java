@@ -4,7 +4,7 @@ import mekatok.core.definition.MappedObject;
 
 /**
  * 抽象的数据映射对象
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public abstract class AbstractMappedObject implements MappedObject {

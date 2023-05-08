@@ -4,7 +4,7 @@ import java.io.File;
 
 /**
  * 文件 断言工具类
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class FileAssertion extends AbstractAssertion<FileAssertion, File>{

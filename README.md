@@ -38,6 +38,7 @@ mekatok
  |- mekatok-application                                 		# 应用模块
  |- mekatok-core                                 			# 核心模块
  |- mekatok-core-exception                                 		# 核心模块 - 异常及断言
+ |- mekatok-domain                                 			# 领域模块
  |- mekatok-infrastructure                                 		# 基础设施模块
  |- mekatok-infrastructure-curator                              	# 基础设施模块 - ZooKeeper连接器
  |- mekatok-infrastructure-dubbo                                	# 基础设施模块 - Dubbo连接器(生产者)

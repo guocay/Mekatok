@@ -5,7 +5,7 @@ import mekatok.core.exception.tripartite.TripartiteException;
 
 /**
  * 第三方系统执行超时
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "C0200", message = "Third-party system execution timed out")

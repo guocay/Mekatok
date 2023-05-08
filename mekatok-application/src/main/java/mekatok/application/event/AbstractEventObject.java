@@ -4,7 +4,7 @@ import mekatok.core.definition.EventObject;
 
 /**
  * 抽象的事件对象
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public abstract class AbstractEventObject implements EventObject {

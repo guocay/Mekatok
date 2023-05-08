@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Curator 相关配置属性
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.15
  */
 @ConfigurationProperties("zookeeper.curator")

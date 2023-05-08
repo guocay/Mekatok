@@ -5,7 +5,7 @@ import mekatok.core.exception.ExceptionMark;
 
 /**
  * 第三方错误
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "C0001", message = "third party error")

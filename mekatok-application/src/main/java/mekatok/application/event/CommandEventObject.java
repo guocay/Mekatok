@@ -4,7 +4,7 @@ import mekatok.core.definition.EventType;
 
 /**
  * 命令对象
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public abstract class CommandEventObject extends AbstractEventObject {

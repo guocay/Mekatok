@@ -4,7 +4,7 @@ import mekatok.core.component.container.PageHead;
 
 /**
  * 带分页的响应容器对象
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public class ResponseHeadWithPage extends ResponseHead{

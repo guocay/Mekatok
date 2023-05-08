@@ -5,7 +5,7 @@ import mekatok.core.exception.tripartite.TripartiteException;
 
 /**
  * 第三方通知服务出错
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "C0500", message = "Error in third-party notification service")

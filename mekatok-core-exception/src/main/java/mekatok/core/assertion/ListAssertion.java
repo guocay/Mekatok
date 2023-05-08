@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 集合断言工具
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class ListAssertion<T> extends AbstractAssertion<ListAssertion<T>, List<T>> {

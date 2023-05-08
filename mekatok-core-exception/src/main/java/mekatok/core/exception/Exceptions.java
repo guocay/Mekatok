@@ -7,7 +7,7 @@ import java.util.Optional;
 
 /**
  * 异常 相关工具类
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 public abstract class Exceptions {

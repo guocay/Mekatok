@@ -2,7 +2,7 @@ package mekatok.core.assertion;
 
 /**
  * 布尔值 断言工具
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class BooleanAssertion extends AbstractAssertion<BooleanAssertion,Boolean> {

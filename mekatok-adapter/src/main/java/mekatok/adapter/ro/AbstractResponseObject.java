@@ -4,7 +4,7 @@ import mekatok.core.definition.ResponseObject;
 
 /**
  * 抽象的 响应对象
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public abstract class AbstractResponseObject implements ResponseObject {

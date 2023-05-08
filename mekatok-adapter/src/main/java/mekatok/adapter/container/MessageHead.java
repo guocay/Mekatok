@@ -7,7 +7,7 @@ import static mekatok.core.component.container.ContainerType.MESSAGE;
 
 /**
  * 消息队列消息头
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public class MessageHead implements IContainerHead {

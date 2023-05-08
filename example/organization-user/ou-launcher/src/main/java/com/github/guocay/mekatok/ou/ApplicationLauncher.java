@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 组织用户服务启动器
- * @author aCay
+ * @author GuoCay
  * @since 2023.04.25
  */
 @SpringBootApplication

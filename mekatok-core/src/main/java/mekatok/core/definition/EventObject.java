@@ -2,7 +2,7 @@ package mekatok.core.definition;
 
 /**
  * 事件对象
- * @author aCay
+ * @author GuoCay
  * @since 2023/3/6
  */
 public interface EventObject extends Definition{

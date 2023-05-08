@@ -5,7 +5,7 @@ import mekatok.core.exception.tripartite.TripartiteException;
 
 /**
  * 数据库服务出错
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "C0300", message = "database service error")

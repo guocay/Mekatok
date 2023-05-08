@@ -5,7 +5,7 @@ import org.apache.ibatis.reflection.MetaObject;
 
 /**
  * mybatis plus 的元数据管理器
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public class CustomMetaObjectHandler implements MetaObjectHandler {

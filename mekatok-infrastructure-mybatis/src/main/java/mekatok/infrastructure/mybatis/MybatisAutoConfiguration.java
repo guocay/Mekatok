@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 
 /**
  * 配置与 Mybatis 相关的设置
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 @Configuration(proxyBeanMethods = false)

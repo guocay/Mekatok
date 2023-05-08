@@ -5,7 +5,7 @@ import mekatok.core.exception.tripartite.TripartiteException;
 
 /**
  * 中间件服务出错
- * @author aCay
+ * @author GuoCay
  * @since 2022/8/8
  */
 @ExceptionMark(code = "C0100", message = "middleware service error")

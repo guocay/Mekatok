@@ -2,7 +2,7 @@ package mekatok.core.component.container;
 
 /**
  * 分页容器 消息头 构造者
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.10
  */
 public class PageHeadBuilder implements IContainerHeadBuilder{

@@ -7,7 +7,7 @@ import static mekatok.core.component.container.ContainerType.REQUEST;
 
 /**
  * 请求对象
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public class RequestHead implements IContainerHead {

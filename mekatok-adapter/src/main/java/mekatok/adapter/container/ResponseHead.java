@@ -7,7 +7,7 @@ import static mekatok.core.component.container.ContainerType.RESPONSE;
 
 /**
  * 返回值容器对象
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public class ResponseHead implements IContainerHead {

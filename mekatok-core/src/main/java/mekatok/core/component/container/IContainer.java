@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 /**
  * 容器对象
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public interface IContainer<T> {

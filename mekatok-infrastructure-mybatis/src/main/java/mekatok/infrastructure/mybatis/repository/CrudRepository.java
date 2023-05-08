@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * 用于包装 Mybatis Plus中的Mapper接口
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.20
  */
 public interface CrudRepository<T extends AbstractRdbMappedObject> extends BaseMapper<T> {

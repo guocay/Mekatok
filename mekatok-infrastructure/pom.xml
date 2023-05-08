@@ -23,6 +23,11 @@
             <artifactId>mekatok-core</artifactId>
         </dependency>
 
+		<dependency>
+			<groupId>com.github.guocay</groupId>
+			<artifactId>mekatok-core-exception</artifactId>
+		</dependency>
+
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>

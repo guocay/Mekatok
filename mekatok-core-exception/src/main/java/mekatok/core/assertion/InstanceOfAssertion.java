@@ -2,7 +2,7 @@ package mekatok.core.assertion;
 
 /**
  * 实例类别断言器
- * @author aCay
+ * @author GuoCay
  * @since 2023.04.17
  */
 public class InstanceOfAssertion<T> extends AbstractAssertion<InstanceOfAssertion<T>, Class<T>> {

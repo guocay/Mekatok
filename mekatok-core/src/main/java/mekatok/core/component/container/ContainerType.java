@@ -2,7 +2,7 @@ package mekatok.core.component.container;
 
 /**
  * 容器类型 枚举
- * @author aCay
+ * @author GuoCay
  * @since 2023.03.09
  */
 public enum ContainerType {

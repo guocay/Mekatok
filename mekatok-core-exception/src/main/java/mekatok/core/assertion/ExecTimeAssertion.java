@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 
 /**
  * 超执行时间断言类
- * @author aCay
+ * @author GuoCay
  * @since 2023.04.17
  */
 public class ExecTimeAssertion<T> extends AbstractAssertion<ExecTimeAssertion<T>, Supplier<T>> {
